@@ -31,3 +31,5 @@ sysinfo.txt
 
 Research Project/Library/*
 Research Project/Temp/*
+Research Project/obj/*
+Research Project/builds/*
