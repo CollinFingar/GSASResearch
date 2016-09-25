@@ -1,9 +1,12 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using UnityEditor;
 using UnityEngine;
 
 namespace UnityStandardAssets.ImageEffects
 {
+
+
 	[CustomEditor (typeof(EdgeDetectionColor))]
 	class EdgeDetectionColorsEditor : Editor
 	{
@@ -73,4 +76,6 @@ namespace UnityStandardAssets.ImageEffects
 			serObj.ApplyModifiedProperties();
 		}
 	}
+
 }
+#endif
