@@ -57,6 +57,33 @@ public class Shoot : MonoBehaviour {
         }   
     }
 
+
+	void SenseAim() {
+		float lTrig = Input.GetAxis("LeftTrigger");
+		if (lTrig > .2) {
+				fireable = true;
+		} else if(lTrig < .2){
+			if (fireable) {
+				fireable = false;
+			}
+		}
+		if (fireable) {
+			SenseShoot();
+		}
+	}
+
+    void Fire() {
+        shootDirectionVelocity = transform.TransformDirection(shotVelocity);
+        GameObject instance = (GameObject)Instantiate(shotPrefab, transform.position + transform.TransformDirection(shotSpawnOffset), transform.rotation);
+        instance.GetComponent<Rigidbody>().AddForce(shootDirectionVelocity);
+    }
+}
+
+
+
+
+
+/**
     void SenseAim() {
         float lTrig = Input.GetAxis("LeftTrigger");
         if (lTrig > .2) {
@@ -84,10 +111,4 @@ public class Shoot : MonoBehaviour {
             SenseShoot();
         }
     }
-
-    void Fire() {
-        shootDirectionVelocity = transform.TransformDirection(shotVelocity);
-        GameObject instance = (GameObject)Instantiate(shotPrefab, transform.position + transform.TransformDirection(shotSpawnOffset), transform.rotation);
-        instance.GetComponent<Rigidbody>().AddForce(shootDirectionVelocity);
-    }
-}
+    **/
