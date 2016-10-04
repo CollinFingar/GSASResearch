@@ -21,12 +21,12 @@ public class NetworkPlayerSpawner : NetworkBehaviour {
 			//spawn VR
 			i = (GameObject)Instantiate(VRPrefab, transform.position, Quaternion.identity);
 			NetworkConnection conn = this.connectionToClient;
-			NetworkServer.ReplacePlayerForConnection (conn, i, 0);
+			NetworkServer.ReplacePlayerForConnection (conn, i, playerControllerId);
 		} else {
 			//spawn PC
 			i = (GameObject)Instantiate(PCPrefab, transform.position, Quaternion.identity);
 			NetworkConnection conn = this.connectionToClient;
-			NetworkServer.ReplacePlayerForConnection (conn, i, 0);
+			NetworkServer.ReplacePlayerForConnection (conn, i, playerControllerId);
 		}
 
 	}
