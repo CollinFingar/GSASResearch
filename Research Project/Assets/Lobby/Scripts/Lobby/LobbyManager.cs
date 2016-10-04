@@ -5,12 +5,17 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Types;
 using UnityEngine.Networking.Match;
 using System.Collections;
-
+using UnityEngine.VR;
 
 namespace Prototype.NetworkLobby
 {
     public class LobbyManager : NetworkLobbyManager 
     {
+		//CHANGED
+		public GameObject pcPrefab;
+		public GameObject vrPrefab;
+
+		//END CHANGED
         static short MsgKicked = MsgType.Highest + 1;
 
         static public LobbyManager s_Singleton;
@@ -328,9 +333,14 @@ namespace Prototype.NetworkLobby
         {
             //This hook allows you to apply state data from the lobby-player to the game-player
             //just subclass "LobbyHook" and add it to the lobby object.
-
+			GameObject p;
+			if (VRDevice.isPresent) {
+				p = vrPrefab;
+			} else {
+				p = pcPrefab;
+			}
             if (_lobbyHooks)
-                _lobbyHooks.OnLobbyServerSceneLoadedForPlayer(this, lobbyPlayer, gamePlayer);
+                _lobbyHooks.OnLobbyServerSceneLoadedForPlayer(this, lobbyPlayer, p);
 
             return true;
         }
@@ -417,5 +427,21 @@ namespace Prototype.NetworkLobby
             ChangeTo(mainMenuPanel);
             infoPanel.Display("Cient error : " + (errorCode == 6 ? "timeout" : errorCode.ToString()), "Close", null);
         }
+
+		/**
+		public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId){
+			GameObject player;
+			if (VRDevice.isPresent) {
+				player = (GameObject)Instantiate(vrPrefab, Vector3.zero, Quaternion.identity);
+				NetworkServer.AddPlayerForConnection (conn, player, playerControllerId);
+			} else {
+				player = (GameObject)Instantiate(pcPrefab, Vector3.zero, Quaternion.identity);
+				NetworkServer.AddPlayerForConnection (conn, player, playerControllerId);
+			}
+
+		}
+		**/
+					
     }
+
 }
