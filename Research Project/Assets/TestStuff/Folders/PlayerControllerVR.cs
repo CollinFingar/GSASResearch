@@ -9,7 +9,7 @@ public class PlayerControllerVR : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (isLocalPlayer && !VRSettings.enabled) {
+		if (isLocalPlayer && !VRDevice.isPresent) {
 			Destroy (vrCube);
 			Debug.Log ("Destoryed");
 		}
