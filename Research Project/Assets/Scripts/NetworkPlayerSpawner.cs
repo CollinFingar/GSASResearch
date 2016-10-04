@@ -10,6 +10,8 @@ public class NetworkPlayerSpawner : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		/**
+		Debug.Log (playerControllerId);
 		GameObject i;
 		NetworkConnection conn = this.connectionToClient;
 		Destroy (GetComponent<NetworkIdentity> ());
@@ -27,20 +29,32 @@ public class NetworkPlayerSpawner : NetworkBehaviour {
 
 			NetworkServer.ReplacePlayerForConnection (conn, i, playerControllerId);
 			Debug.Log ("Doing local");
-			Debug.Log (playerControllerId);
 		} else {
 			//spawn PC
 			i = (GameObject)Instantiate(PCPrefab, transform.position, Quaternion.identity);
 			NetworkServer.ReplacePlayerForConnection (conn, i, playerControllerId);
 			Debug.Log ("Doing local");
-			Debug.Log (playerControllerId);
 		}
 		Destroy (gameObject);
-
+		**/
+		if (isLocalPlayer) {
+			GameObject i;
+			NetworkConnection conn = this.connectionToClient;
+			if (VRDevice.isPresent) {
+				i = NetworkServer.Spawn (VRPrefab);
+				NetworkServer.ReplacePlayerForConnection (conn, i, playerControllerId);
+			} else {
+				i = NetworkServer.Spawn (PCPrefab);
+				NetworkServer.ReplacePlayerForConnection (conn, i, playerControllerId);
+			}
+			Destroy (gameObject);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+
 }
