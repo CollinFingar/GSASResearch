@@ -187,7 +187,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_PlayScene
-      value: NetworkTest
+      value: Initial Scene
       objectReference: {fileID: 0}
     - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_MaxPlayers
@@ -740,7 +740,7 @@ Prefab:
     - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: vrPrefab
       value: 
-      objectReference: {fileID: 1000012469070548, guid: 719c0d3b1378b3b41a49e4dc48d22226,
+      objectReference: {fileID: 1000011982793880, guid: 93303a1e28728f943ae8bbba27cdf143,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
