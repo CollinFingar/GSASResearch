@@ -11,6 +11,8 @@ public class NetworkPlayerSpawner : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
 		GameObject i;
+		NetworkConnection conn = this.connectionToClient;
+		Destroy (GetComponent<NetworkIdentity> ());
 		if (!isLocalPlayer && VRDevice.isPresent) {
 			//spawn VR
 			i = (GameObject)Instantiate(PCPrefab, transform.position, Quaternion.identity);
@@ -22,14 +24,13 @@ public class NetworkPlayerSpawner : NetworkBehaviour {
 		} else if(isLocalPlayer && VRDevice.isPresent){
 			//spawn VR
 			i = (GameObject)Instantiate(VRPrefab, transform.position, Quaternion.identity);
-			NetworkConnection conn = this.connectionToClient;
+
 			NetworkServer.ReplacePlayerForConnection (conn, i, playerControllerId);
 			Debug.Log ("Doing local");
 			Debug.Log (playerControllerId);
 		} else {
 			//spawn PC
 			i = (GameObject)Instantiate(PCPrefab, transform.position, Quaternion.identity);
-			NetworkConnection conn = this.connectionToClient;
 			NetworkServer.ReplacePlayerForConnection (conn, i, playerControllerId);
 			Debug.Log ("Doing local");
 			Debug.Log (playerControllerId);
