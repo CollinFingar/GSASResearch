@@ -438,10 +438,18 @@ namespace Prototype.NetworkLobby
 		**/
 		public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId){
 			GameObject p;
-			if (VRDevice.isPresent) {
-				p = vrPrefab;
+			if (conn.hostId == conn.connectionId) {
+				if (VRDevice.isPresent) {
+					p = vrPrefab;
+				} else {
+					p = pcPrefab;
+				}
 			} else {
-				p = pcPrefab;
+				if (!VRDevice.isPresent) {
+					p = vrPrefab;
+				} else {
+					p = pcPrefab;
+				}
 			}
 			GameObject temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 			return temp;
