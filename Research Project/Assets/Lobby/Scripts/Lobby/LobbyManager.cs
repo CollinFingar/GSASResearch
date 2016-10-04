@@ -438,6 +438,7 @@ namespace Prototype.NetworkLobby
 		**/
 		public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId){
 			GameObject p;
+			Debug.Log (conn.hostId + " " + conn.connectionId);
 			if (conn.hostId == conn.connectionId) {
 				if (VRDevice.isPresent) {
 					p = vrPrefab;
