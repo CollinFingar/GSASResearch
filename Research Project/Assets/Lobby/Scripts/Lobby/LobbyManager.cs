@@ -333,14 +333,9 @@ namespace Prototype.NetworkLobby
         {
             //This hook allows you to apply state data from the lobby-player to the game-player
             //just subclass "LobbyHook" and add it to the lobby object.
-			GameObject p;
-			if (VRDevice.isPresent) {
-				p = vrPrefab;
-			} else {
-				p = pcPrefab;
-			}
+
             if (_lobbyHooks)
-                _lobbyHooks.OnLobbyServerSceneLoadedForPlayer(this, lobbyPlayer, p);
+                _lobbyHooks.OnLobbyServerSceneLoadedForPlayer(this, lobbyPlayer, gamePlayer);
 
             return true;
         }
@@ -441,6 +436,16 @@ namespace Prototype.NetworkLobby
 
 		}
 		**/
+		public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId){
+			GameObject p;
+			if (VRDevice.isPresent) {
+				p = vrPrefab;
+			} else {
+				p = pcPrefab;
+			}
+			GameObject temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
+			return temp;
+		}
 					
     }
 
