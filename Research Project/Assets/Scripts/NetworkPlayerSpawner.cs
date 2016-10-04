@@ -13,10 +13,10 @@ public class NetworkPlayerSpawner : NetworkBehaviour {
 		GameObject i;
 		if (!isLocalPlayer && VRDevice.isPresent) {
 			//spawn VR
-			i = (GameObject)Instantiate(VRPrefab, transform.position, Quaternion.identity);
+			i = (GameObject)Instantiate(PCPrefab, transform.position, Quaternion.identity);
 		} else if(!isLocalPlayer){
 			//spawn PC
-			i = (GameObject)Instantiate(PCPrefab, transform.position, Quaternion.identity);
+			i = (GameObject)Instantiate(VRPrefab, transform.position, Quaternion.identity);
 		} else if(isLocalPlayer && VRDevice.isPresent){
 			//spawn VR
 			i = (GameObject)Instantiate(VRPrefab, transform.position, Quaternion.identity);
