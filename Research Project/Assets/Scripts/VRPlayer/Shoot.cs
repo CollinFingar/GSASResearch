@@ -16,14 +16,16 @@ public class Shoot : MonoBehaviour {
     private bool semiFired = false;
     private bool fireable = false;
 
-    private float minGunScale = .3f;
-    private float maxGunScale = .6f;
-    private float curGunScale = .3f;
-    private float scaleSpeed = 1f;
+	public GameObject[] gunEnergyObjectArray;
+	private SpriteRenderer[] gunEnergySpriteArray;
+	public Color gunEnergyColor = new Color(1,1,1,1);
+	private float alpha = 0f;
+	private float alphaRate = 3f;
+
 
     // Use this for initialization
     void Start () {
-
+		InitializeGunEnergy ();
 	}
 	
 	// Update is called once per frame
@@ -61,11 +63,13 @@ public class Shoot : MonoBehaviour {
 	void SenseAim() {
 		float lTrig = Input.GetAxis("LeftTrigger");
 		if (lTrig > .2) {
-				fireable = true;
+			fireable = true;
+			ChangeColor (true);
 		} else if(lTrig < .2){
 			if (fireable) {
 				fireable = false;
 			}
+			ChangeColor (false);
 		}
 		if (fireable) {
 			SenseShoot();
@@ -77,38 +81,41 @@ public class Shoot : MonoBehaviour {
         GameObject instance = (GameObject)Instantiate(shotPrefab, transform.position + transform.TransformDirection(shotSpawnOffset), transform.rotation);
         instance.GetComponent<Rigidbody>().AddForce(shootDirectionVelocity);
     }
+
+	void InitializeGunEnergy(){
+		gunEnergySpriteArray = new SpriteRenderer[gunEnergyObjectArray.Length];
+		for (int i = 0; i < gunEnergyObjectArray.Length; i++) {
+			SpriteRenderer gunEnergySprite = gunEnergyObjectArray [i].GetComponent<SpriteRenderer> ();
+			gunEnergySpriteArray [i] = gunEnergySprite;
+			gunEnergySprite.color = new Color (gunEnergyColor.r, gunEnergyColor.g, gunEnergyColor.b, 0f);
+		}
+	}
+
+	void ChangeColor (bool aiming){
+		if (aiming && alpha < 1) {
+			float changeAmount = alphaRate * Time.deltaTime;
+			if (alpha + changeAmount >= 1) {
+				alpha = 1;
+			} else {
+				alpha += changeAmount;
+			}
+			UpdateColors ();
+		} else if (!aiming && alpha > 0) {
+			float changeAmount = alphaRate * Time.deltaTime;
+			if (alpha - changeAmount <= 0) {
+				alpha = 0;
+			} else {
+				alpha -= changeAmount;
+			}
+			UpdateColors ();
+		}
+	}
+
+	void UpdateColors(){
+		for (int i = 0; i < gunEnergySpriteArray.Length; i++) {
+			gunEnergySpriteArray[i].color = new Color (gunEnergyColor.r, gunEnergyColor.g, gunEnergyColor.b, alpha);
+		}
+	}
 }
 
 
-
-
-
-/**
-    void SenseAim() {
-        float lTrig = Input.GetAxis("LeftTrigger");
-        if (lTrig > .2) {
-            if (curGunScale >= maxGunScale && !fireable) {
-                curGunScale = maxGunScale;
-                fireable = true;
-                transform.localScale = new Vector3(transform.localScale.x, curGunScale, transform.localScale.z);
-            } else if(curGunScale < maxGunScale) {
-                curGunScale += scaleSpeed * Time.deltaTime;
-                transform.localScale = new Vector3(transform.localScale.x, curGunScale, transform.localScale.z);
-            }
-        } else if(lTrig < .2){
-            if (fireable) {
-                fireable = false;
-            }
-            if (curGunScale < minGunScale) {
-                curGunScale = minGunScale;
-                transform.localScale = new Vector3(transform.localScale.x, curGunScale, transform.localScale.z);
-            } else if(curGunScale > minGunScale) {
-                curGunScale -= scaleSpeed * Time.deltaTime;
-                transform.localScale = new Vector3(transform.localScale.x, curGunScale, transform.localScale.z);
-            }
-        }
-        if (fireable) {
-            SenseShoot();
-        }
-    }
-    **/
