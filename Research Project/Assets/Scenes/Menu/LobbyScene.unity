@@ -740,7 +740,7 @@ Prefab:
     - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: vrPrefab
       value: 
-      objectReference: {fileID: 1000011982793880, guid: 93303a1e28728f943ae8bbba27cdf143,
+      objectReference: {fileID: 1000010480226738, guid: b9240da49fb8543438c092956a883d6d,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}

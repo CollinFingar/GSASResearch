@@ -79,7 +79,7 @@ GameObject:
   - 114: {fileID: 114000010520439760}
   - 114: {fileID: 114000010177096942}
   m_Layer: 0
-  m_Name: PCPlayer
+  m_Name: PCTester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
