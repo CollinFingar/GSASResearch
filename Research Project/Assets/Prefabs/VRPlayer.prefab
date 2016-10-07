@@ -60,7 +60,7 @@ GameObject:
   - 114: {fileID: 114000013942294478}
   - 114: {fileID: 114000011258362998}
   m_Layer: 0
-  m_Name: VRPlayer
+  m_Name: VRPlayerTester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
