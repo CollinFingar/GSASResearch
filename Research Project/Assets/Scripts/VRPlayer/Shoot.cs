@@ -22,6 +22,9 @@ public class Shoot : MonoBehaviour {
 	private float alpha = 0f;
 	private float alphaRate = 3f;
 
+	public int energyCostBothGuns = 2;
+	public VRGUIHandler gui;
+
 
     // Use this for initialization
     void Start () {
@@ -36,11 +39,13 @@ public class Shoot : MonoBehaviour {
     void SenseShoot() {
         float rTrig = Input.GetAxis("RightTrigger");
         if (!fullAuto) {
-            if (rTrig > .3) {
-                Fire();
-                semiFired = true;
-            } else {
-                semiFired = false;
+			if (rTrig > .3 && Time.time > nextShootTime) {
+				int energyLevel = gui.GetCurrentEnergyLevel ();
+				if (energyLevel >= energyCostBothGuns) {
+					Fire();
+					nextShootTime = Time.time + frequency;
+					gui.UpdateEnergyLevel (energyLevel - energyCostBothGuns/2);
+				}
             }
         } else {
             if (shootingAuto) {
@@ -78,7 +83,7 @@ public class Shoot : MonoBehaviour {
 
     void Fire() {
         shootDirectionVelocity = transform.TransformDirection(shotVelocity);
-        GameObject instance = (GameObject)Instantiate(shotPrefab, transform.position + transform.TransformDirection(shotSpawnOffset), transform.rotation);
+		GameObject instance = (GameObject)Instantiate(shotPrefab, transform.position + transform.TransformDirection(shotSpawnOffset), transform.rotation);
         instance.GetComponent<Rigidbody>().AddForce(shootDirectionVelocity);
     }
 

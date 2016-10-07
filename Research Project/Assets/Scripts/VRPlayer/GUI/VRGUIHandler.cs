@@ -44,7 +44,7 @@ public class VRGUIHandler : MonoBehaviour {
 		}
 	}
 
-	void UpdateEnergyLevel(int newAmount){
+	public void UpdateEnergyLevel(int newAmount){
 		if (newAmount > energyAmountTotal || newAmount < 0 || newAmount == currentEnergyAmount) {
 			return;
 		}
@@ -84,5 +84,9 @@ public class VRGUIHandler : MonoBehaviour {
 		for (int e = 0; e < energyAmountTotal; e++) {
 			energyArray [e].GetComponent<Image> ().color = newColor;
 		}
+	}
+
+	public int GetCurrentEnergyLevel(){
+		return currentEnergyAmount;
 	}
 }
