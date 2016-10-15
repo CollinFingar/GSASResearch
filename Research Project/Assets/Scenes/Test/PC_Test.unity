@@ -584,7 +584,7 @@ GameObject:
   - 114: {fileID: 945859478}
   - 114: {fileID: 945859477}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: TerminalInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -658,7 +658,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1082409855}
+        m_MethodName: inputFieldSubmit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1051942861}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
@@ -884,8 +895,9 @@ GameObject:
   - 224: {fileID: 1082409852}
   - 222: {fileID: 1082409854}
   - 114: {fileID: 1082409853}
+  - 114: {fileID: 1082409855}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Terminal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -941,23 +953,26 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Every time when I look in the mirror\r. All these lines on my face getting
-    clearer\r. The past is gone\r. It went by, like dusk to dawn\r. Isn't that the
-    way\r. Everybody's got the dues in life to pay\r. I know nobody knows\r. Where
-    it comes and where it goes\r. I know it's everybody sin\r. You got to lose to
-    know how to win\r. Half my life\r. Is books, written pages\r\nLive and learn from
-    fools and\r. From sages\r\nYou know it's true, oh\r\nAll these feelings come back
-    to you\r\nSing with me, sing for the years\r\nSing for the laughter, sing for
-    the tears\r\nSing with me, just for today\r\nMaybe tomorrow, the good Lord will
-    take you away\r\nYeah, sing with me, sing for the year\r\nSing for the laughter,
-    sing for the tear\r\nSing with me, just for today\r\nMaybe tomorrow, the good
-    Lord will take you away"
+  m_Text: 
 --- !u!222 &1082409854
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1082409851}
+--- !u!114 &1082409855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1082409851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253f825cd2bec15498ed6f13948d908b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array_terminal: []
+  input_terminal: {fileID: 945859477}
 --- !u!1 &1201832613
 GameObject:
   m_ObjectHideFlags: 0
