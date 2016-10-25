@@ -4,12 +4,18 @@ using UnityEngine.UI;
 
 public class VRGUIHandler : MonoBehaviour {
 
-	public int energyAmountTotal = 15;
+	public int energyPercent = 100;
+	public int energyBarsTotal = 10;
+	private int energyPerBar;
+
 	public GameObject energyObject;
 	private GameObject[] energyArray;
 	
-	private int currentEnergyAmount;
+	private int currentEnergyBarAmount;
+	private int currentEnergyPercent = 100;
 
+	public int displayEnergyPercent = 0;
+	private int displayEnergyLagRate = 1;
 
 	public Color highEnergyColor = new Color(1,0,0,.7f);
 	public Color mediumEnergyColor = new Color(1,0,0,.7f);
@@ -23,20 +29,27 @@ public class VRGUIHandler : MonoBehaviour {
 	public int highColorMinimum = 9;
 	public int mediumColorMinimum = 5;
 
+	public Text energyOnesPlace;
+	public Text energyTensPlace;
+	public Text energyHundredsPlace;
+
+
 	// Use this for initialization
 	void Start () {
+		energyPerBar = energyPercent / energyBarsTotal;
 		InitializeEnergyArray ();
 		UpdateEnergyColor (colorStateTracker);
+		UpdateEnergyText ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		UpdateEnergyText ();
 	}
 		
 	void InitializeEnergyArray(){
-		currentEnergyAmount = energyAmountTotal;
-		energyArray = new GameObject[energyAmountTotal];
+		currentEnergyBarAmount = energyBarsTotal;
+		energyArray = new GameObject[energyBarsTotal];
 		int e = 0;
 		foreach (Transform bar in energyObject.transform) {
 			energyArray [e] = bar.gameObject;
@@ -44,14 +57,33 @@ public class VRGUIHandler : MonoBehaviour {
 		}
 	}
 
-	public void UpdateEnergyLevel(int newAmount){
-		if (newAmount > energyAmountTotal || newAmount < 0 || newAmount == currentEnergyAmount) {
+	public void DecreaseEnergyLevel(int amount){
+		if (amount <= 0 || currentEnergyPercent <= 0) {
+			return;
+		}
+		if (currentEnergyPercent - amount <= 0) {
+			currentEnergyPercent = 0;
+		} else {
+			currentEnergyPercent -= amount;
+		}
+		int energyBarUpdateAmount = (currentEnergyPercent / energyPerBar) + 1;
+		if (currentEnergyPercent == 100) {
+			energyBarUpdateAmount = 10;
+		} else if (currentEnergyPercent == 0) {
+			energyBarUpdateAmount = 0;
+		}
+
+		UpdateEnergyLevel (energyBarUpdateAmount);
+	}
+
+	void UpdateEnergyLevel(int newAmount){
+		if (newAmount > energyBarsTotal || newAmount < 0 || newAmount == currentEnergyBarAmount) {
 			return;
 		}
 		CheckEnergyColor (newAmount);
-		currentEnergyAmount = newAmount;
-		for (int e = 0; e < energyAmountTotal; e++) {
-			if (e < currentEnergyAmount) {
+		currentEnergyBarAmount = newAmount;
+		for (int e = 0; e < energyBarsTotal; e++) {
+			if (e < currentEnergyBarAmount) {
 				energyArray [e].SetActive (true);
 			} else {
 				energyArray [e].SetActive (false);
@@ -81,12 +113,40 @@ public class VRGUIHandler : MonoBehaviour {
 		} else {
 			newColor = lowEnergyColor;
 		}
-		for (int e = 0; e < energyAmountTotal; e++) {
+		for (int e = 0; e < energyBarsTotal; e++) {
 			energyArray [e].GetComponent<Image> ().color = newColor;
 		}
 	}
 
-	public int GetCurrentEnergyLevel(){
-		return currentEnergyAmount;
+	public int GetCurrentEnergyPercent(){
+		return currentEnergyPercent;
+	}
+
+	public void UpdateEnergyText(){
+		if (displayEnergyPercent != currentEnergyPercent) {
+			if (currentEnergyPercent > displayEnergyPercent) {
+				if (displayEnergyPercent + displayEnergyLagRate >= currentEnergyPercent) {
+					displayEnergyPercent = currentEnergyPercent;
+				} else {
+					displayEnergyPercent += displayEnergyLagRate;
+				}
+			} else {
+				if (displayEnergyPercent - displayEnergyLagRate <= currentEnergyPercent) {
+					displayEnergyPercent = currentEnergyPercent;
+				} else {
+					displayEnergyPercent -= displayEnergyLagRate;
+				}
+			}
+			int onesPlace = displayEnergyPercent % 10;
+			int tensPlace = (displayEnergyPercent / 10)%10;
+			int hundredsPlace = 0;
+			if (displayEnergyPercent > 99) {
+				hundredsPlace = displayEnergyPercent / 100;
+			}
+			energyOnesPlace.text = onesPlace.ToString ();
+			energyTensPlace.text = tensPlace.ToString ();
+			energyHundredsPlace.text = hundredsPlace.ToString ();
+
+		}
 	}
 }

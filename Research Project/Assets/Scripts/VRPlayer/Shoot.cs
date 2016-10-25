@@ -3,8 +3,12 @@ using System.Collections;
 
 public class Shoot : MonoBehaviour {
 
+	public GameObject leftGun;
+	public GameObject rightGun;
+
     public GameObject shotPrefab;
-    public Vector3 shotSpawnOffset = new Vector3(0, 0, .5f);
+    public Vector3 leftShotSpawnOffset = new Vector3(0, 0, .5f);
+	public Vector3 rightShotSpawnOffset = new Vector3(0, 0, .5f);
     public float frequency = .1f;
     public float delay = .5f;
     public bool fullAuto = true;
@@ -22,8 +26,12 @@ public class Shoot : MonoBehaviour {
 	private float alpha = 0f;
 	private float alphaRate = 3f;
 
-	public int energyCostBothGuns = 2;
+	public int energyCost = 2;
 	public VRGUIHandler gui;
+
+	public GameObject aimThresholdObject;
+	private Vector3 aimThreshold;
+	public float aimSideAngle = 1f;
 
 
     // Use this for initialization
@@ -39,14 +47,17 @@ public class Shoot : MonoBehaviour {
     void SenseShoot() {
         float rTrig = Input.GetAxis("RightTrigger");
         if (!fullAuto) {
-			if (rTrig > .3 && Time.time > nextShootTime) {
-				int energyLevel = gui.GetCurrentEnergyLevel ();
-				if (energyLevel >= energyCostBothGuns) {
+			if (rTrig > .3 && Time.time > nextShootTime && !semiFired) {
+				int energyLevel = gui.GetCurrentEnergyPercent();
+				if (energyLevel >= energyCost) {
 					Fire();
 					nextShootTime = Time.time + frequency;
-					gui.UpdateEnergyLevel (energyLevel - energyCostBothGuns/2);
+					gui.DecreaseEnergyLevel (energyCost);
+					semiFired = true;
 				}
-            }
+			} else if(rTrig < .3){
+				semiFired = false;
+			}
         } else {
             if (shootingAuto) {
                 if (rTrig > .3 && Time.time > nextShootTime){
@@ -70,6 +81,7 @@ public class Shoot : MonoBehaviour {
 		if (lTrig > .2) {
 			fireable = true;
 			ChangeColor (true);
+			Aim ();
 		} else if(lTrig < .2){
 			if (fireable) {
 				fireable = false;
@@ -81,10 +93,83 @@ public class Shoot : MonoBehaviour {
 		}
 	}
 
+	void Aim(){
+		aimThreshold = aimThresholdObject.transform.position;
+
+		Vector3 rightDirectionPostion = transform.position + transform.TransformDirection (new Vector3 (aimSideAngle, 0, 0));
+		Vector3 leftDirectionPostion = transform.position + transform.TransformDirection (new Vector3 ( -1 * aimSideAngle, 0, 0));
+
+		Vector3 centerDirection = aimThreshold - transform.position;
+		centerDirection = new Vector3 (centerDirection.x, 0, centerDirection.z);
+
+		Vector3 rightDirection = aimThreshold - rightDirectionPostion;
+		rightDirection = new Vector3 (rightDirection.x, 0, rightDirection.z);
+
+		Vector3 leftDirection = aimThreshold - leftDirectionPostion;
+		leftDirection = new Vector3 (leftDirection.x, 0, leftDirection.z);
+
+		Debug.DrawRay (aimThreshold, centerDirection * 8, Color.red);
+		Debug.DrawRay (aimThreshold, leftDirection * 7, Color.magenta);
+		Debug.DrawRay (aimThreshold, rightDirection * 7, Color.green);
+
+		RaycastHit centerHit;
+		RaycastHit rightHit;
+		RaycastHit leftHit;
+
+		bool centerDidHit = Physics.Raycast (aimThreshold, centerDirection, out centerHit);
+		bool rightDidHit = Physics.Raycast (aimThreshold, rightDirection, out rightHit);
+		bool leftDidHit = Physics.Raycast (aimThreshold, leftDirection, out leftHit);
+
+		float centerDistance = centerHit.distance;
+		float rightDistance = rightHit.distance;
+		float leftDistance = leftHit.distance;
+
+		ArrayList hitDistances = new ArrayList ();
+
+		if (centerDidHit && centerHit.transform.gameObject.tag == "Enemy") {
+			hitDistances.Add (centerDistance);
+			//print ("Found: " + centerHit.transform.gameObject.name);
+		}
+		if (rightDidHit && rightHit.transform.gameObject.tag == "Enemy") {
+			hitDistances.Add (rightDistance);
+		}
+		if (leftDidHit && leftHit.transform.gameObject.tag == "Enemy") {
+			hitDistances.Add (leftDistance);
+		}
+		if (hitDistances.Count == 0) {
+			return;
+		}
+
+		float minDistance = (float)hitDistances [0];
+		for (int i = 0; i < hitDistances.Count; i++) {
+			float thisDist = (float)hitDistances [i];
+			if (thisDist < minDistance) {
+				minDistance = thisDist;
+			}
+		}
+
+		GameObject target;
+		if (minDistance == centerDistance) {
+			target = centerHit.transform.gameObject;
+		} else if (minDistance == rightDistance) {
+			target = rightHit.transform.gameObject;
+		} else {
+			target = leftHit.transform.gameObject;
+		}
+
+		print (target.name);
+
+	}
+
     void Fire() {
-        shootDirectionVelocity = transform.TransformDirection(shotVelocity);
-		GameObject instance = (GameObject)Instantiate(shotPrefab, transform.position + transform.TransformDirection(shotSpawnOffset), transform.rotation);
-        instance.GetComponent<Rigidbody>().AddForce(shootDirectionVelocity);
+        Vector3 shootDirectionVelocity1 = leftGun.transform.TransformDirection(shotVelocity) * -1;
+		Vector3 shootDirectionVelocity2 = rightGun.transform.TransformDirection(shotVelocity) * -1;
+
+		GameObject instance = (GameObject)Instantiate(shotPrefab, leftGun.transform.position + leftGun.transform.TransformDirection(leftShotSpawnOffset), leftGun.transform.rotation);
+		instance.GetComponent<Rigidbody>().AddForce(shootDirectionVelocity1);
+
+		GameObject instance2 = (GameObject)Instantiate(shotPrefab, rightGun.transform.position + rightGun.transform.TransformDirection(rightShotSpawnOffset), rightGun.transform.rotation);
+		instance2.GetComponent<Rigidbody>().AddForce(shootDirectionVelocity2);
     }
 
 	void InitializeGunEnergy(){
