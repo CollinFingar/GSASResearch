@@ -2529,6 +2529,8 @@ MonoBehaviour:
   gunEnergyColor: {r: 0, g: 0.8352942, b: 1, a: 1}
   energyCost: 10
   gui: {fileID: 114000012965279922}
+  aimThresholdObject: {fileID: 0}
+  aimSideAngle: 1
 --- !u!114 &114000011518652766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3158,6 +3160,8 @@ MonoBehaviour:
   gunEnergyColor: {r: 0, g: 0.8352942, b: 1, a: 1}
   energyCost: 2
   gui: {fileID: 114000012965279922}
+  aimThresholdObject: {fileID: 0}
+  aimSideAngle: 1
 --- !u!114 &114000013513247284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3186,6 +3190,8 @@ MonoBehaviour:
   gunEnergyColor: {r: 0, g: 0.8352942, b: 1, a: 1}
   energyCost: 2
   gui: {fileID: 114000012965279922}
+  aimThresholdObject: {fileID: 0}
+  aimSideAngle: 1
 --- !u!114 &114000013516940848
 MonoBehaviour:
   m_ObjectHideFlags: 1

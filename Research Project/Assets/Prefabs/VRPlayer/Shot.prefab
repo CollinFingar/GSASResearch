@@ -14,8 +14,8 @@ GameObject:
   - 114: {fileID: 11499326}
   - 114: {fileID: 114000010563888562}
   m_Layer: 0
-  m_Name: TestShot
-  m_TagString: Untagged
+  m_Name: Shot
+  m_TagString: Player Shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

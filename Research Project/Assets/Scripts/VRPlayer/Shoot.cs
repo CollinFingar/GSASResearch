@@ -158,6 +158,12 @@ public class Shoot : MonoBehaviour {
 		}
 
 		print (target.name);
+		float step = 10 * Time.deltaTime;
+		Vector3 rightDir = Vector3.RotateTowards (rightGun.transform.forward, rightGun.transform.position - target.transform.position, step, 0.0F);
+		Vector3 leftDir = Vector3.RotateTowards (leftGun.transform.forward, leftGun.transform.position - target.transform.position, step, 0.0F);
+
+		rightGun.transform.rotation = Quaternion.LookRotation (rightDir);
+		leftGun.transform.rotation = Quaternion.LookRotation (leftDir);
 
 	}
 

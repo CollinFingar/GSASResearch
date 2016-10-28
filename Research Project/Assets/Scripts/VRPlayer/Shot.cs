@@ -7,13 +7,13 @@ public class Shot : MonoBehaviour {
 	void Start () {
 	
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	
 	}
 
-    void OnCollisionEnter(Collision other) {
+    void OnTriggerEnter(Collider other) {
         Destroy(gameObject);
     }
 }
