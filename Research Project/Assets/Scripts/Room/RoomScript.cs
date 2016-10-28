@@ -25,7 +25,7 @@ public class RoomScript : MonoBehaviour {
 		testArray [2] = "b";
 		testArray [3] = "gl";
 
-		Initialize (1, testArray, 1);
+		//Initialize (1, testArray, 1);
 	}
 	
 	// Update is called once per frame
@@ -42,6 +42,7 @@ public class RoomScript : MonoBehaviour {
 		wallInstance.transform.parent = transform;
 		InitializeDoors (doorSetUp);
 		GameObject floorInstance = (GameObject)Instantiate(floorPrefabs[floor], transform.position, transform.rotation);
+		floorInstance.transform.parent = transform;
 	}
 
 	void InitializeDoors(string[] doorSetUp){

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : MonoBehaviour {
+public class PlayerMain : MonoBehaviour {
 
     //MOVEMENT
     public float moveSpeed = 1f;
@@ -16,6 +16,13 @@ public class Movement : MonoBehaviour {
     private bool rotated = false;
     public float stickRotationSnapInterval = .25f;
     private float stickLastSnappedTime = 0f;
+
+	private bool ableToAccessDoor = false;
+	private GameObject nearbyDoor = null;
+
+	//GUI
+	public VRGUIHandler gui;
+	public ButtonPrompt BP;
 
 	void Start () {
 	
@@ -49,8 +56,12 @@ public class Movement : MonoBehaviour {
                 stickLastSnappedTime = Time.time + stickRotationSnapInterval;
             }
         }
-        if (Input.GetButtonDown("A") || Input.GetButtonDown("Jump")) {
-            //GetComponent<Rigidbody>().AddForce(new Vector3(0, 10000, 0));
+        if (Input.GetButtonDown("X") || Input.GetButtonDown("X")) {
+			if (nearbyDoor != null && ableToAccessDoor) {
+				GameObject partnerDoor = nearbyDoor.GetComponent<DoorScript> ().DI.partner;
+				transform.position = partnerDoor.transform.position + partnerDoor.transform.forward * 1.5f;
+				transform.localEulerAngles = new Vector3 (0, partnerDoor.transform.localEulerAngles.y, 0);
+			}
         }
     }
 
@@ -73,4 +84,47 @@ public class Movement : MonoBehaviour {
             transform.position += moveVec;
         }
     }
+
+	void OnTriggerEnter(Collider other){
+		if (other.gameObject.tag == "Door") {
+			//print ("Near door!");
+		}
+	}
+
+	void OnTriggerExit(Collider other){
+		if (other.gameObject.tag == "Door") {
+			//print ("Bye door!");
+			if (ableToAccessDoor) {
+				BP.turnOff ();
+				ableToAccessDoor = false;
+			}
+
+		}
+	}
+
+	void OnTriggerStay(Collider other){
+		if (other.gameObject.tag == "Door") {
+			Vector3 doorRot = other.gameObject.transform.forward;
+			Vector3 myRot = transform.forward * -1;
+			float angle = Vector3.Angle (myRot, doorRot);
+			print (Mathf.Abs (angle));
+			if (Mathf.Abs (angle) <= 50 && !ableToAccessDoor) {
+				//print ("Looking at door!");
+				if (!other.gameObject.GetComponent<DoorScript> ().DI.closed) {
+					ableToAccessDoor = true;
+					BP.turnOn (1);
+					nearbyDoor = other.gameObject;
+					//print ("Can go through door!");
+				} else {
+					ableToAccessDoor = false;
+					//print ("Can't go through door...");
+				}
+			} else if (Mathf.Abs (angle) > 50) {
+				if (ableToAccessDoor) {
+					BP.turnOff ();
+					ableToAccessDoor = false;
+				}
+			}
+		}
+	}
 }

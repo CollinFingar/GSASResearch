@@ -15,6 +15,8 @@ public struct DoorInfo{
 	//1 = silverlock
 	//2 = goldlock
 	public bool closed;
+
+	public GameObject partner;
 }
 
 public class DoorScript : MonoBehaviour {
@@ -56,5 +58,30 @@ public class DoorScript : MonoBehaviour {
 	}
 	public void UpdateLockColor(int lockType){
 		lockObject.GetComponent<Renderer>().material = lockMaterials [lockType-1];
+	}
+
+	void OnTriggerEnter(Collider other){
+		if (other.gameObject.tag == "Door") {
+			print (other.transform.parent.transform.parent.name);
+			DoorScript otherDoorScript = other.gameObject.GetComponent<DoorScript> ();
+			if (otherDoorScript.DI.lockType == 0 && DI.lockType == 0) {
+				if (otherDoorScript.DI.color == DI.color) {
+					DI.partner = otherDoorScript.gameObject;
+					DI.closed = false;
+				} else {
+					DI.partner = null;
+					DI.closed = true;
+				}
+			} else if (otherDoorScript.DI.lockType == DI.lockType) {
+				DI.partner = otherDoorScript.gameObject;
+				DI.closed = false;
+			} else {
+				DI.partner = null;
+				DI.closed = true;
+			}
+			if (DI.partner != null) {
+				print ("PARTNERED");
+			}
+		}
 	}
 }
