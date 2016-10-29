@@ -99,6 +99,9 @@ public class Shoot : MonoBehaviour {
 		Vector3 rightDirectionPostion = transform.position + transform.TransformDirection (new Vector3 (aimSideAngle, 0, 0));
 		Vector3 leftDirectionPostion = transform.position + transform.TransformDirection (new Vector3 ( -1 * aimSideAngle, 0, 0));
 
+		Vector3 centerRightDirectionPostion = transform.position + transform.TransformDirection (new Vector3 (.5f * aimSideAngle, 0, 0));
+		Vector3 centerLeftDirectionPosition = transform.position + transform.TransformDirection (new Vector3 ( -.5f * aimSideAngle, 0, 0));
+
 		Vector3 centerDirection = aimThreshold - transform.position;
 		centerDirection = new Vector3 (centerDirection.x, 0, centerDirection.z);
 
@@ -108,21 +111,39 @@ public class Shoot : MonoBehaviour {
 		Vector3 leftDirection = aimThreshold - leftDirectionPostion;
 		leftDirection = new Vector3 (leftDirection.x, 0, leftDirection.z);
 
-		Debug.DrawRay (aimThreshold, centerDirection * 8, Color.red);
-		Debug.DrawRay (aimThreshold, leftDirection * 7, Color.magenta);
-		Debug.DrawRay (aimThreshold, rightDirection * 7, Color.green);
+		Vector3 centerRightDirection = aimThreshold - centerRightDirectionPostion;
+		centerRightDirection = new Vector3 (centerRightDirection.x, 0, rightDirection.z);
+
+		Vector3 centerLeftDirection = aimThreshold - centerLeftDirectionPosition;
+		centerLeftDirection = new Vector3 (centerLeftDirection.x, 0, leftDirection.z);
+
+		Debug.DrawRay (aimThreshold, centerDirection * 8, Color.magenta);
+		Debug.DrawRay (aimThreshold, leftDirection * 7, Color.white);
+		Debug.DrawRay (aimThreshold, rightDirection * 7, Color.yellow);
+
+		Debug.DrawRay (aimThreshold, centerLeftDirection * 7.5f, Color.blue);
+		Debug.DrawRay (aimThreshold, centerRightDirection * 7.5f, Color.red);
 
 		RaycastHit centerHit;
 		RaycastHit rightHit;
 		RaycastHit leftHit;
 
+		RaycastHit centerRightHit;
+		RaycastHit centerLeftHit;
+
 		bool centerDidHit = Physics.Raycast (aimThreshold, centerDirection, out centerHit);
 		bool rightDidHit = Physics.Raycast (aimThreshold, rightDirection, out rightHit);
 		bool leftDidHit = Physics.Raycast (aimThreshold, leftDirection, out leftHit);
 
+		bool centerRightDidHit = Physics.Raycast (aimThreshold, centerRightDirection, out centerRightHit);
+		bool centerLeftDidHit = Physics.Raycast (aimThreshold, centerLeftDirection, out centerLeftHit);
+
 		float centerDistance = centerHit.distance;
 		float rightDistance = rightHit.distance;
 		float leftDistance = leftHit.distance;
+
+		float centerRightDistance = centerRightHit.distance;
+		float centerLeftDistance = centerLeftHit.distance;
 
 		ArrayList hitDistances = new ArrayList ();
 
@@ -135,6 +156,12 @@ public class Shoot : MonoBehaviour {
 		}
 		if (leftDidHit && leftHit.transform.gameObject.tag == "Enemy") {
 			hitDistances.Add (leftDistance);
+		}
+		if (centerRightDidHit && centerRightHit.transform.gameObject.tag == "Enemy") {
+			hitDistances.Add (centerRightDistance);
+		}
+		if (centerLeftDidHit && centerLeftHit.transform.gameObject.tag == "Enemy") {
+			hitDistances.Add (centerLeftDistance);
 		}
 		if (hitDistances.Count == 0) {
 			return;
@@ -151,6 +178,10 @@ public class Shoot : MonoBehaviour {
 		GameObject target;
 		if (minDistance == centerDistance) {
 			target = centerHit.transform.gameObject;
+		} else if (minDistance == centerRightDistance) {
+			target = centerRightHit.transform.gameObject;
+		} else if (minDistance == centerLeftDistance){
+			target = centerLeftHit.transform.gameObject;
 		} else if (minDistance == rightDistance) {
 			target = rightHit.transform.gameObject;
 		} else {
