@@ -8,14 +8,17 @@ public class TerminalText : MonoBehaviour {
 	public string[] array_terminal;
 	string text_display;
 	public InputField input_terminal; // reference to the input field used for writing to this termianl
+	public float resolutionRatio;
 	// Use this for initialization
 	void Start () {
 		array_terminal = new string[0];
+		resolutionRatio = Screen.width / Screen.height;
+		print (Screen.width / Screen.height);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 	public void inputFieldSubmit(Text messageHold) {
 		if (Input.GetKeyDown (KeyCode.Return)) { //only activate if the return key is pressed (prevents click off activation, silly Unity...)
