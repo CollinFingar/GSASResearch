@@ -33,10 +33,15 @@ public class Shoot : MonoBehaviour {
 	private Vector3 aimThreshold;
 	public float aimSideAngle = 1f;
 
+	private Vector3 rightGunRestForward;
+	private Vector3 leftGunRestForward;
+
 
     // Use this for initialization
     void Start () {
 		InitializeGunEnergy ();
+		rightGunRestForward = rightGun.transform.forward;
+		leftGunRestForward = leftGun.transform.forward;
 	}
 	
 	// Update is called once per frame
@@ -164,6 +169,12 @@ public class Shoot : MonoBehaviour {
 			hitDistances.Add (centerLeftDistance);
 		}
 		if (hitDistances.Count == 0) {
+			float s = 1 * Time.deltaTime;
+			Vector3 rDir = Vector3.RotateTowards (rightGun.transform.forward, rightGunRestForward, s, 0.0F);
+			Vector3 lDir = Vector3.RotateTowards (leftGun.transform.forward, leftGunRestForward, s, 0.0F);
+
+			rightGun.transform.rotation = Quaternion.LookRotation (rDir);
+			leftGun.transform.rotation = Quaternion.LookRotation (lDir);
 			return;
 		}
 
@@ -188,7 +199,6 @@ public class Shoot : MonoBehaviour {
 			target = leftHit.transform.gameObject;
 		}
 
-		print (target.name);
 		float step = 1 * Time.deltaTime;
 		Vector3 rightDir = Vector3.RotateTowards (rightGun.transform.forward, rightGun.transform.position - target.transform.position, step, 0.0F);
 		Vector3 leftDir = Vector3.RotateTowards (leftGun.transform.forward, leftGun.transform.position - target.transform.position, step, 0.0F);

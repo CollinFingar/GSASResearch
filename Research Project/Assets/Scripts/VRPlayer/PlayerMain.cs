@@ -20,6 +20,9 @@ public class PlayerMain : MonoBehaviour {
 	private bool ableToAccessDoor = false;
 	private GameObject nearbyDoor = null;
 
+	private float invincibleTime = 2f;
+	private float timeTillInvincibleEnds = 0f;
+
 	//GUI
 	public VRGUIHandler gui;
 	public ButtonPrompt BP;
@@ -104,27 +107,38 @@ public class PlayerMain : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 		if (other.gameObject.tag == "Door") {
-			Vector3 doorRot = other.gameObject.transform.forward;
-			Vector3 myRot = transform.forward * -1;
-			float angle = Vector3.Angle (myRot, doorRot);
-			print (Mathf.Abs (angle));
-			if (Mathf.Abs (angle) <= 50 && !ableToAccessDoor) {
-				//print ("Looking at door!");
-				if (!other.gameObject.GetComponent<DoorScript> ().DI.closed) {
-					ableToAccessDoor = true;
-					BP.turnOn (1);
-					nearbyDoor = other.gameObject;
-					//print ("Can go through door!");
-				} else {
-					ableToAccessDoor = false;
-					//print ("Can't go through door...");
-				}
-			} else if (Mathf.Abs (angle) > 50) {
-				if (ableToAccessDoor) {
-					BP.turnOff ();
-					ableToAccessDoor = false;
-				}
+			triggerStayDoor (other);
+		} else if (other.gameObject.tag == "Shock Tile") {
+			if (other.gameObject.GetComponent<ShockTile> ().shocking && Time.time >= timeTillInvincibleEnds) {
+				gui.DecreaseEnergyLevel (20);
+				timeTillInvincibleEnds = Time.time + invincibleTime;
 			}
 		}
 	}
+
+
+
+	void triggerStayDoor(Collider other){
+		Vector3 doorRot = other.gameObject.transform.forward;
+		Vector3 myRot = transform.forward * -1;
+		float angle = Vector3.Angle (myRot, doorRot);
+		if (Mathf.Abs (angle) <= 50 && !ableToAccessDoor) {
+			//print ("Looking at door!");
+			if (!other.gameObject.GetComponent<DoorScript> ().DI.closed) {
+				ableToAccessDoor = true;
+				BP.turnOn (1);
+				nearbyDoor = other.gameObject;
+				//print ("Can go through door!");
+			} else {
+				ableToAccessDoor = false;
+				//print ("Can't go through door...");
+			}
+		} else if (Mathf.Abs (angle) > 50) {
+			if (ableToAccessDoor) {
+				BP.turnOff ();
+				ableToAccessDoor = false;
+			}
+		}
+	}
+
 }

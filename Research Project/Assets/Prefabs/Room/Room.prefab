@@ -49,7 +49,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014209947280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -38.44224, y: 12.687747, z: -23.420536}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -84,6 +84,7 @@ MonoBehaviour:
   floorPrefabs:
   - {fileID: 1000012552888748, guid: 10aa285ed6cbb7f44bf778e8cdb4a64e, type: 2}
   - {fileID: 1000012579298938, guid: 7329838005ad4e54895bbde8cad6c8b5, type: 2}
+  - {fileID: 1000013617657322, guid: fc74fc6aac4898149a0d257b3e9b5f2e, type: 2}
   wallPrefab: {fileID: 1000010605502576, guid: 24c716af96b03404a8d28e9dcb3ea0e7, type: 2}
   doors: []
   doorFolder: {fileID: 1000012993297148}

@@ -1,0 +1,15 @@
+level name
+width, height
+row-column, room type, floor type, north door type, west door type, south door type, east door type
+
+
+door types:
+n = no
+r = red
+o = orange
+y = yellow
+g = green
+b = blue
+p = purple
+gl = gold lock
+sl = silver lock
