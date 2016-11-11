@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class PlayerMain : MonoBehaviour {
+public class PlayerMain : NetworkBehaviour {
 
     //MOVEMENT
     public float moveSpeed = 1f;
@@ -29,12 +30,16 @@ public class PlayerMain : MonoBehaviour {
 	public ButtonPrompt BP;
 
 	void Start () {
-	
+		if (!isLocalPlayer) {
+			transform.GetChild (0).gameObject.SetActive (false);
+		}
 	}
 	
 	void Update () {
-        HandleRotation();
-        HandleMovement();
+		if (isLocalPlayer) {
+			HandleRotation();
+			HandleMovement();
+		}
 	}
 
     //Gets Gamepad input (Button/Stick) and rotates accordingly

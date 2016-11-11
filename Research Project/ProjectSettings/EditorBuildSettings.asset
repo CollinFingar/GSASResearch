@@ -10,4 +10,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test/NetworkTest.unity
   - enabled: 1
-    path: Assets/Scenes/Test/Initial Scene.unity
+    path: Assets/Scenes/Game/Initial Scene.unity

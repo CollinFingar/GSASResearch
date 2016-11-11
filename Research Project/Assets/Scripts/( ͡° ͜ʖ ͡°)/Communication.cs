@@ -22,7 +22,7 @@ public class Communication : NetworkBehaviour {
 
 	[ClientRpc]
 	public void RpcMeh(){
-		if (isLocalPlayer && VRSettings.enabled) {
+		if (VRSettings.enabled) {
 			print ("( ͡° ͜ʖ ͡°)");
 		}
 	}
