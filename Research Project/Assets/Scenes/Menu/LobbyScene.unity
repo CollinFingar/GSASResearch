@@ -735,7 +735,7 @@ Prefab:
     - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: pcPrefab
       value: 
-      objectReference: {fileID: 1000013158318200, guid: 322c65adde5b69344a583816090c4128,
+      objectReference: {fileID: 1000012388650980, guid: b60d9af20e90a894ba86849ea2b1c163,
         type: 2}
     - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: vrPrefab
