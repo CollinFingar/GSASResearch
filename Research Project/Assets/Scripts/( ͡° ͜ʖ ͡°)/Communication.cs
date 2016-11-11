@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.VR;
 
 public class Communication : NetworkBehaviour {
-	GameObject vrplayer;
+	VRGUIHandler vrplayer;
 	// Use this for initialization
 	void Start () {
 		vrplayer = null;
@@ -14,10 +14,7 @@ public class Communication : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Y)) {
-			if (vrplayer == null) {
-				vrplayer = FindObjectOfType (typeof(VRGUIHandler));
-			}
-			CmdChangeEnergy (-5);
+			CmdChangeEnergy (5);
 		}
 	}
 
@@ -25,7 +22,7 @@ public class Communication : NetworkBehaviour {
 	public void CmdWhatever(){
 		RpcMeh ();	
 	}
-
+	[Command]
 	public void CmdChangeEnergy(int amount) {
 		RpcChangeEnergy (amount);
 	}
@@ -36,9 +33,13 @@ public class Communication : NetworkBehaviour {
 			print ("( ͡° ͜ʖ ͡°)");
 		}
 	}
-
+	[ClientRpc]
 	public void RpcChangeEnergy(int amount) {
+		if (vrplayer == null) {
+			vrplayer = (VRGUIHandler)FindObjectOfType (typeof(VRGUIHandler));
+		}
 		if (VRSettings.enabled) {
+			print ("yeah boi");
 			vrplayer.GetComponent<VRGUIHandler> ().DecreaseEnergyLevel (amount);
 		}
 	}
