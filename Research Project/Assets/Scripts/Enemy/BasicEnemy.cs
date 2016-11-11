@@ -17,7 +17,6 @@ public class BasicEnemy : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		Debug.Log ("Yep");
 		if (other.tag == "Player Shot") {
 			health -= .5f;
 			if (health <= 0) {

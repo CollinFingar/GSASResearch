@@ -170,8 +170,8 @@ public class Shoot : MonoBehaviour {
 		}
 		if (hitDistances.Count == 0) {
 			float s = 1 * Time.deltaTime;
-			Vector3 rDir = Vector3.RotateTowards (rightGun.transform.forward, rightGunRestForward, s, 0.0F);
-			Vector3 lDir = Vector3.RotateTowards (leftGun.transform.forward, leftGunRestForward, s, 0.0F);
+			Vector3 rDir = Vector3.RotateTowards (rightGun.transform.forward, transform.forward * -1, s, 0.0F);
+			Vector3 lDir = Vector3.RotateTowards (leftGun.transform.forward, transform.forward * -1, s, 0.0F);
 
 			rightGun.transform.rotation = Quaternion.LookRotation (rDir);
 			leftGun.transform.rotation = Quaternion.LookRotation (lDir);
