@@ -89,3 +89,4 @@ MonoBehaviour:
   doors: []
   doorFolder: {fileID: 1000012993297148}
   radius: 12.5
+  endTrigger: {fileID: 1000010422757292, guid: d7554bdbed5d15042843083c4a32d2e7, type: 2}

@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.VR;
 
 public class PlayerMain : NetworkBehaviour {
 
@@ -29,6 +30,7 @@ public class PlayerMain : NetworkBehaviour {
 	public VRGUIHandler gui;
 	public ButtonPrompt BP;
 
+
 	void Start () {
 		if (!isLocalPlayer) {
 			transform.GetChild (0).gameObject.SetActive (false);
@@ -39,6 +41,9 @@ public class PlayerMain : NetworkBehaviour {
 		if (isLocalPlayer) {
 			HandleRotation();
 			HandleMovement();
+			if (Input.GetButtonDown ("Back")) {
+				Recenter ();
+			}
 		}
 	}
 
@@ -94,9 +99,23 @@ public class PlayerMain : NetworkBehaviour {
         }
     }
 
+	public void IncreaseEnergy(int amount){
+		gui.IncreaseEnergyLevel(amount);
+	}
+
+	public void DecreaseEnergy(int amount){
+		gui.DecreaseEnergyLevel(amount);
+	}
+
+	public int ReadEnergy(){
+		return gui.GetCurrentEnergyPercent ();
+	}
+
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Door") {
 			//print ("Near door!");
+		} else if(other.gameObject.tag == "End Trigger"){
+			
 		}
 	}
 
@@ -145,6 +164,11 @@ public class PlayerMain : NetworkBehaviour {
 				ableToAccessDoor = false;
 			}
 		}
+	}
+
+	void Recenter(){
+		InputTracking.Recenter ();
+		//transform.GetChild (0).GetChild (0).GetChild (1).transform.localEulerAngles -=1;
 	}
 
 }

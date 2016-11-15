@@ -57,6 +57,25 @@ public class VRGUIHandler : MonoBehaviour {
 		}
 	}
 
+	public void IncreaseEnergyLevel(int amount){
+		if (amount <= 0 || currentEnergyPercent >= 100) {
+			return;
+		}
+		if (currentEnergyPercent + amount > 100) {
+			currentEnergyPercent = 100;
+		} else {
+			currentEnergyPercent += amount;
+		}
+		int energyBarUpdateAmount = (currentEnergyPercent / energyPerBar) + 1;
+		if (currentEnergyPercent == 100) {
+			energyBarUpdateAmount = 10;
+		} else if (currentEnergyPercent == 0) {
+			energyBarUpdateAmount = 0;
+		}
+
+		UpdateEnergyLevel (energyBarUpdateAmount);
+	}
+
 	public void DecreaseEnergyLevel(int amount){
 		if (amount <= 0 || currentEnergyPercent <= 0) {
 			return;

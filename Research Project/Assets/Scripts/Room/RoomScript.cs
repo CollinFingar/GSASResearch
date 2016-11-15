@@ -16,6 +16,8 @@ public class RoomScript : MonoBehaviour {
 
 	public float radius = 12.5f;
 
+	public GameObject endTrigger;
+
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +45,10 @@ public class RoomScript : MonoBehaviour {
 		InitializeDoors (doorSetUp);
 		GameObject floorInstance = (GameObject)Instantiate(floorPrefabs[floor], transform.position, transform.rotation);
 		floorInstance.transform.parent = transform;
+
+		if (roomType == 2) {
+			GameObject end = (GameObject)Instantiate(endTrigger, transform.position, transform.rotation);
+		}
 	}
 
 	void InitializeDoors(string[] doorSetUp){

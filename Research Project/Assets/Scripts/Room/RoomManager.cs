@@ -75,6 +75,7 @@ public class RoomManager : MonoBehaviour {
 			doors [3] = lineArr [6];
 			temp.GetComponent<RoomScript> ().Initialize (roomType, doors, floorType);
 			temp.transform.parent = transform;
+
 			roomArray [i] = temp;
 		}
 	}
