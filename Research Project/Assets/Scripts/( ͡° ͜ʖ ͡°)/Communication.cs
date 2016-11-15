@@ -36,11 +36,9 @@ public class Communication : NetworkBehaviour {
 	[ClientRpc]
 	public void RpcChangeEnergy(int amount) {
 		if (vrplayer == null) {
-			vrplayer = (VRGUIHandler)FindObjectOfType (typeof(PlayerMain));
+			vrplayer = (PlayerMain)FindObjectOfType (typeof(PlayerMain));
 		}
-		if (VRDevice.isPresent) {
-			print ("yeah boi");
-			vrplayer.GetComponent<PlayerMain> ().DecreaseEnergy (amount);
-		}
+		print ("yeah boi");
+		vrplayer.GetComponent<PlayerMain> ().DecreaseEnergy (amount);
 	}
 }
