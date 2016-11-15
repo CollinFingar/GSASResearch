@@ -115,8 +115,7 @@ public class PlayerMain : NetworkBehaviour {
 		if (other.gameObject.tag == "Door") {
 			//print ("Near door!");
 		} else if(other.gameObject.tag == "End Trigger"){
-			NetworkLobbyManager nlm = FindObjectOfType <NetworkLobbyManager>();
-			nlm.ServerReturnToLobby ();
+			CmdReturnToLobby ();
 		}
 	}
 
@@ -170,6 +169,12 @@ public class PlayerMain : NetworkBehaviour {
 	void Recenter(){
 		InputTracking.Recenter ();
 		//transform.GetChild (0).GetChild (0).GetChild (1).transform.localEulerAngles -=1;
+	}
+
+	[Command]
+	public void CmdReturnToLobby(){
+		NetworkLobbyManager nlm = FindObjectOfType <NetworkLobbyManager>();
+		nlm.ServerReturnToLobby ();
 	}
 
 }
