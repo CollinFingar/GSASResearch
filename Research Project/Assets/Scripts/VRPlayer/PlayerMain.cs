@@ -115,7 +115,8 @@ public class PlayerMain : NetworkBehaviour {
 		if (other.gameObject.tag == "Door") {
 			//print ("Near door!");
 		} else if(other.gameObject.tag == "End Trigger"){
-			
+			NetworkLobbyManager nlm = FindObjectOfType <NetworkLobbyManager>();
+			nlm.ServerReturnToLobby ();
 		}
 	}
 
