@@ -450,7 +450,7 @@ namespace Prototype.NetworkLobby
 					otherPlayerText = "PC";
 				} else {
 					p = pcPrefab;
-					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
+					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
 					otherPlayerText = "VR";
 				}
 			} else {
@@ -459,7 +459,7 @@ namespace Prototype.NetworkLobby
 					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 				} else {
 					p = pcPrefab;
-					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
+					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
 				}
 			}
 			/* OLD VERSION
