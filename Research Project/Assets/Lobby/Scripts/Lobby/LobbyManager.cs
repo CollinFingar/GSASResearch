@@ -15,8 +15,7 @@ namespace Prototype.NetworkLobby
 		public GameObject pcPrefab;
 		public GameObject vrPrefab;
 
-		public Text player1Text;
-		public Text player2Text;
+		public string otherPlayerText; //value for other player to grab from when starting scene
 
 		//END CHANGED
         static short MsgKicked = MsgType.Highest + 1;
@@ -63,11 +62,6 @@ namespace Prototype.NetworkLobby
 
         void Start()
         {
-			//CHANGED
-			player1Text = null;
-			player2Text = null;
-			//END CHANGED
-
             s_Singleton = this;
             _lobbyHooks = GetComponent<Prototype.NetworkLobby.LobbyHook>();
             currentPanel = mainMenuPanel;
@@ -449,20 +443,23 @@ namespace Prototype.NetworkLobby
 			Debug.Log (conn.hostId + " " + conn.connectionId);
 			GameObject temp;
 			if (conn.connectionId == 0) {
-				if (GameObject.Find ("PlayerInfoLocal").GetComponent<LobbyPlayer> ().playerTypeText.text == "VR") {
+				LobbyPlayer hostPlayer = GameObject.Find ("PlayerInfoLocal").GetComponent<LobbyPlayer>();
+				if (hostPlayer.playerTypeText.text == "VR") {
 					p = vrPrefab;
 					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
+					otherPlayerText = "PC";
 				} else {
 					p = pcPrefab;
-					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
+					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
+					otherPlayerText = "VR";
 				}
 			} else {
-				if (GameObject.Find ("PlayerInfoLocal").GetComponent<LobbyPlayer> ().playerTypeText.text == "VR") {
+				if (otherPlayerText == "VR") {
 					p = vrPrefab;
 					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 				} else {
 					p = pcPrefab;
-					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
+					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 				}
 			}
 			/* OLD VERSION

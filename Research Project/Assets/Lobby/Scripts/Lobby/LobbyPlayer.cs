@@ -89,6 +89,9 @@ namespace Prototype.NetworkLobby
 
         void SetupOtherPlayer()
         {
+			//CHANGED
+			gameObject.name = "PlayerInfoOther";
+			//END CHANGED
             nameInput.interactable = false;
             removePlayerButton.interactable = NetworkServer.active;
 
@@ -102,7 +105,9 @@ namespace Prototype.NetworkLobby
 
         void SetupLocalPlayer()
         {
+			//CHANGED
 			gameObject.name = "PlayerInfoLocal";
+			//END CHANGED
             nameInput.interactable = true;
             remoteIcone.gameObject.SetActive(false);
             localIcone.gameObject.SetActive(true);
