@@ -14,7 +14,7 @@ public class PlayerSyncData : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Network.isServer) {
-			
+			CmdUpdatePlayers ();
 			//GetComponent<NetworkLobbyPlayer>().player
 		}
 	

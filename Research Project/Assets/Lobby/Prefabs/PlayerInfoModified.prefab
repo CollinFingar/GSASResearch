@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6f0e6aa105efe4797aa0dcde3f88aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPlayerText: {fileID: 0}
+  currentPlayerText: {fileID: 114000011400404512}
   otherPlayerText: 
 --- !u!114 &114000013001293994
 MonoBehaviour:

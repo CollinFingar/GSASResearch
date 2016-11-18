@@ -440,10 +440,10 @@ namespace Prototype.NetworkLobby
 			GameObject p;
 			Debug.Log (conn.hostId + " " + conn.connectionId);
 			GameObject temp;
-			PlayerSyncData playerSync = GetComponent<PlayerSyncData> ();
+			PlayerSyncData playerSync = GameObject.Find("PlayerInfoLocal").GetComponent<PlayerSyncData>();
 			if (conn.connectionId == 0) {
-				LobbyPlayer hostPlayer = GameObject.Find ("PlayerInfoLocal").GetComponent<LobbyPlayer>();
-				if (hostPlayer.playerTypeText.text == "VR") {
+				//LobbyPlayer hostPlayer = GameObject.Find ("PlayerInfoLocal").GetComponent<LobbyPlayer>();
+				if (playerSync.currentPlayerText.text == "VR") {
 					p = vrPrefab;
 					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 				} else {
