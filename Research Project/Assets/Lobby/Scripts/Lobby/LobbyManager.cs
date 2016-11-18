@@ -15,8 +15,6 @@ namespace Prototype.NetworkLobby
 		public GameObject pcPrefab;
 		public GameObject vrPrefab;
 
-		public string otherPlayerText; //value for other player to grab from when starting scene
-
 		//END CHANGED
         static short MsgKicked = MsgType.Highest + 1;
 
@@ -442,6 +440,7 @@ namespace Prototype.NetworkLobby
 			GameObject p;
 			Debug.Log (conn.hostId + " " + conn.connectionId);
 			GameObject temp;
+			string otherPlayerText = GetComponent<PlayerSyncData> ().otherPlayerText;
 			if (conn.connectionId == 0) {
 				LobbyPlayer hostPlayer = GameObject.Find ("PlayerInfoLocal").GetComponent<LobbyPlayer>();
 				if (hostPlayer.playerTypeText.text == "VR") {
