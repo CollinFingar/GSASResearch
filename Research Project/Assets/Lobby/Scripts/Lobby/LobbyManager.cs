@@ -451,7 +451,7 @@ namespace Prototype.NetworkLobby
 					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
 				}
 			} else {
-				if (playerSync.otherPlayerText == "VR") {
+				if (GameObject.Find("PCArrow")  == null) {
 					p = vrPrefab;
 					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 				} else {
