@@ -2153,8 +2153,6 @@ MonoBehaviour:
   lobbySlots: []
   pcPrefab: {fileID: 1000012388650980, guid: b60d9af20e90a894ba86849ea2b1c163, type: 2}
   vrPrefab: {fileID: 1000010480226738, guid: b9240da49fb8543438c092956a883d6d, type: 2}
-  player1Text: {fileID: 0}
-  player2Text: {fileID: 0}
   prematchCountdown: 3
   topPanel: {fileID: 452864976}
   mainMenuPanel: {fileID: 1859273900}

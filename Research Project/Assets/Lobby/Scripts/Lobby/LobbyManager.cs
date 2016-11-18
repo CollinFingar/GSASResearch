@@ -440,20 +440,18 @@ namespace Prototype.NetworkLobby
 			GameObject p;
 			Debug.Log (conn.hostId + " " + conn.connectionId);
 			GameObject temp;
-			string otherPlayerText = GetComponent<PlayerSyncData> ().otherPlayerText;
+			PlayerSyncData playerSync = GetComponent<PlayerSyncData> ();
 			if (conn.connectionId == 0) {
 				LobbyPlayer hostPlayer = GameObject.Find ("PlayerInfoLocal").GetComponent<LobbyPlayer>();
 				if (hostPlayer.playerTypeText.text == "VR") {
 					p = vrPrefab;
 					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
-					otherPlayerText = "PC";
 				} else {
 					p = pcPrefab;
 					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
-					otherPlayerText = "VR";
 				}
 			} else {
-				if (otherPlayerText == "VR") {
+				if (playerSync.otherPlayerText == "VR") {
 					p = vrPrefab;
 					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 				} else {
@@ -461,6 +459,7 @@ namespace Prototype.NetworkLobby
 					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
 				}
 			}
+			print ("OtherPlayerText: " + playerSync.otherPlayerText);
 			/* OLD VERSION
 			if (conn.connectionId == 0) {
 				if (VRDevice.isPresent) {
