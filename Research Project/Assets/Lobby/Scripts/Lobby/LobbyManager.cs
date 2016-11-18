@@ -450,7 +450,8 @@ namespace Prototype.NetworkLobby
 					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
 				}
 			} else {
-				if (GameObject.Find("PCArrow")  == null) {
+				PlayerType pRef = GameObject.Find ("EmptyPlayerType").GetComponent<PlayerType> ();
+				if (pRef.playerType == "VR") {
 					p = vrPrefab;
 					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 				} else {
