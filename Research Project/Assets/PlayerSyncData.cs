@@ -20,10 +20,12 @@ public class PlayerSyncData : NetworkBehaviour {
 
 	[Command]
 	public void CmdUpdatePlayers() {
-		if (hostType.text == "VR") {
-			RpcUpdatePlayers ("PC");
-		} else {
-			RpcUpdatePlayers ("VR");
+		if (Network.isServer) {
+			if (hostType.text == "VR") {
+				RpcUpdatePlayers ("PC");
+			} else {
+				RpcUpdatePlayers ("VR");
+			}
 		}
 	}
 
