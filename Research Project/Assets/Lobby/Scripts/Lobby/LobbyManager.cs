@@ -15,6 +15,8 @@ namespace Prototype.NetworkLobby
 		public GameObject pcPrefab;
 		public GameObject vrPrefab;
 
+		public string mySpawnType; //type of player to spawn
+
 		//END CHANGED
         static short MsgKicked = MsgType.Highest + 1;
 
@@ -441,8 +443,7 @@ namespace Prototype.NetworkLobby
 			Debug.Log (conn.hostId + " " + conn.connectionId);
 			GameObject temp;
 			if (conn.connectionId == 0) {
-				PlayerSyncData playerSync = GameObject.Find("PlayerInfoLocal").GetComponent<PlayerSyncData>();
-				if (playerSync.hostType.text == "VR") {
+				if (mySpawnType == "VR") {
 					p = vrPrefab;
 					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 				} else {

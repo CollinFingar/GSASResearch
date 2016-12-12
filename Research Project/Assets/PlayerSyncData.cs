@@ -5,16 +5,18 @@ using UnityEngine.UI;
 
 public class PlayerSyncData : NetworkBehaviour {
 	public Text hostType; //stores host player's type (PC or VR)
-	public PlayerType typeRef;
+	Prototype.NetworkLobby.LobbyManager lobbyManagerRef;
 
 	// Use this for initialization
 	void Start () {
-		typeRef = FindObjectOfType<PlayerType> ();
+		lobbyManagerRef = FindObjectOfType<Prototype.NetworkLobby.LobbyManager>();
+		//typeRef = FindObjectOfType<PlayerType> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-			CmdUpdatePlayers ();
+		lobbyManagerRef.mySpawnType = hostType.text;
+		//CmdUpdatePlayers ();
 	
 	}
 
@@ -36,6 +38,6 @@ public class PlayerSyncData : NetworkBehaviour {
 			typeRef.playerType = type;
 		}
 		*/
-		typeRef.playerType = type;
+
 	}
 }
