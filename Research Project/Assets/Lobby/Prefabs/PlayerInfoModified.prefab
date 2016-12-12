@@ -1045,7 +1045,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hostType: {fileID: 114000011400404512}
-  typeRef: {fileID: 0}
 --- !u!114 &114000013575720140
 MonoBehaviour:
   m_ObjectHideFlags: 1

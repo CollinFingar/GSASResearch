@@ -3,21 +3,22 @@ using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+namespace Prototype.NetworkLobby
+{
+
 public class PlayerSyncData : NetworkBehaviour {
 	public Text hostType; //stores host player's type (PC or VR)
-	Prototype.NetworkLobby.LobbyManager lobbyManagerRef;
+	LobbyManager lobbyManagerRef;
 
 	// Use this for initialization
 	void Start () {
-		lobbyManagerRef = FindObjectOfType<Prototype.NetworkLobby.LobbyManager>();
+		lobbyManagerRef = FindObjectOfType<LobbyManager>();
 		//typeRef = FindObjectOfType<PlayerType> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Network.isServer) {
-			lobbyManagerRef.mySpawnType = hostType.text;
-		}
+		lobbyManagerRef.mySpawnType = hostType;
 		//lobbyManagerRef.mySpawnType = hostType.text;
 		//CmdUpdatePlayers ();
 	
@@ -43,4 +44,5 @@ public class PlayerSyncData : NetworkBehaviour {
 		*/
 
 	}
+}
 }
