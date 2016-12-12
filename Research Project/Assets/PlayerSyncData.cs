@@ -15,7 +15,10 @@ public class PlayerSyncData : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		lobbyManagerRef.mySpawnType = hostType.text;
+		if (Network.isServer) {
+			lobbyManagerRef.mySpawnType = hostType.text;
+		}
+		//lobbyManagerRef.mySpawnType = hostType.text;
 		//CmdUpdatePlayers ();
 	
 	}
