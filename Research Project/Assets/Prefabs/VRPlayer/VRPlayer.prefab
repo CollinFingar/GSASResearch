@@ -3216,7 +3216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 1
   sensitivityDepth: 1
-  sensitivityNormals: 1
+  sensitivityNormals: 2
   lumThreshold: 0.2
   edgeExp: 1
   sampleDist: 1

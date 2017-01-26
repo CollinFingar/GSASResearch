@@ -3,6 +3,8 @@ using UnityEngine.Networking;
 using System.Collections;
 using UnityEngine.VR;
 
+
+
 public class Communication : NetworkBehaviour {
 	PlayerMain vrplayer;
 	// Use this for initialization

@@ -451,7 +451,7 @@ namespace Prototype.NetworkLobby
 					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
 				}
 			} else {
-				if (mySpawnType.text == "PC") {
+				if (mySpawnType.text == "VR") {
 					p = vrPrefab;
 					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 				} else {
