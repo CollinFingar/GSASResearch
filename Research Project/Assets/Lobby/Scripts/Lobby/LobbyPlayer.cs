@@ -15,7 +15,8 @@ namespace Prototype.NetworkLobby
         //used on server to avoid assigning the same color to two player
         static List<int> _colorInUse = new List<int>();
 
-        public Button colorButton;
+		public Button playerTypeButton;
+		public Text playerTypeText;
         public InputField nameInput;
         public Button readyButton;
         public Button waitingPlayerButton;
@@ -88,6 +89,9 @@ namespace Prototype.NetworkLobby
 
         void SetupOtherPlayer()
         {
+			//CHANGED
+			gameObject.name = "PlayerInfoOther";
+			//END CHANGED
             nameInput.interactable = false;
             removePlayerButton.interactable = NetworkServer.active;
 
@@ -101,6 +105,9 @@ namespace Prototype.NetworkLobby
 
         void SetupLocalPlayer()
         {
+			//CHANGED
+			gameObject.name = "PlayerInfoLocal";
+			//END CHANGED
             nameInput.interactable = true;
             remoteIcone.gameObject.SetActive(false);
             localIcone.gameObject.SetActive(true);
@@ -120,14 +127,14 @@ namespace Prototype.NetworkLobby
                 CmdNameChanged("Player" + (LobbyPlayerList._instance.playerListContentTransform.childCount-1));
 
             //we switch from simple name display to name input
-            colorButton.interactable = true;
+            playerTypeButton.interactable = true;
             nameInput.interactable = true;
 
             nameInput.onEndEdit.RemoveAllListeners();
             nameInput.onEndEdit.AddListener(OnNameChanged);
 
-            colorButton.onClick.RemoveAllListeners();
-            colorButton.onClick.AddListener(OnColorClicked);
+            playerTypeButton.onClick.RemoveAllListeners();
+            playerTypeButton.onClick.AddListener(OnColorClicked);
 
             readyButton.onClick.RemoveAllListeners();
             readyButton.onClick.AddListener(OnReadyClicked);
@@ -160,7 +167,7 @@ namespace Prototype.NetworkLobby
                 textComponent.text = "READY";
                 textComponent.color = ReadyColor;
                 readyButton.interactable = false;
-                colorButton.interactable = false;
+                playerTypeButton.interactable = false;
                 nameInput.interactable = false;
             }
             else
@@ -171,7 +178,7 @@ namespace Prototype.NetworkLobby
                 textComponent.text = isLocalPlayer ? "JOIN" : "...";
                 textComponent.color = Color.white;
                 readyButton.interactable = isLocalPlayer;
-                colorButton.interactable = isLocalPlayer;
+                playerTypeButton.interactable = isLocalPlayer;
                 nameInput.interactable = isLocalPlayer;
             }
         }
@@ -191,8 +198,13 @@ namespace Prototype.NetworkLobby
 
         public void OnMyColor(Color newColor)
         {
-            playerColor = newColor;
-            colorButton.GetComponent<Image>().color = newColor;
+			if (playerTypeText.text == "PC") {
+				playerTypeText.text = "VR";
+			} else {
+				playerTypeText.text = "PC";
+			}
+            //playerColor = newColor;
+            //playerTypeButton.GetComponent<Image>().color = newColor;
         }
 
         //===== UI Handler

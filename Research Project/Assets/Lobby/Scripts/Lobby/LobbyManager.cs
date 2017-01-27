@@ -15,6 +15,8 @@ namespace Prototype.NetworkLobby
 		public GameObject pcPrefab;
 		public GameObject vrPrefab;
 
+		public Text mySpawnType; //type of player to spawn
+
 		//END CHANGED
         static short MsgKicked = MsgType.Highest + 1;
 
@@ -439,20 +441,43 @@ namespace Prototype.NetworkLobby
 		public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId){
 			GameObject p;
 			Debug.Log (conn.hostId + " " + conn.connectionId);
+			GameObject temp;
+			if (conn.connectionId == 0) {
+				if (mySpawnType.text == "VR") {
+					p = vrPrefab;
+					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
+				} else {
+					p = pcPrefab;
+					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
+				}
+			} else {
+				if (mySpawnType.text == "VR") {
+					p = vrPrefab;
+					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
+				} else {
+					p = pcPrefab;
+					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
+				}
+			}
+			/* OLD VERSION
 			if (conn.connectionId == 0) {
 				if (VRDevice.isPresent) {
 					p = vrPrefab;
+					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 				} else {
 					p = pcPrefab;
+					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
 				}
 			} else {
 				if (!VRDevice.isPresent) {
 					p = vrPrefab;
+					temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
 				} else {
 					p = pcPrefab;
+					temp = (GameObject)Instantiate (p, p.transform.position, p.transform.rotation);
 				}
 			}
-			GameObject temp = (GameObject)Instantiate (p, Vector3.zero, Quaternion.identity);
+			*/
 			return temp;
 		}
 					

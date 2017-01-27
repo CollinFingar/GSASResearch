@@ -3,8 +3,10 @@ using UnityEngine.Networking;
 using System.Collections;
 using UnityEngine.VR;
 
+
+
 public class Communication : NetworkBehaviour {
-	VRGUIHandler vrplayer;
+	PlayerMain vrplayer;
 	// Use this for initialization
 	void Start () {
 		vrplayer = null;
@@ -36,11 +38,9 @@ public class Communication : NetworkBehaviour {
 	[ClientRpc]
 	public void RpcChangeEnergy(int amount) {
 		if (vrplayer == null) {
-			vrplayer = (VRGUIHandler)FindObjectOfType (typeof(VRGUIHandler));
+			vrplayer = (PlayerMain)FindObjectOfType (typeof(PlayerMain));
 		}
-		if (VRSettings.enabled) {
-			print ("yeah boi");
-			vrplayer.GetComponent<VRGUIHandler> ().DecreaseEnergyLevel (amount);
-		}
+		print ("yeah boi");
+		vrplayer.GetComponent<PlayerMain> ().DecreaseEnergy (amount);
 	}
 }

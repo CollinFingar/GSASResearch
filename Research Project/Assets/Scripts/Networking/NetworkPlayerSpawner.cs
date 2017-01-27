@@ -45,7 +45,7 @@ public class NetworkPlayerSpawner : NetworkBehaviour {
 				NetworkServer.Spawn (VRPrefab);
 				NetworkServer.ReplacePlayerForConnection (conn, i, playerControllerId);
 			} else {
-				i = (GameObject)Instantiate(PCPrefab, transform.position, Quaternion.identity);
+				i = (GameObject)Instantiate(PCPrefab, PCPrefab.transform.position, Quaternion.identity);
 				NetworkServer.Spawn (PCPrefab);
 				NetworkServer.ReplacePlayerForConnection (conn, i, playerControllerId);
 			}
