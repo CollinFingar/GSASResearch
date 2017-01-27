@@ -17,6 +17,6 @@ public class BlockSplit : MonoBehaviour {
 	}
 
 	void deathSplit() { //called once per frame when dying
-		transform.Rotate(new Vector3(Random.Range(0,4),Random.Range(0,4),Random.Range(0,4)));
+
 	}
 }
