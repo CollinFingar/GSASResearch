@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using VR = UnityEngine.VR;
+using System.Runtime.InteropServices;
 
 /// <summary>
 /// Provides access to the Oculus boundary system.
@@ -113,21 +115,47 @@ public class OVRBoundary
 		OVRPlugin.ResetBoundaryLookAndFeel();
 	}
 
+	private static int cachedVector3fSize = Marshal.SizeOf(typeof(OVRPlugin.Vector3f));
+	private static OVRNativeBuffer cachedGeometryNativeBuffer = new OVRNativeBuffer(0);
+	private static float[] cachedGeometryManagedBuffer = new float[0];
 	/// <summary>
-	/// Returns an array of 3d points (in clockwise order, max 256 points) that define the specified boundary type.
+	/// Returns an array of 3d points (in clockwise order) that define the specified boundary type.
 	/// All points are returned in local tracking space shared by tracked nodes and accessible through OVRCameraRig's trackingSpace anchor.
 	/// </summary>
 	public Vector3[] GetGeometry(OVRBoundary.BoundaryType boundaryType)
 	{
-		OVRPlugin.BoundaryGeometry geo = OVRPlugin.GetBoundaryGeometry((OVRPlugin.BoundaryType)boundaryType);
-
-		Vector3[] points = new Vector3[geo.PointsCount];
-		for (int i = 0; i < geo.PointsCount; i++)
+		int pointsCount = 0;
+		if (OVRPlugin.GetBoundaryGeometry2((OVRPlugin.BoundaryType)boundaryType, IntPtr.Zero, ref pointsCount))
 		{
-			points[i] = geo.Points[i].FromFlippedZVector3f();
+			int requiredNativeBufferCapacity = pointsCount * cachedVector3fSize;
+			if (cachedGeometryNativeBuffer.GetCapacity() < requiredNativeBufferCapacity)
+				cachedGeometryNativeBuffer.Reset(requiredNativeBufferCapacity);
+
+			int requiredManagedBufferCapacity = pointsCount * 3;
+			if (cachedGeometryManagedBuffer.Length < requiredManagedBufferCapacity)
+				cachedGeometryManagedBuffer = new float[requiredManagedBufferCapacity];
+			
+			if (OVRPlugin.GetBoundaryGeometry2((OVRPlugin.BoundaryType)boundaryType, cachedGeometryNativeBuffer.GetPointer(), ref pointsCount))
+			{
+				Marshal.Copy(cachedGeometryNativeBuffer.GetPointer(), cachedGeometryManagedBuffer, 0, requiredManagedBufferCapacity);
+
+				Vector3[] points = new Vector3[pointsCount];
+
+				for (int i = 0; i < pointsCount; i++)
+				{
+					points[i] = new OVRPlugin.Vector3f()
+					{
+						x = cachedGeometryManagedBuffer[3 * i + 0],
+						y = cachedGeometryManagedBuffer[3 * i + 1],
+						z = cachedGeometryManagedBuffer[3 * i + 2],
+					}.FromFlippedZVector3f();
+				}
+
+				return points;
+			}
 		}
 
-		return points;
+		return new Vector3[0];
 	}
 
 	/// <summary>

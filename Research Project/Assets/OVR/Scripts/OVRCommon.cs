@@ -20,7 +20,9 @@ limitations under the License.
 ************************************************************************************/
 
 using UnityEngine;
+using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 /// <summary>
 /// Miscellaneous extension methods that any script can use.
@@ -227,5 +229,87 @@ public struct OVRPose
 			Position = position.ToVector3f(),
 			Orientation = orientation.ToQuatf()
 		};
+	}
+}
+
+public class OVRNativeBuffer : IDisposable
+{
+	private bool disposed = false;
+	private int m_numBytes = 0;
+	private IntPtr m_ptr = IntPtr.Zero;
+
+	public OVRNativeBuffer(int numBytes)
+	{
+		Reallocate(numBytes);
+	}
+
+	~OVRNativeBuffer()
+	{
+		Dispose(false);
+	}
+
+	public void Reset(int numBytes)
+	{
+		Reallocate(numBytes);
+	}
+
+	public int GetCapacity()
+	{
+		return m_numBytes;
+	}
+
+	public IntPtr GetPointer(int byteOffset = 0)
+	{
+		if (byteOffset < 0 || byteOffset >= m_numBytes)
+			return IntPtr.Zero;
+		return (byteOffset == 0) ? m_ptr : new IntPtr(m_ptr.ToInt64() + byteOffset);
+	}
+
+	public void Dispose()
+	{
+		Dispose(true);
+		GC.SuppressFinalize(this);
+	}
+
+	private void Dispose(bool disposing)
+	{
+		if (disposed)
+			return;
+
+		if (disposing)
+		{
+			// dispose managed resources
+		}
+
+		// dispose unmanaged resources
+		Release();
+
+		disposed = true;
+	}
+
+	private void Reallocate(int numBytes)
+	{
+		Release();
+
+		if (numBytes > 0)
+		{
+			m_ptr = Marshal.AllocHGlobal(numBytes);
+			m_numBytes = numBytes;
+		}
+		else
+		{
+			m_ptr = IntPtr.Zero;
+			m_numBytes = 0;
+		}
+	}
+
+	private void Release()
+	{
+		if (m_ptr != IntPtr.Zero)
+		{
+			Marshal.FreeHGlobal(m_ptr);
+			m_ptr = IntPtr.Zero;
+			m_numBytes = 0;
+		}
 	}
 }

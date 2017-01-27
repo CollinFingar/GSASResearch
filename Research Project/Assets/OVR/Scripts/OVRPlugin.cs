@@ -26,7 +26,7 @@ using System.Runtime.InteropServices;
 
 internal static class OVRPlugin
 {
-	public static readonly System.Version wrapperVersion = OVRP_1_8_0.version;
+	public static readonly System.Version wrapperVersion = OVRP_1_10_0.version;
 
 	private static System.Version _version;
 	public static System.Version version
@@ -46,19 +46,19 @@ internal static class OVRPlugin
 					}
 					else
 					{
-						_version = new System.Version(0, 0, 0);
+						_version = _versionZero;
 					}
 				}
 				catch
 				{
-					_version = new System.Version(0, 0, 0);
+					_version = _versionZero;
 				}
 
 				// Unity 5.1.1f3-p3 have OVRPlugin version "0.5.0", which isn't accurate.
 				if (_version == OVRP_0_5_0.version)
 					_version = OVRP_0_1_0.version;
 
-				if (_version < OVRP_1_3_0.version)
+				if (_version > _versionZero && _version < OVRP_1_3_0.version)
 					throw new PlatformNotSupportedException("Oculus Utilities version " + wrapperVersion + " is too new for OVRPlugin version " + _version.ToString () + ". Update to the latest version of Unity.");
 			}
 
@@ -79,7 +79,7 @@ internal static class OVRPlugin
 					if (version >= OVRP_1_1_0.version)
 						sdkVersion = OVRP_1_1_0.ovrp_GetNativeSDKVersion();
 					else
-						sdkVersion = "0.0.0";
+						sdkVersion = _versionZero.ToString();
                                     
 					if (sdkVersion != null)
 					{
@@ -89,12 +89,12 @@ internal static class OVRPlugin
 					}
 					else
 					{
-						_nativeSDKVersion = new System.Version(0, 0, 0);
+						_nativeSDKVersion = _versionZero;
 					}
 				}
 				catch
 				{
-					_nativeSDKVersion = new System.Version(0, 0, 0);
+					_nativeSDKVersion = _versionZero;
 				}
 			}
 
@@ -137,6 +137,8 @@ internal static class OVRPlugin
 		None   = -1,
 		Zero   = 0,
 		One    = 1,
+		Two    = 2,
+		Three  = 3,
 		Count,
 	}
 
@@ -163,7 +165,8 @@ internal static class OVRPlugin
 		RTouch         = 0x00000002,
 		Touch          = LTouch | RTouch,
 		Remote         = 0x00000004,
-		Gamepad        = 0x00000008,
+		Gamepad        = 0x00000010,
+		Touchpad       = 0x08000000,
 		Active         = unchecked((int)0x80000000),
 		All            = ~None,
 	}
@@ -204,6 +207,19 @@ internal static class OVRPlugin
 		Unspecified = 0,
 		Japan,
 		China,
+	}
+
+	public enum SystemHeadset
+	{
+		None = 0,
+		GearVR_R320, // Note4 Innovator
+		GearVR_R321, // S6 Innovator
+		GearVR_R322, // Commercial 1
+		GearVR_R323, // Commercial 2 (USB Type C)
+
+		Rift_DK1 = 0x1000,
+		Rift_DK2,
+		Rift_CV1,
 	}
 
 	public enum OverlayShape
@@ -266,21 +282,6 @@ internal static class OVRPlugin
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	internal struct InputState
-	{
-		public uint ConnectedControllers;
-		public uint Buttons;
-		public uint Touches;
-		public uint NearTouches;
-		public float LIndexTrigger;
-		public float RIndexTrigger;
-		public float LHandTrigger;
-		public float RHandTrigger;
-		public Vector2f LThumbstick;
-		public Vector2f RThumbstick;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
 	public struct ControllerState
 	{
 		public uint ConnectedControllers;
@@ -293,21 +294,6 @@ internal static class OVRPlugin
 		public float RHandTrigger;
 		public Vector2f LThumbstick;
 		public Vector2f RThumbstick;
-
-		// maintain backwards compat for OVRP_0_1_2.ovrp_GetInputState()
-		internal ControllerState(InputState inputState)
-		{
-			ConnectedControllers = inputState.ConnectedControllers;
-			Buttons              = inputState.Buttons;
-			Touches              = inputState.Touches;
-			NearTouches          = inputState.NearTouches;
-			LIndexTrigger        = inputState.LIndexTrigger;
-			RIndexTrigger        = inputState.RIndexTrigger;
-			LHandTrigger         = inputState.LHandTrigger;
-			RHandTrigger         = inputState.RHandTrigger;
-			LThumbstick          = inputState.LThumbstick;
-			RThumbstick          = inputState.RThumbstick;
-		}
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -333,6 +319,37 @@ internal static class OVRPlugin
 		public int MinimumBufferSamplesCount;
 		public int OptimalBufferSamplesCount;
 		public int MaximumBufferSamplesCount;
+	}
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct AppPerfFrameStats
+	{
+		public int HmdVsyncIndex;
+		public int AppFrameIndex;
+		public int AppDroppedFrameCount;
+		public float AppMotionToPhotonLatency;
+		public float AppQueueAheadTime;
+		public float AppCpuElapsedTime;
+		public float AppGpuElapsedTime;
+		public int CompositorFrameIndex;
+		public int CompositorDroppedFrameCount;
+		public float CompositorLatency;
+		public float CompositorCpuElapsedTime;
+		public float CompositorGpuElapsedTime;
+		public float CompositorCpuStartToGpuEndElapsedTime;
+		public float CompositorGpuEndToVsyncElapsedTime;
+	}
+
+	public const int AppPerfFrameStatsMaxCount = 5;
+
+	[StructLayout(LayoutKind.Sequential)]
+	public struct AppPerfStats
+	{
+		[MarshalAs(UnmanagedType.ByValArray, SizeConst=AppPerfFrameStatsMaxCount)]
+		public AppPerfFrameStats[] FrameStats;
+		public int FrameStatsCount;
+		public Bool AnyFrameStatsDropped;
+		public float AdaptiveGpuPerformanceScale;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -656,6 +673,10 @@ internal static class OVRPlugin
 				if (version >= OVRP_1_7_0.version)
 					flags |= (uint)(shape) << OverlayShapeFlagShift;
 				else
+#else
+				if (shape == OverlayShape.Cubemap && version >= OVRP_1_10_0.version)
+					flags |= (uint)(shape) << OverlayShapeFlagShift;
+				else
 #endif
 					return false;
 			}
@@ -858,6 +879,44 @@ internal static class OVRPlugin
 		}
 	}
 
+	public static bool GetBoundaryGeometry2(BoundaryType boundaryType, IntPtr points, ref int pointsCount)
+	{
+		if (version >= OVRP_1_9_0.version)
+		{
+			return OVRP_1_9_0.ovrp_GetBoundaryGeometry2(boundaryType, points, ref pointsCount) == OVRPlugin.Bool.True;
+		}
+		else
+		{
+			pointsCount = 0;
+
+			return false;
+		}
+	}
+
+	public static AppPerfStats GetAppPerfStats()
+	{
+		if (version >= OVRP_1_9_0.version)
+		{
+			return OVRP_1_9_0.ovrp_GetAppPerfStats();
+		}
+		else
+		{
+			return new AppPerfStats();
+		}
+	}
+
+	public static bool ResetAppPerfStats()
+	{
+		if (version >= OVRP_1_9_0.version)
+		{
+			return OVRP_1_9_0.ovrp_ResetAppPerfStats() == OVRPlugin.Bool.True;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	public static Vector3f GetBoundaryDimensions(BoundaryType boundaryType)
 	{
 		if (version >= OVRP_1_8_0.version)
@@ -892,6 +951,30 @@ internal static class OVRPlugin
 		{
 			return false;
 		}
+	}
+
+	public static SystemHeadset GetSystemHeadsetType()
+	{
+		if (version >= OVRP_1_9_0.version)
+			return OVRP_1_9_0.ovrp_GetSystemHeadsetType();
+		
+		return SystemHeadset.None;
+	}
+
+	public static Controller GetActiveController()
+	{
+		if (version >= OVRP_1_9_0.version)
+			return OVRP_1_9_0.ovrp_GetActiveController();
+		
+		return Controller.None;
+	}
+
+	public static Controller GetConnectedControllers()
+	{
+		if (version >= OVRP_1_9_0.version)
+			return OVRP_1_9_0.ovrp_GetConnectedControllers();
+		
+		return Controller.None;
 	}
 
 	private static Bool ToBool(bool b)
@@ -931,6 +1014,7 @@ internal static class OVRPlugin
 	}
 
 	private const string pluginName = "OVRPlugin";
+	private static Version _versionZero = new System.Version(0, 0, 0);
 
 	private static class OVRP_0_1_0
 	{
@@ -1259,5 +1343,33 @@ internal static class OVRPlugin
 
 		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern Posef ovrp_GetNodeAcceleration2(int stateId, Node nodeId);
+	}
+
+	private static class OVRP_1_9_0
+	{
+		public static readonly System.Version version = new System.Version(1, 9, 0);
+
+		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern SystemHeadset ovrp_GetSystemHeadsetType();
+
+		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern Controller ovrp_GetActiveController();
+
+		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern Controller ovrp_GetConnectedControllers();
+
+		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern Bool ovrp_GetBoundaryGeometry2(BoundaryType boundaryType, IntPtr points, ref int pointsCount);
+
+		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern AppPerfStats ovrp_GetAppPerfStats();
+
+		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern Bool ovrp_ResetAppPerfStats();
+	}
+
+	private static class OVRP_1_10_0
+	{
+		public static readonly System.Version version = new System.Version(1, 10, 0);
 	}
 }
