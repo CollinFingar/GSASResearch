@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour {
 	public GameObject deathPart;
+	public float deathDelay = 5;
 	// Use this for initialization
 	void Start () {
-		Destroy (this.gameObject, 5.0f);
+		Destroy (this.gameObject, deathDelay);
 	}
 	
 	// Update is called once per frame
