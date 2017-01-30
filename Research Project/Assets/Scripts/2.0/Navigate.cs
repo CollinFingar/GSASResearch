@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Navigate : MonoBehaviour {
 
+	public int directionIndex = 0;
+	public string[] directions = new string[]{"Up", "Right", "Down", "Left"};
+
 	public float rotateAmount = 90f;
 
 	private bool rotating = false;
+
+	public UIHandler UI;
 
 	// Use this for initialization
 	void Start () {
@@ -20,10 +25,22 @@ public class Navigate : MonoBehaviour {
 
 	public void RotateRight(){
 		transform.localEulerAngles = new Vector3 (transform.localEulerAngles.x, transform.localEulerAngles.y + rotateAmount, transform.localEulerAngles.z);
+		if (directionIndex < 3) {
+			directionIndex++;
+		} else {
+			directionIndex = 0;
+		}
+		UI.UpdateTrianglesDirection ("right", rotateAmount);
 	}
 
 	public void RotateLeft(){
 		transform.localEulerAngles = new Vector3 (transform.localEulerAngles.x, transform.localEulerAngles.y - rotateAmount, transform.localEulerAngles.z);
+		if (directionIndex > 0) {
+			directionIndex--;
+		} else {
+			directionIndex = 3;
+		}
+		UI.UpdateTrianglesDirection ("left", rotateAmount);
 	}
 
 	public void ReceiveInput(ArrayList inputs){
