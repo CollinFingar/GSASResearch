@@ -215,7 +215,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1157868791066950}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.06000006, y: 0.06, z: 0.06000006}
   m_Children:
@@ -228,7 +228,7 @@ Transform:
   - {fileID: 4445425765032734}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4744567519549262
 Transform:
   m_ObjectHideFlags: 1
@@ -408,6 +408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d222da8c76464d44a9a56eecd00d7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squeezingTrigger: 0
+  rightHand: 0
   shot: {fileID: 1416823682753618, guid: d896f4879b06c8645bf32b4f8730f21e, type: 2}
   velocity: {x: 0, y: 0, z: 0}
   leftOffset: {x: -0.05, y: 0.02, z: 0.08}
