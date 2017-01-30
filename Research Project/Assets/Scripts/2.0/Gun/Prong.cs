@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VR;
 
-public class ProngShoot : MonoBehaviour {
+public class Prong : GunScript {
 
 	public GameObject shot;
 	public Vector3 velocity = new Vector3();
@@ -25,16 +25,15 @@ public class ProngShoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float triggerSqueezeAmount = OVRInput.Get (OVRInput.Axis1D.PrimaryIndexTrigger);
-		if (triggerSqueezeAmount > .2) {
-			shooting = true;	
-		} else {
-			shooting = false;
-		}
+		shooting = squeezingTrigger;
 		if (shooting) {
 			AutoShoot ();
 		} else if (Time.time > timeTillNextShot + frequency && !shooting) {
-			OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.RTouch);
+			if (rightHand) {
+				OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.RTouch);
+			} else {
+				OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.LTouch);
+			}
 		}
 	}
 
@@ -50,9 +49,12 @@ public class ProngShoot : MonoBehaviour {
 		newShotL.GetComponent<ProngShot> ().velocity = transform.right * 15;
 		GameObject newShotR = (GameObject)Instantiate (shot, rightBarrelLocation.transform.position, Quaternion.identity);
 		newShotR.GetComponent<ProngShot> ().velocity = transform.right * 15;
-		//OVRHapticsClip hapticsClip = new OVRHapticsClip ();
-		//hapticsClip.Samples.set
-		//OVRHaptics.
-		OVRInput.SetControllerVibration(.5f,.3f,OVRInput.Controller.RTouch);
+
+		if (rightHand) {
+			OVRInput.SetControllerVibration (.5f, .5f, OVRInput.Controller.RTouch);
+		} else {
+			OVRInput.SetControllerVibration (.5f, .5f, OVRInput.Controller.LTouch);
+		}
+
 	}
 }
