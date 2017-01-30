@@ -18,9 +18,11 @@ public class Prong : GunScript {
 	public GameObject leftBarrelLocation;
 	public GameObject rightBarrelLocation;
 
+	private AudioSource AS;
+
 	// Use this for initialization
 	void Start () {
-		
+		AS = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -55,6 +57,7 @@ public class Prong : GunScript {
 		} else {
 			OVRInput.SetControllerVibration (.5f, .5f, OVRInput.Controller.LTouch);
 		}
+		AS.Play ();
 
 	}
 }
