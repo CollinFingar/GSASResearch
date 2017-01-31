@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416823682753618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.98, y: 0.38, z: 4.04}
+  m_LocalPosition: {x: -3.5352602, y: 1.81, z: 0.15810767}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children:
   - {fileID: 4614557445570644}
@@ -187,6 +187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   velocity: {x: 0, y: 0, z: 0}
+  prongParticle: {fileID: 1292652195836908, guid: 93a6079ad8788774bb055fc274af0960,
+    type: 2}
 --- !u!114 &114913288088791014
 MonoBehaviour:
   m_ObjectHideFlags: 1

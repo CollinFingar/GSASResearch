@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProngShot : ShotScript {
 
 	public Vector3 velocity = new Vector3 ();
+	public GameObject prongParticle;
 
 	// Use this for initialization
 	void Start () {
@@ -14,5 +15,10 @@ public class ProngShot : ShotScript {
 	// Update is called once per frame
 	void Update () {
 		transform.position = transform.position + velocity * Time.deltaTime;
+	}
+
+	void OnDestroy() {
+		GameObject particle = (GameObject)Instantiate (prongParticle, new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z),Quaternion.identity);
+		Destroy (particle, 1.0f); //destroy particlesystem object after 2 seconds.
 	}
 }
