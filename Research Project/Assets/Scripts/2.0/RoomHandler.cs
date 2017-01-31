@@ -14,6 +14,11 @@ public class RoomHandler : MonoBehaviour {
 	public GameObject downDoor;
 	public GameObject leftDoor;
 
+	public GameObject upRoom;
+	public GameObject rightRoom;
+	public GameObject downRoom;
+	public GameObject leftRoom;
+
 	public UIHandler playerUI;
 
 	private bool UIDeactivated = false;
@@ -44,6 +49,7 @@ public class RoomHandler : MonoBehaviour {
 				bool[] activeData = new bool[]{ upDoorActive, rightDoorActive, downDoorActive, leftDoorActive };
 				GameObject[] doorData = new GameObject[]{ upDoor, rightDoor, downDoor, leftDoor };
 				playerUI.UpdateTrianglesForRoom (activeData, doorData);
+				playerUI.room = gameObject;
 			}
 		}
 	}

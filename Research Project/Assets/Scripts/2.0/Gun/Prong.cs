@@ -19,6 +19,8 @@ public class Prong : GunScript {
 	public GameObject rightBarrelLocation;
 
 	private AudioSource AS;
+	public GameObject ps1;
+	public GameObject ps2;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +38,8 @@ public class Prong : GunScript {
 			} else {
 				OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.LTouch);
 			}
+			ps1.SetActive (false);
+			ps2.SetActive (false);
 		}
 	}
 
@@ -47,6 +51,8 @@ public class Prong : GunScript {
 	}
 
 	void FireShot(){
+		ps1.SetActive (false);
+		ps2.SetActive (false);
 		GameObject newShotL = (GameObject)Instantiate (shot, leftBarrelLocation.transform.position, Quaternion.identity);
 		newShotL.GetComponent<ProngShot> ().velocity = transform.right * 15;
 		GameObject newShotR = (GameObject)Instantiate (shot, rightBarrelLocation.transform.position, Quaternion.identity);
@@ -58,6 +64,7 @@ public class Prong : GunScript {
 			OVRInput.SetControllerVibration (.5f, .5f, OVRInput.Controller.LTouch);
 		}
 		AS.Play ();
-
+		ps1.SetActive (true);
+		ps2.SetActive (true);
 	}
 }

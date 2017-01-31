@@ -36,6 +36,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224879681619647706}
+  - component: {fileID: 65528975919860428}
+  - component: {fileID: 114237122478592762}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -60,6 +62,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &65528975919860428
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816652287888766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.8, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114145810439062062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -87,6 +101,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114237122478592762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816652287888766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e1a920fe463d94592d97b235739963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightColor: {r: 0.625, g: 0.625, b: 0.625, a: 0}
+  UI: {fileID: 0}
+  Direction: Front
 --- !u!114 &114919122460626564
 MonoBehaviour:
   m_ObjectHideFlags: 1

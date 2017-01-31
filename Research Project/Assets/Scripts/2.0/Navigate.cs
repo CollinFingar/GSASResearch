@@ -8,7 +8,6 @@ public class Navigate : MonoBehaviour {
 	public string[] directions = new string[]{"Up", "Right", "Down", "Left"};
 
 	public float rotateAmount = 90f;
-
 	private bool rotating = false;
 
 	public UIHandler UI;

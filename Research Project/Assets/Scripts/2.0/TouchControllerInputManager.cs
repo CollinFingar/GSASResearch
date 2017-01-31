@@ -19,6 +19,7 @@ public class TouchControllerInputManager : MonoBehaviour {
 
 	public GunController GC;
 	public Navigate NAV;
+	public UIHandler UI;
 
 	// Use this for initialization
 	void Start () {
@@ -66,5 +67,10 @@ public class TouchControllerInputManager : MonoBehaviour {
 		navInputs.Add (yButtonPressed);
 		navInputs.Add (bButtonPressed);
 		NAV.ReceiveInput (navInputs);
+		/**
+		ArrayList UIInputs = new ArrayList ();
+		UIInputs.Add (xButtonPressed);
+		UIInputs.Add (aButtonPressed);
+		NAV.ReceiveInput (UIInputs);**/
 	}
 }
