@@ -13,6 +13,8 @@ public class Fader : MonoBehaviour {
 	private bool fadingOut = false;
 	private bool fadingIn = false;
 
+	public Color fadeColor;
+
 	// Use this for initialization
 	void Start () {
 		SR = GetComponent<SpriteRenderer> ();
@@ -26,14 +28,14 @@ public class Fader : MonoBehaviour {
 				alpha = 1;
 				fadingOut = false;
 			}
-			SR.color = new Color(0f,0f,0f,alpha);
+			SR.color = new Color(fadeColor.r,fadeColor.g,fadeColor.b,alpha);
 		} else if (fadingIn) {
 			alpha -= fadeSpeed * Time.deltaTime;
 			if (alpha <= 0) {
 				alpha = 0;
 				fadingIn = false;
 			}
-			SR.color = new Color(0f,0f,0f,alpha);
+			SR.color = new Color(fadeColor.r,fadeColor.g,fadeColor.b,alpha);
 		}
 	}
 
