@@ -18,7 +18,7 @@ public class EnemyBasic : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter(Collider other){
+	void OnCollisionEnter(Collision other){
 		ShotScript ss = other.gameObject.GetComponent<ShotScript> ();
 		if (ss != null) {
 			Destroy (other.gameObject);
