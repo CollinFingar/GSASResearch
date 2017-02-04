@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 1278838}
   - component: {fileID: 1278837}
   - component: {fileID: 1278836}
-  - component: {fileID: 1278835}
   - component: {fileID: 1278834}
   m_Layer: 0
   m_Name: FloorNode
@@ -140,19 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1278835
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65061845394141916, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1278832}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1278836
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -220,7 +206,6 @@ GameObject:
   - component: {fileID: 5621777}
   - component: {fileID: 5621776}
   - component: {fileID: 5621775}
-  - component: {fileID: 5621774}
   - component: {fileID: 5621773}
   m_Layer: 0
   m_Name: FloorNode
@@ -256,19 +241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &5621774
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65248818831108786, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 5621771}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &5621775
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -660,7 +632,6 @@ GameObject:
   - component: {fileID: 97923505}
   - component: {fileID: 97923504}
   - component: {fileID: 97923503}
-  - component: {fileID: 97923502}
   - component: {fileID: 97923501}
   m_Layer: 0
   m_Name: FloorNode
@@ -696,19 +667,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &97923502
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65263264276173490, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 97923499}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &97923503
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -826,7 +784,6 @@ GameObject:
   - component: {fileID: 154345782}
   - component: {fileID: 154345781}
   - component: {fileID: 154345780}
-  - component: {fileID: 154345779}
   - component: {fileID: 154345778}
   m_Layer: 0
   m_Name: FloorNode
@@ -862,19 +819,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &154345779
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65998021488252334, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 154345776}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &154345780
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -942,7 +886,6 @@ GameObject:
   - component: {fileID: 179442713}
   - component: {fileID: 179442712}
   - component: {fileID: 179442711}
-  - component: {fileID: 179442710}
   - component: {fileID: 179442709}
   m_Layer: 0
   m_Name: FloorNode
@@ -978,19 +921,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &179442710
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65755391422060398, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 179442707}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &179442711
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1282,7 +1212,6 @@ GameObject:
   - component: {fileID: 213800878}
   - component: {fileID: 213800877}
   - component: {fileID: 213800876}
-  - component: {fileID: 213800875}
   - component: {fileID: 213800874}
   m_Layer: 0
   m_Name: FloorNode
@@ -1318,19 +1247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &213800875
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65561242557531530, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 213800872}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &213800876
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1398,7 +1314,6 @@ GameObject:
   - component: {fileID: 217551820}
   - component: {fileID: 217551819}
   - component: {fileID: 217551818}
-  - component: {fileID: 217551817}
   - component: {fileID: 217551816}
   m_Layer: 0
   m_Name: FloorNode
@@ -1434,19 +1349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &217551817
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65843301906932186, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 217551814}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &217551818
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1749,7 +1651,6 @@ GameObject:
   - component: {fileID: 268998761}
   - component: {fileID: 268998760}
   - component: {fileID: 268998759}
-  - component: {fileID: 268998758}
   - component: {fileID: 268998757}
   m_Layer: 0
   m_Name: FloorNode
@@ -1785,19 +1686,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &268998758
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65696963389693596, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 268998755}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &268998759
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1946,7 +1834,6 @@ GameObject:
   - component: {fileID: 306042517}
   - component: {fileID: 306042516}
   - component: {fileID: 306042515}
-  - component: {fileID: 306042514}
   - component: {fileID: 306042513}
   m_Layer: 0
   m_Name: FloorNode
@@ -1982,19 +1869,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &306042514
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65023140878995704, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 306042511}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &306042515
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2143,7 +2017,6 @@ GameObject:
   - component: {fileID: 328755935}
   - component: {fileID: 328755934}
   - component: {fileID: 328755933}
-  - component: {fileID: 328755932}
   - component: {fileID: 328755931}
   m_Layer: 0
   m_Name: FloorNode
@@ -2179,19 +2052,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &328755932
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65831854076909482, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 328755929}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &328755933
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2421,7 +2281,6 @@ GameObject:
   - component: {fileID: 390440602}
   - component: {fileID: 390440601}
   - component: {fileID: 390440600}
-  - component: {fileID: 390440599}
   - component: {fileID: 390440598}
   m_Layer: 0
   m_Name: FloorNode
@@ -2457,19 +2316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &390440599
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65919076791100970, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 390440596}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &390440600
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2762,7 +2608,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 432893049}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 1.1, z: 9.5}
+  m_LocalPosition: {x: -20, y: 1.1, z: 9.5}
   m_LocalScale: {x: 1, y: 2, z: 12}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2861,7 +2707,6 @@ GameObject:
   - component: {fileID: 437984946}
   - component: {fileID: 437984945}
   - component: {fileID: 437984944}
-  - component: {fileID: 437984943}
   - component: {fileID: 437984942}
   m_Layer: 0
   m_Name: FloorNode
@@ -2897,19 +2742,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &437984943
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65562990095605794, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 437984940}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &437984944
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3220,7 +3052,6 @@ GameObject:
   - component: {fileID: 470468956}
   - component: {fileID: 470468955}
   - component: {fileID: 470468954}
-  - component: {fileID: 470468953}
   - component: {fileID: 470468952}
   m_Layer: 0
   m_Name: FloorNode
@@ -3256,19 +3087,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &470468953
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65133304051359468, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 470468950}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &470468954
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3417,7 +3235,6 @@ GameObject:
   - component: {fileID: 554278235}
   - component: {fileID: 554278234}
   - component: {fileID: 554278233}
-  - component: {fileID: 554278232}
   - component: {fileID: 554278231}
   m_Layer: 0
   m_Name: FloorNode
@@ -3453,19 +3270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &554278232
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65662700741802038, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 554278229}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &554278233
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3677,7 +3481,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 574602863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 1.1, z: -9}
+  m_LocalPosition: {x: -13.5, y: 1.1, z: -9}
   m_LocalScale: {x: 1, y: 2, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3857,7 +3661,6 @@ GameObject:
   - component: {fileID: 600044167}
   - component: {fileID: 600044166}
   - component: {fileID: 600044165}
-  - component: {fileID: 600044164}
   - component: {fileID: 600044163}
   m_Layer: 0
   m_Name: FloorNode
@@ -3893,19 +3696,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &600044164
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65647167004728284, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 600044161}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &600044165
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4123,7 +3913,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 608438858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5, y: 1.1, z: 3}
+  m_LocalPosition: {x: -26.5, y: 1.1, z: 3}
   m_LocalScale: {x: 1, y: 2, z: 12}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4204,7 +3994,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 648935082}
   m_LocalRotation: {x: -0, y: -0.70710707, z: -0, w: 0.70710653}
-  m_LocalPosition: {x: 3, y: 1.1, z: -5}
+  m_LocalPosition: {x: -16, y: 1.1, z: -5}
   m_LocalScale: {x: 4, y: 2, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4303,7 +4093,6 @@ GameObject:
   - component: {fileID: 660578981}
   - component: {fileID: 660578980}
   - component: {fileID: 660578979}
-  - component: {fileID: 660578978}
   - component: {fileID: 660578977}
   m_Layer: 0
   m_Name: FloorNode
@@ -4339,19 +4128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &660578978
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65870985749043166, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 660578975}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &660578979
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4419,7 +4195,6 @@ GameObject:
   - component: {fileID: 667878777}
   - component: {fileID: 667878776}
   - component: {fileID: 667878775}
-  - component: {fileID: 667878774}
   - component: {fileID: 667878773}
   m_Layer: 0
   m_Name: FloorNode
@@ -4455,19 +4230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &667878774
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65411507638872906, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 667878771}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &667878775
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4535,7 +4297,6 @@ GameObject:
   - component: {fileID: 705557914}
   - component: {fileID: 705557913}
   - component: {fileID: 705557912}
-  - component: {fileID: 705557911}
   - component: {fileID: 705557910}
   m_Layer: 0
   m_Name: FloorNode
@@ -4571,19 +4332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &705557911
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65609482225776028, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 705557908}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &705557912
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4714,7 +4462,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 745059516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.5, y: 1.1, z: -9}
+  m_LocalPosition: {x: -30.5, y: 1.1, z: -9}
   m_LocalScale: {x: 1, y: 2, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4882,6 +4630,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 774811473}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &784180494
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4452068308407352, guid: cc176bb5f70a66e4cad4433b54e2ec06, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452068308407352, guid: cc176bb5f70a66e4cad4433b54e2ec06, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452068308407352, guid: cc176bb5f70a66e4cad4433b54e2ec06, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452068308407352, guid: cc176bb5f70a66e4cad4433b54e2ec06, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452068308407352, guid: cc176bb5f70a66e4cad4433b54e2ec06, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452068308407352, guid: cc176bb5f70a66e4cad4433b54e2ec06, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452068308407352, guid: cc176bb5f70a66e4cad4433b54e2ec06, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452068308407352, guid: cc176bb5f70a66e4cad4433b54e2ec06, type: 2}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: cc176bb5f70a66e4cad4433b54e2ec06, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &784305699
 GameObject:
   m_ObjectHideFlags: 0
@@ -4894,7 +4684,6 @@ GameObject:
   - component: {fileID: 784305705}
   - component: {fileID: 784305704}
   - component: {fileID: 784305703}
-  - component: {fileID: 784305702}
   - component: {fileID: 784305701}
   m_Layer: 0
   m_Name: FloorNode
@@ -4930,19 +4719,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &784305702
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65704190346951554, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 784305699}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &784305703
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5025,7 +4801,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 786767578}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -9, y: 1, z: -9}
+  m_LocalPosition: {x: -10.466, y: 1, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5218,7 +4994,6 @@ GameObject:
   - component: {fileID: 807155908}
   - component: {fileID: 807155907}
   - component: {fileID: 807155906}
-  - component: {fileID: 807155905}
   - component: {fileID: 807155904}
   m_Layer: 0
   m_Name: FloorNode
@@ -5254,19 +5029,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &807155905
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65086568304329310, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 807155902}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &807155906
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5334,7 +5096,6 @@ GameObject:
   - component: {fileID: 828910816}
   - component: {fileID: 828910815}
   - component: {fileID: 828910814}
-  - component: {fileID: 828910813}
   - component: {fileID: 828910812}
   m_Layer: 0
   m_Name: FloorNode
@@ -5370,19 +5131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &828910813
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65260851033020452, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 828910810}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &828910814
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5531,7 +5279,6 @@ GameObject:
   - component: {fileID: 847865042}
   - component: {fileID: 847865041}
   - component: {fileID: 847865040}
-  - component: {fileID: 847865039}
   - component: {fileID: 847865038}
   m_Layer: 0
   m_Name: FloorNode
@@ -5567,19 +5314,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &847865039
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65199889267072248, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 847865036}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &847865040
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5647,7 +5381,6 @@ GameObject:
   - component: {fileID: 849059427}
   - component: {fileID: 849059426}
   - component: {fileID: 849059425}
-  - component: {fileID: 849059424}
   - component: {fileID: 849059423}
   m_Layer: 0
   m_Name: FloorNode
@@ -5683,19 +5416,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &849059424
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65667134862021398, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 849059421}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &849059425
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6212,7 +5932,6 @@ GameObject:
   - component: {fileID: 918123165}
   - component: {fileID: 918123164}
   - component: {fileID: 918123163}
-  - component: {fileID: 918123162}
   - component: {fileID: 918123161}
   m_Layer: 0
   m_Name: FloorNode
@@ -6248,19 +5967,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &918123162
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65225822283167510, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 918123159}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &918123163
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6328,7 +6034,6 @@ GameObject:
   - component: {fileID: 928503584}
   - component: {fileID: 928503583}
   - component: {fileID: 928503582}
-  - component: {fileID: 928503581}
   - component: {fileID: 928503580}
   m_Layer: 0
   m_Name: FloorNode
@@ -6364,19 +6069,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &928503581
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65711123581516580, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 928503578}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &928503582
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6525,7 +6217,6 @@ GameObject:
   - component: {fileID: 984222009}
   - component: {fileID: 984222008}
   - component: {fileID: 984222007}
-  - component: {fileID: 984222006}
   - component: {fileID: 984222005}
   m_Layer: 0
   m_Name: FloorNode
@@ -6561,19 +6252,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &984222006
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65429550613019496, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 984222003}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &984222007
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6722,7 +6400,6 @@ GameObject:
   - component: {fileID: 1017901652}
   - component: {fileID: 1017901651}
   - component: {fileID: 1017901650}
-  - component: {fileID: 1017901649}
   - component: {fileID: 1017901648}
   m_Layer: 0
   m_Name: FloorNode
@@ -6758,19 +6435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1017901649
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65527327806027990, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1017901646}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1017901650
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7131,7 +6795,6 @@ GameObject:
   - component: {fileID: 1093280869}
   - component: {fileID: 1093280868}
   - component: {fileID: 1093280867}
-  - component: {fileID: 1093280866}
   - component: {fileID: 1093280865}
   m_Layer: 0
   m_Name: FloorNode
@@ -7167,19 +6830,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1093280866
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65276443215058034, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1093280863}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1093280867
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7247,7 +6897,6 @@ GameObject:
   - component: {fileID: 1093788295}
   - component: {fileID: 1093788294}
   - component: {fileID: 1093788293}
-  - component: {fileID: 1093788292}
   - component: {fileID: 1093788291}
   m_Layer: 0
   m_Name: FloorNode
@@ -7283,19 +6932,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1093788292
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65378359028949792, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1093788289}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1093788293
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7363,7 +6999,6 @@ GameObject:
   - component: {fileID: 1106234781}
   - component: {fileID: 1106234780}
   - component: {fileID: 1106234779}
-  - component: {fileID: 1106234778}
   - component: {fileID: 1106234777}
   m_Layer: 0
   m_Name: FloorNode
@@ -7399,19 +7034,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1106234778
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65547021231356704, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1106234775}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1106234779
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7479,7 +7101,6 @@ GameObject:
   - component: {fileID: 1124802812}
   - component: {fileID: 1124802811}
   - component: {fileID: 1124802810}
-  - component: {fileID: 1124802809}
   - component: {fileID: 1124802808}
   m_Layer: 0
   m_Name: FloorNode
@@ -7515,19 +7136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1124802809
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65531320045355778, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1124802806}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1124802810
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7676,7 +7284,6 @@ GameObject:
   - component: {fileID: 1161943793}
   - component: {fileID: 1161943792}
   - component: {fileID: 1161943791}
-  - component: {fileID: 1161943790}
   - component: {fileID: 1161943789}
   m_Layer: 0
   m_Name: FloorNode
@@ -7712,19 +7319,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1161943790
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65861947958214482, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1161943787}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1161943791
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7988,7 +7582,6 @@ GameObject:
   - component: {fileID: 1185058609}
   - component: {fileID: 1185058608}
   - component: {fileID: 1185058607}
-  - component: {fileID: 1185058606}
   - component: {fileID: 1185058605}
   m_Layer: 0
   m_Name: FloorNode
@@ -8024,19 +7617,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1185058606
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65931658385265046, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1185058603}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1185058607
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8231,7 +7811,6 @@ GameObject:
   - component: {fileID: 1255409086}
   - component: {fileID: 1255409085}
   - component: {fileID: 1255409084}
-  - component: {fileID: 1255409083}
   - component: {fileID: 1255409082}
   m_Layer: 0
   m_Name: FloorNode
@@ -8267,19 +7846,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1255409083
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65096150511611936, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1255409080}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1255409084
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8347,7 +7913,6 @@ GameObject:
   - component: {fileID: 1305924828}
   - component: {fileID: 1305924827}
   - component: {fileID: 1305924826}
-  - component: {fileID: 1305924825}
   - component: {fileID: 1305924824}
   m_Layer: 0
   m_Name: FloorNode
@@ -8383,19 +7948,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1305924825
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65386587264055912, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1305924822}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1305924826
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8463,7 +8015,6 @@ GameObject:
   - component: {fileID: 1317747737}
   - component: {fileID: 1317747736}
   - component: {fileID: 1317747735}
-  - component: {fileID: 1317747734}
   - component: {fileID: 1317747733}
   m_Layer: 0
   m_Name: FloorNode
@@ -8499,19 +8050,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1317747734
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65534151399792406, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1317747731}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1317747735
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8579,7 +8117,6 @@ GameObject:
   - component: {fileID: 1354924170}
   - component: {fileID: 1354924169}
   - component: {fileID: 1354924168}
-  - component: {fileID: 1354924167}
   - component: {fileID: 1354924166}
   m_Layer: 0
   m_Name: FloorNode
@@ -8615,19 +8152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1354924167
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65889960099967952, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1354924164}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1354924168
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8695,7 +8219,6 @@ GameObject:
   - component: {fileID: 1372837184}
   - component: {fileID: 1372837183}
   - component: {fileID: 1372837182}
-  - component: {fileID: 1372837181}
   - component: {fileID: 1372837180}
   m_Layer: 0
   m_Name: FloorNode
@@ -8731,19 +8254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1372837181
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65984955191247738, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1372837178}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1372837182
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9165,7 +8675,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1425139433}
   m_LocalRotation: {x: -0, y: -0.70710707, z: -0, w: 0.70710653}
-  m_LocalPosition: {x: -7, y: 1.1, z: -5}
+  m_LocalPosition: {x: -26, y: 1.1, z: -5}
   m_LocalScale: {x: 4, y: 2, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9183,7 +8693,6 @@ GameObject:
   - component: {fileID: 1441483725}
   - component: {fileID: 1441483724}
   - component: {fileID: 1441483723}
-  - component: {fileID: 1441483722}
   - component: {fileID: 1441483721}
   m_Layer: 0
   m_Name: FloorNode
@@ -9219,19 +8728,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1441483722
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65595256724206418, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1441483719}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1441483723
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9299,7 +8795,6 @@ GameObject:
   - component: {fileID: 1518506685}
   - component: {fileID: 1518506684}
   - component: {fileID: 1518506683}
-  - component: {fileID: 1518506682}
   - component: {fileID: 1518506681}
   m_Layer: 0
   m_Name: FloorNode
@@ -9335,19 +8830,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1518506682
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65856095938116778, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1518506679}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1518506683
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9496,7 +8978,6 @@ GameObject:
   - component: {fileID: 1530541745}
   - component: {fileID: 1530541744}
   - component: {fileID: 1530541743}
-  - component: {fileID: 1530541742}
   - component: {fileID: 1530541741}
   m_Layer: 0
   m_Name: FloorNode
@@ -9532,19 +9013,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1530541742
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65745092921304012, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1530541739}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1530541743
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9743,7 +9211,6 @@ GameObject:
   - component: {fileID: 1558637725}
   - component: {fileID: 1558637724}
   - component: {fileID: 1558637723}
-  - component: {fileID: 1558637722}
   - component: {fileID: 1558637721}
   m_Layer: 0
   m_Name: FloorNode
@@ -9779,19 +9246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1558637722
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65660866791225616, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1558637719}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1558637723
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9859,7 +9313,6 @@ GameObject:
   - component: {fileID: 1601085941}
   - component: {fileID: 1601085940}
   - component: {fileID: 1601085939}
-  - component: {fileID: 1601085938}
   - component: {fileID: 1601085937}
   m_Layer: 0
   m_Name: FloorNode
@@ -9895,19 +9348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1601085938
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65025986570358114, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1601085935}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1601085939
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9975,7 +9415,6 @@ GameObject:
   - component: {fileID: 1611124929}
   - component: {fileID: 1611124928}
   - component: {fileID: 1611124927}
-  - component: {fileID: 1611124926}
   - component: {fileID: 1611124925}
   m_Layer: 0
   m_Name: FloorNode
@@ -10011,19 +9450,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1611124926
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65545528087641122, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1611124923}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1611124927
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10091,7 +9517,6 @@ GameObject:
   - component: {fileID: 1626764897}
   - component: {fileID: 1626764896}
   - component: {fileID: 1626764895}
-  - component: {fileID: 1626764894}
   - component: {fileID: 1626764893}
   m_Layer: 0
   m_Name: FloorNode
@@ -10127,19 +9552,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1626764894
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65013279378715932, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1626764891}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1626764895
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10369,7 +9781,6 @@ GameObject:
   - component: {fileID: 1662423455}
   - component: {fileID: 1662423454}
   - component: {fileID: 1662423453}
-  - component: {fileID: 1662423452}
   - component: {fileID: 1662423451}
   m_Layer: 0
   m_Name: FloorNode
@@ -10405,19 +9816,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1662423452
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65666841418677644, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1662423449}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1662423453
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10485,7 +9883,6 @@ GameObject:
   - component: {fileID: 1663371692}
   - component: {fileID: 1663371691}
   - component: {fileID: 1663371690}
-  - component: {fileID: 1663371689}
   - component: {fileID: 1663371688}
   m_Layer: 0
   m_Name: FloorNode
@@ -10521,19 +9918,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1663371689
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65839631615213762, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1663371686}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1663371690
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10621,6 +10005,8 @@ MonoBehaviour:
   tilePrefab: {fileID: 1916177505847460, guid: eec676c23bc3f294781410678155e6d1, type: 2}
   width: 2
   height: 2
+  updateNodes: 1
+  createNodes: 0
 --- !u!4 &1698238271
 Transform:
   m_ObjectHideFlags: 0
@@ -10629,7 +10015,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1698238269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 0, z: 6}
+  m_LocalPosition: {x: -13, y: 0, z: 6}
   m_LocalScale: {x: 33, y: 0.2, z: 33}
   m_Children:
   - {fileID: 217551815}
@@ -10703,7 +10089,6 @@ GameObject:
   - component: {fileID: 1698495333}
   - component: {fileID: 1698495332}
   - component: {fileID: 1698495331}
-  - component: {fileID: 1698495330}
   - component: {fileID: 1698495329}
   m_Layer: 0
   m_Name: FloorNode
@@ -10739,19 +10124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1698495330
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65835571105023470, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1698495327}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1698495331
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10819,7 +10191,6 @@ GameObject:
   - component: {fileID: 1722225214}
   - component: {fileID: 1722225213}
   - component: {fileID: 1722225212}
-  - component: {fileID: 1722225211}
   - component: {fileID: 1722225210}
   m_Layer: 0
   m_Name: FloorNode
@@ -10855,19 +10226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1722225211
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65072852732915338, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1722225208}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1722225212
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11097,7 +10455,6 @@ GameObject:
   - component: {fileID: 1803175902}
   - component: {fileID: 1803175901}
   - component: {fileID: 1803175900}
-  - component: {fileID: 1803175899}
   - component: {fileID: 1803175898}
   m_Layer: 0
   m_Name: FloorNode
@@ -11133,19 +10490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1803175899
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65875609381392088, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1803175896}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1803175900
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11344,7 +10688,6 @@ GameObject:
   - component: {fileID: 1925200566}
   - component: {fileID: 1925200565}
   - component: {fileID: 1925200564}
-  - component: {fileID: 1925200563}
   - component: {fileID: 1925200562}
   m_Layer: 0
   m_Name: FloorNode
@@ -11380,19 +10723,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1925200563
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65270245401781524, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1925200560}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1925200564
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11541,7 +10871,6 @@ GameObject:
   - component: {fileID: 1969810941}
   - component: {fileID: 1969810940}
   - component: {fileID: 1969810939}
-  - component: {fileID: 1969810938}
   - component: {fileID: 1969810937}
   m_Layer: 0
   m_Name: FloorNode
@@ -11577,19 +10906,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1969810938
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65568825260747304, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1969810935}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1969810939
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11657,7 +10973,6 @@ GameObject:
   - component: {fileID: 1989801648}
   - component: {fileID: 1989801647}
   - component: {fileID: 1989801646}
-  - component: {fileID: 1989801645}
   - component: {fileID: 1989801644}
   m_Layer: 0
   m_Name: FloorNode
@@ -11693,19 +11008,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &1989801645
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65572470588793336, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1989801642}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1989801646
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11836,7 +11138,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2012598789}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3, y: 1.1, z: -11.5}
+  m_LocalPosition: {x: -22, y: 1.1, z: -11.5}
   m_LocalScale: {x: 1, y: 2, z: 16}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11935,7 +11237,6 @@ GameObject:
   - component: {fileID: 2069974183}
   - component: {fileID: 2069974182}
   - component: {fileID: 2069974181}
-  - component: {fileID: 2069974180}
   - component: {fileID: 2069974179}
   m_Layer: 0
   m_Name: FloorNode
@@ -11971,19 +11272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &2069974180
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65855441738626432, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2069974177}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2069974181
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12276,7 +11564,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2091202378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 1.1, z: 3}
+  m_LocalPosition: {x: -13.5, y: 1.1, z: 3}
   m_LocalScale: {x: 1, y: 2, z: 12}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12537,7 +11825,6 @@ GameObject:
   - component: {fileID: 2107602823}
   - component: {fileID: 2107602822}
   - component: {fileID: 2107602821}
-  - component: {fileID: 2107602820}
   - component: {fileID: 2107602819}
   m_Layer: 0
   m_Name: FloorNode
@@ -12573,19 +11860,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &2107602820
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65221342766478590, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2107602817}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2107602821
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12734,7 +12008,6 @@ GameObject:
   - component: {fileID: 2142314167}
   - component: {fileID: 2142314166}
   - component: {fileID: 2142314165}
-  - component: {fileID: 2142314164}
   - component: {fileID: 2142314163}
   m_Layer: 0
   m_Name: FloorNode
@@ -12770,19 +12043,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeEdges: []
---- !u!65 &2142314164
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65007499360144150, guid: 75e6c02d97d338d49aef1b27d618e3da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2142314161}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 10, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2142314165
 MeshRenderer:
   m_ObjectHideFlags: 0
