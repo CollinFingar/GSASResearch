@@ -16,9 +16,10 @@ public class EnemyBasic : MonoBehaviour {
 		
 	}
 
-	void OnCollisionEnter(Collision other){
+	void OnTriggerEnter(Collider other){
 		ShotScript ss = other.gameObject.GetComponent<ShotScript> ();
 		if (ss != null) {
+			print ("HIT!");
 			Destroy (other.gameObject);
 			health -= ss.damage;
 			if (health <= 0f) {

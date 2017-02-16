@@ -69,6 +69,9 @@ public class Navigate : MonoBehaviour {
 				node = null;
 				nodeSelected = false;
 			}
+		} else {
+			node = null;
+			nodeSelected = false;
 		}
 		Vector3[] positions = { rayStart, rayStart + rayDirection * 10 };
 		if (node != null) {
@@ -81,6 +84,7 @@ public class Navigate : MonoBehaviour {
 		transform.position = new Vector3 (node.transform.position.x, 0, node.transform.position.z);
 		nodeAtLocation = node;
 		node = null;
+		GetComponent<CheckpointManager> ().updateNode (nodeAtLocation);
 	}
 
 	public void RotateRight(){
