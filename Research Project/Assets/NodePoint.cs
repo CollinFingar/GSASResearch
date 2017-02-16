@@ -12,13 +12,12 @@ public class NodePoint : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		checkRef = FindObjectOfType<CheckpointManager> ();
+		activatePoint ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (!active && checkRef.currentCP >= spawnCP) {
-			activatePoint ();
-		} else if (checkRef.currentCP >= endCP) {
 			deactivatePoint ();
 		}
 	}
