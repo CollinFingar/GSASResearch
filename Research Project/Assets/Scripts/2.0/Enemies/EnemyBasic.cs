@@ -6,11 +6,9 @@ public class EnemyBasic : MonoBehaviour {
 
 	public float health = 5f;
 
-	public RoomHandler RH;
-
 	// Use this for initialization
 	void Start () {
-		RH.enemyCount++;
+		
 	}
 	
 	// Update is called once per frame

@@ -16,7 +16,7 @@ public class ShotScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag != "Gun" && other.tag!= "MainCamera" && other.tag != "Room") {
+		if (other.tag != "Gun" && other.tag!= "MainCamera" && other.tag != "Room" && other.tag != "Teleport Node") {
 			Destroy (gameObject);
 		}
 
