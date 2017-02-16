@@ -11,7 +11,7 @@ public class NodePoint : MonoBehaviour {
 	bool active;
 	// Use this for initialization
 	void Start () {
-		checkRef = FindObjectOfType<CheckpointManager> ().GetComponent<CheckpointManager> ();
+		checkRef = FindObjectOfType<CheckpointManager> ();
 	}
 	
 	// Update is called once per frame

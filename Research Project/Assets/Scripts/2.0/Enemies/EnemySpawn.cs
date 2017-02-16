@@ -9,8 +9,8 @@ public class EnemySpawn : MonoBehaviour {
 	bool spawning = false;
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<MeshRenderer> ().enabled = false;
-		checkRef = FindObjectOfType<CheckpointManager> ().GetComponent<CheckpointManager> ();
+		checkRef = FindObjectOfType<CheckpointManager> ();
+		//gameObject.GetComponent<MeshRenderer> ().enabled = false;
 	}
 	
 	// Update is called once per frame
