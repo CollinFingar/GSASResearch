@@ -11,6 +11,7 @@ TagManager:
   - End Trigger
   - Gun
   - Room
+  - Teleport Node
   layers:
   - Default
   - TransparentFX

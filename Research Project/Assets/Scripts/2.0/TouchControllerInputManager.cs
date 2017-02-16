@@ -9,6 +9,9 @@ public class TouchControllerInputManager : MonoBehaviour {
 	public float triggerSqueezeAmountLeft = 0f;
 	public float gripSqueezeAmountRight = 0f;
 	public float gripSqueezeAmountLeft = 0f;
+	 
+	public Vector2 analogStickRight = Vector2.zero;
+	public Vector2 analogStickLeft = Vector2.zero;
 
 	public bool aButtonPressed = false;
 	public bool bButtonPressed = false;
@@ -39,6 +42,9 @@ public class TouchControllerInputManager : MonoBehaviour {
 		gripSqueezeAmountRight = OVRInput.Get (OVRInput.Axis1D.PrimaryHandTrigger, OVRInput.Controller.RTouch);
 		gripSqueezeAmountLeft = OVRInput.Get (OVRInput.Axis1D.PrimaryHandTrigger, OVRInput.Controller.LTouch);
 
+		analogStickRight = OVRInput.Get (OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch);
+		analogStickLeft = OVRInput.Get (OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.LTouch);
+
 		aButtonPressed = OVRInput.Get (OVRInput.Button.One);
 		bButtonPressed = OVRInput.Get (OVRInput.Button.Two);
 		xButtonPressed = OVRInput.Get (OVRInput.Button.Three);
@@ -66,6 +72,8 @@ public class TouchControllerInputManager : MonoBehaviour {
 		ArrayList navInputs = new ArrayList ();
 		navInputs.Add (yButtonPressed);
 		navInputs.Add (bButtonPressed);
+		navInputs.Add (analogStickRight);
+		navInputs.Add (analogStickLeft);
 		NAV.ReceiveInput (navInputs);
 		/**
 		ArrayList UIInputs = new ArrayList ();
