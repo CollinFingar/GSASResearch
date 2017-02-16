@@ -60,7 +60,7 @@ public class Navigate : MonoBehaviour {
 		//Debug.DrawLine (rayStart, rayStart + rayDirection * 10, Color.red, .05f);
 		RaycastHit[] hits = Physics.RaycastAll (rayStart, rayEnd - rayStart, teleportRayLength);
 		if (hits.Length > 0) {
-			RaycastHit hit = hits [hits.Length - 1];
+			RaycastHit hit = hits [0];
 			print (hit.collider.gameObject.name);
 			if (hit.collider.gameObject.tag == "Teleport Node") {
 				node = hit.collider.gameObject;
