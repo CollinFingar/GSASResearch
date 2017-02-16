@@ -25,9 +25,14 @@ public class Navigate : MonoBehaviour {
 	private GameObject node;
 	public float teleportRayLength = 10f;
 
+	private GameObject nodeAtLocation;
+
+	private LineRenderer LR;
+
 	// Use this for initialization
 	void Start () {
-		
+		LR = GetComponent<LineRenderer> ();
+		LR.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -41,6 +46,9 @@ public class Navigate : MonoBehaviour {
 		Vector3 rayStart;
 		Vector3 rayDirection;
 		Vector3 rayEnd;
+		if (!LR.enabled) {
+			LR.enabled = true;
+		}
 		if (!yTeleporting) {
 			rayStart = rightTouchController.transform.position;
 			rayDirection = rightTouchController.transform.forward;
@@ -49,10 +57,11 @@ public class Navigate : MonoBehaviour {
 			rayDirection = leftTouchController.transform.forward;
 		}
 		rayEnd = rayStart + rayDirection;
-		Debug.DrawLine (rayStart, rayStart + rayDirection * 10, Color.red, .05f);
+		//Debug.DrawLine (rayStart, rayStart + rayDirection * 10, Color.red, .05f);
 		RaycastHit[] hits = Physics.RaycastAll (rayStart, rayEnd - rayStart, teleportRayLength);
 		if (hits.Length > 0) {
-			RaycastHit hit = hits [0];
+			RaycastHit hit = hits [hits.Length - 1];
+			print (hit.collider.gameObject.name);
 			if (hit.collider.gameObject.tag == "Teleport Node") {
 				node = hit.collider.gameObject;
 				nodeSelected = true;
@@ -61,10 +70,14 @@ public class Navigate : MonoBehaviour {
 				nodeSelected = false;
 			}
 		}
+		Vector3[] positions = { rayStart, rayStart + rayDirection * 10 };
+		LR.SetPositions (positions);
 	}
 
 	public void Teleport(){
 		transform.position = new Vector3 (node.transform.position.x, 0, node.transform.position.z);
+		nodeAtLocation = node;
+		node = null;
 	}
 
 	public void RotateRight(){
@@ -117,6 +130,7 @@ public class Navigate : MonoBehaviour {
 			}
 		} else {
 			teleportMode = false;
+			LR.enabled = false;
 			if (node != null) {
 				Teleport ();
 			}
