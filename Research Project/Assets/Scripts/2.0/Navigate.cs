@@ -71,6 +71,9 @@ public class Navigate : MonoBehaviour {
 			}
 		}
 		Vector3[] positions = { rayStart, rayStart + rayDirection * 10 };
+		if (node != null) {
+			positions[1] = node.transform.position;
+		}
 		LR.SetPositions (positions);
 	}
 
