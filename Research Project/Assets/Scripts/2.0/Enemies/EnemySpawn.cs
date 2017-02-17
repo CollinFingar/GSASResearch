@@ -13,6 +13,7 @@ public class EnemySpawn : MonoBehaviour {
 	void Start () {
 		checkRef = FindObjectOfType<CheckpointManager> ();
 		gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		checkRef.enemyCount [spawnCP]++;
 	}
 	
 	// Update is called once per frame
