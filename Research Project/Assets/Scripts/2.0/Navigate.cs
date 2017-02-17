@@ -60,16 +60,29 @@ public class Navigate : MonoBehaviour {
 		//Debug.DrawLine (rayStart, rayStart + rayDirection * 10, Color.red, .05f);
 		RaycastHit[] hits = Physics.RaycastAll (rayStart, rayEnd - rayStart, teleportRayLength);
 		if (hits.Length > 0) {
-			RaycastHit hit = hits [0];
-			print (hit.collider.gameObject.name);
-			if (hit.collider.gameObject.tag == "Teleport Node") {
-				node = hit.collider.gameObject;
+			RaycastHit hit;
+			GameObject hitObject = null;
+			for (int i = 0; i < hits.Length; i++) {
+				if (hits [i].collider.gameObject.tag == "Teleport Node") {
+					hit = hits [i];
+					hitObject = hits [i].collider.gameObject;
+				}
+			}
+			if (hitObject != null) {
+				node = hitObject;
 				nodeSelected = true;
+				hitObject.GetComponent<NodePoint> ().MakeSelectedMaterial ();
 			} else {
+				if (node != null) {
+					node.GetComponent<NodePoint> ().MakeNormalMaterial ();
+				}
 				node = null;
 				nodeSelected = false;
 			}
 		} else {
+			if (node != null) {
+				node.GetComponent<NodePoint> ().MakeNormalMaterial ();
+			}
 			node = null;
 			nodeSelected = false;
 		}
@@ -128,6 +141,7 @@ public class Navigate : MonoBehaviour {
 				}
 
 			} else {
+				MakeAllNodesAppear (true);
 				teleportMode = true;
 				if (yPressed) {
 					yTeleporting = true;
@@ -136,11 +150,39 @@ public class Navigate : MonoBehaviour {
 				}
 			}
 		} else {
-			teleportMode = false;
-			LR.enabled = false;
+			if (teleportMode) {
+				MakeAllNodesAppear (false);
+				teleportMode = false;
+				LR.enabled = false;
+			}
 			if (node != null) {
 				Teleport ();
+				node.GetComponent<NodePoint> ().MakeDisappear ();
 			}
 		}
+	}
+
+	public void MakeAllNodesAppear(bool active){
+		NodePoint[] nodes = FindObjectsOfType<NodePoint>();
+		if (active) {
+			if (nodeAtLocation != null) {
+				NodePoint nl = nodeAtLocation.GetComponent<NodePoint> ();
+				for (int i = 0; i < nodes.Length; i++) {
+					if (nodes [i] != nl) {
+						nodes [i].MakeNormalMaterial ();
+					}
+				}
+			} else {
+				for (int i = 0; i < nodes.Length; i++) {
+					nodes [i].MakeNormalMaterial ();
+				}
+			}
+		} else {
+			for (int i = 0; i < nodes.Length; i++) {
+				nodes [i].MakeDisappear ();
+			}
+			
+		}
+
 	}
 }
