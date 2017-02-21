@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4248587678110804}
   - component: {fileID: 95288437848918784}
+  - component: {fileID: 114215522141997920}
   m_Layer: 0
   m_Name: ShotgunBlaster
   m_TagString: Untagged
@@ -264,3 +265,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114215522141997920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1174416813873188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabcef852d9455949981d4531a0b9dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squeezingTrigger: 0
+  rightHand: 0
+  shot: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
+  frequency: 0.2
+  barrelLocation: {fileID: 0}
+  ps: {fileID: 0}

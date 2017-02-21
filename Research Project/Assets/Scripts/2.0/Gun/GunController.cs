@@ -35,6 +35,9 @@ public class GunController : MonoBehaviour {
 		int l = 0;
 		foreach (Transform child in leftHand.transform) {
 			leftGuns [l] = child.gameObject;
+			if (l > 0) {
+				leftGuns [l].SetActive (false);
+			}
 			l++;
 		}
 
@@ -42,6 +45,9 @@ public class GunController : MonoBehaviour {
 		int r = 0;
 		foreach (Transform child in rightHand.transform) {
 			rightGuns [r] = child.gameObject;
+			if (r > 0) {
+				rightGuns [r].SetActive (false);
+			}
 			r++;
 			child.gameObject.GetComponent<GunScript> ().rightHand = true;
 		}

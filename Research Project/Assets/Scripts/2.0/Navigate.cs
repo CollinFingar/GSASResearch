@@ -29,6 +29,8 @@ public class Navigate : MonoBehaviour {
 
 	private LineRenderer LR;
 
+	public GameObject centerEye;
+
 	// Use this for initialization
 	void Start () {
 		LR = GetComponent<LineRenderer> ();
@@ -101,15 +103,17 @@ public class Navigate : MonoBehaviour {
 	}
 
 	public void RotateRight(){
-		transform.localEulerAngles = new Vector3 (transform.localEulerAngles.x, 
-													transform.localEulerAngles.y + rotateAmount, 
-													transform.localEulerAngles.z);
+		//transform.localEulerAngles = new Vector3 (transform.localEulerAngles.x, 
+		//											transform.localEulerAngles.y + rotateAmount, 
+		//											transform.localEulerAngles.z);
+		transform.RotateAround(centerEye.transform.position, Vector3.up, rotateAmount);
 	}
 
 	public void RotateLeft(){
-		transform.localEulerAngles = new Vector3 (transform.localEulerAngles.x, 
-												transform.localEulerAngles.y - rotateAmount, 
-												transform.localEulerAngles.z);
+		//transform.localEulerAngles = new Vector3 (transform.localEulerAngles.x, 
+		//										transform.localEulerAngles.y - rotateAmount, 
+		//										transform.localEulerAngles.z);
+		transform.RotateAround(centerEye.transform.position, Vector3.up, -1 * rotateAmount);
 	}
 		
 	public void ReceiveInput(ArrayList inputs){
