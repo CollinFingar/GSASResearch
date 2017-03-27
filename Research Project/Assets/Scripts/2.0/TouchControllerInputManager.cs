@@ -67,6 +67,8 @@ public class TouchControllerInputManager : MonoBehaviour {
 		gunInputs.Add (triggerSqueezeAmountLeft);
 		gunInputs.Add (gripSqueezeAmountRight);
 		gunInputs.Add (gripSqueezeAmountLeft);
+		gunInputs.Add (aButtonPressed);
+		gunInputs.Add (xButtonPressed);
 		GC.ReceiveInput (gunInputs);
 
 		ArrayList navInputs = new ArrayList ();

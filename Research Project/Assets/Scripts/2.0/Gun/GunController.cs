@@ -8,49 +8,42 @@ public class GunController : MonoBehaviour {
 	//Guns to cycle between
 	public GameObject[] Guns;
 
-	public GameObject[] rightGuns;
-	public GameObject[] leftGuns;
-
-	private int rightGunIndex = 0;
-	private int leftGunIndex = 0;
-
-	public float gunSwitchInterval = .5f;
-	public float lastRightGunSwitchTime = 0f;
-	public float lastLeftGunSwitchTime = 0f;
 
 	public bool pullingTriggerRightGun = false;
 	public bool pullingTriggerLeftGun = false;
 
-	public bool switchingRightGun = false;
-	public bool switchingLeftGun = false;
+	public bool rightSwitchRelease = false;
+	public bool leftSwitchRelease = false;
 
 	public bool primaryHandRight = true;
 
 	public GameObject rightHand;
 	public GameObject leftHand;
 
+	public GameObject rightHandObject;
+	public GameObject rightProngGun;
+	public GameObject rightShotgun;
+	public GameObject rightPlaceholder;
+	public GameObject leftHandObject;
+	public GameObject leftProngGun;
+	public GameObject leftShotgun;
+	public GameObject leftPlaceholder;
+
+	public bool grippingRightGun = false;
+	public bool grippingLeftGun = false;
+	public bool rightPermenant = true;
+	public bool leftPermenant = true;
+	public GameObject currentRightGun;
+	public GameObject currentLeftGun;
+
+	public GameObject presetRightGun;
+	public GameObject presetLeftGun;
+	private bool rightProngGunSelected = true;
+	private bool leftProngGunSelected = true;
+
 	// Use this for initialization
 	void Start () {
-		leftGuns = new GameObject[leftHand.transform.childCount];
-		int l = 0;
-		foreach (Transform child in leftHand.transform) {
-			leftGuns [l] = child.gameObject;
-			if (l > 0) {
-				leftGuns [l].SetActive (false);
-			}
-			l++;
-		}
-
-		rightGuns = new GameObject[rightHand.transform.childCount];
-		int r = 0;
-		foreach (Transform child in rightHand.transform) {
-			rightGuns [r] = child.gameObject;
-			if (r > 0) {
-				rightGuns [r].SetActive (false);
-			}
-			r++;
-			child.gameObject.GetComponent<GunScript> ().rightHand = true;
-		}
+		
 	}
 	
 	// Update is called once per frame
@@ -63,55 +56,140 @@ public class GunController : MonoBehaviour {
 	//  1 - float - secondaryTriggerSqueezeAmount
 	//	2 - float - primaryGripSqueezeAmount
 	//  3 - float - secondaryGripSqueezeAmount
+	//  4 - bool  - switchingPrimary
+	//  5 - bool  - switchingSecondary
 	public void ReceiveInput(ArrayList inputs){
+		bool switchingPrimary = (bool)inputs [4];
+		bool switchingSecondary = (bool)inputs [5];
+		if (switchingPrimary && !rightSwitchRelease) {
+			SwitchRightGun ();
+		} else if(!switchingPrimary && rightSwitchRelease){
+			rightSwitchRelease = false;
+		}
+		if (switchingSecondary && !leftSwitchRelease) {
+			SwitchLeftGun ();
+		} else if(!switchingSecondary && leftSwitchRelease){
+			leftSwitchRelease = false;
+		}
+
+		bool pgsa = (float)inputs [2] > .2f;
+		bool sgsa = (float)inputs [3] > .2f;
+		SenseGrip (pgsa, sgsa);
+
 		pullingTriggerRightGun = (float)inputs [0] > .2f;
 		pullingTriggerLeftGun = (float)inputs [1] > .2f;
 		RightTriggerHandler ();
 		LeftTriggerHandler ();
-
-		bool pgsa = (float)inputs [2] > .2f;
-		bool sgsa = (float)inputs [3] > .2f;
-		SenseGunSwitching (pgsa, sgsa);
 	}
 
 	public void RightTriggerHandler(){
-		rightGuns [rightGunIndex].GetComponent<GunScript> ().squeezingTrigger = pullingTriggerRightGun;
+		if (grippingRightGun) {
+			currentRightGun.GetComponent<GunScript>().squeezingTrigger = pullingTriggerRightGun;
+		}
 	}
 
 	public void LeftTriggerHandler(){
-		leftGuns [leftGunIndex].GetComponent<GunScript> ().squeezingTrigger = pullingTriggerLeftGun;
+		if (grippingLeftGun) {
+			currentLeftGun.GetComponent<GunScript>().squeezingTrigger = pullingTriggerLeftGun;
+		}
 	}
 
 
-	void SenseGunSwitching(bool squeezingPrimary, bool squeezingSecondary){
-		if (squeezingPrimary && Time.time > lastRightGunSwitchTime + gunSwitchInterval) {
-			SwitchRightGun ();
-			lastRightGunSwitchTime = Time.time;
+	void SenseGrip(bool squeezingPrimary, bool squeezingSecondary){
+		if (squeezingPrimary) {
+			if (!grippingRightGun) {
+				//SENSE IF PICKING UP GUN OR GENERATING
+				bool handInArea = false;
+				if (handInArea) {
+				
+					rightPermenant = false;
+				} else {
+					currentRightGun = presetRightGun;
+					currentRightGun.SetActive (true);
+					rightPermenant = true;
+				}
+				rightHandObject.SetActive (false);
+				grippingRightGun = true;
+			}
+		} else {
+			if (rightPermenant) {
+				currentRightGun.SetActive (false);
+			} else {
+				//GET RID OF CURRENT PICKED UP GUN
+				Destroy(currentRightGun);
+			}
+			rightHandObject.SetActive (true);
+			grippingRightGun = false;
 		}
-		if (squeezingSecondary && Time.time > lastLeftGunSwitchTime + gunSwitchInterval) {
-			SwitchLeftGun ();
-			lastLeftGunSwitchTime = Time.time;
+		if (squeezingSecondary) {
+			if (!grippingLeftGun) {
+				//SENSE IF PICKING UP GUN OR GENERATING
+				bool handInArea = false;
+				if (handInArea) {
+
+					leftPermenant = false;
+				} else {
+					currentLeftGun = presetLeftGun;
+					currentLeftGun.SetActive (true);
+					leftPermenant = true;
+				}
+				leftHandObject.SetActive (false);
+				grippingLeftGun = true;
+			}
+		} else {
+			if (leftPermenant) {
+				currentLeftGun.SetActive (false);
+			} else {
+				//GET RID OF CURRENT PICKED UP GUN
+				Destroy(currentLeftGun);
+			}
+			leftHandObject.SetActive (true);
+			grippingLeftGun = false;
 		}
 	}
 
 	public void SwitchRightGun(){
-		rightGuns [rightGunIndex].SetActive (false);
-		if (rightGunIndex < rightGuns.Length - 1) {
-			rightGunIndex++;
+		if (rightProngGunSelected) {
+			rightProngGunSelected = false;
+			presetRightGun = rightShotgun;
 		} else {
-			rightGunIndex = 0;
+			rightProngGunSelected = true;
+			presetRightGun = rightProngGun;
 		}
-		rightGuns [rightGunIndex].SetActive (true);
+		if (grippingRightGun) {
+			if (rightPermenant) {
+				currentRightGun.SetActive (false);
+			} else {
+				//GET RID OF CURRENT PICKED UP GUN
+				Destroy(currentRightGun);
+			}
+			currentRightGun = presetRightGun;
+			currentRightGun.SetActive (true);
+		}
+		rightHandObject.GetComponent<Hand> ().ChangeGun ();
+		rightSwitchRelease = true;
 	}
 
 	public void SwitchLeftGun(){
-		leftGuns [leftGunIndex].SetActive (false);
-		if (leftGunIndex < leftGuns.Length - 1) {
-			leftGunIndex++;
+		if (leftProngGunSelected) {
+			leftProngGunSelected = false;
+			presetLeftGun = leftShotgun;
 		} else {
-			leftGunIndex = 0;
+			leftProngGunSelected = true;
+			presetLeftGun = leftProngGun;
 		}
-		leftGuns [leftGunIndex].SetActive (true);
+		if (grippingLeftGun) {
+			if (leftPermenant) {
+				currentLeftGun.SetActive (false);
+			} else {
+				//GET RID OF CURRENT PICKED UP GUN
+				Destroy(currentLeftGun);
+			}
+			currentLeftGun = presetLeftGun;
+			currentLeftGun.SetActive (true);
+		}
+		leftHandObject.GetComponent<Hand> ().ChangeGun ();
+		leftSwitchRelease = true;
 	}
 
 	public void SwitchPrimaryHand(){
