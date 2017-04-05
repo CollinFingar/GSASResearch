@@ -9,6 +9,12 @@ public class Hand : MonoBehaviour {
 	public Material gun1DigitMaterial;
 	public Material gun2DigitMaterial;
 
+	public Material grabDigitMaterial;
+
+	public bool handInSpawner = false;
+	public int spawnerValue = 1;
+	public bool rightHand = true;
+
 	//1 = prong, 2 = shotgun
 	private int gunSelected = 1;
 
@@ -37,6 +43,46 @@ public class Hand : MonoBehaviour {
 				glowDigits [i].GetComponent<Renderer> ().material = gun1DigitMaterial;
 			}
 			gunSelected--;
+		}
+	}
+
+	void OnTriggerEnter(Collider other){
+		if (other.tag == "Gun Spawner") {
+			
+		}
+	}
+
+	void OnTriggerStay(Collider other){
+		if (other.tag == "Gun Spawner") {
+			if (!handInSpawner) {
+				for (int i = 0; i < glowDigits.Length; i++) {
+					glowDigits [i].GetComponent<Renderer> ().material = grabDigitMaterial;
+				}
+				handInSpawner = true;
+				spawnerValue = other.gameObject.GetComponent<GunSpawner> ().gunValue;
+			}
+		} else if (handInSpawner) {
+			handInSpawner = false;
+			resetDigitColor ();
+		}
+	}
+
+	void OnTriggerExit(Collider other){
+		if (other.tag == "Gun Spawner") {
+			handInSpawner = false;
+			resetDigitColor ();
+		}
+	}
+
+	public void resetDigitColor(){
+		if (gunSelected == 1) {
+			for (int i = 0; i < glowDigits.Length; i++) {
+				glowDigits [i].GetComponent<Renderer> ().material = gun1DigitMaterial;
+			}
+		} else if (gunSelected == 2) {
+			for (int i = 0; i < glowDigits.Length; i++) {
+				glowDigits [i].GetComponent<Renderer> ().material = gun2DigitMaterial;
+			}
 		}
 	}
 }

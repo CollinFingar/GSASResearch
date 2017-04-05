@@ -12,6 +12,7 @@ TagManager:
   - Gun
   - Room
   - Teleport Node
+  - Gun Spawner
   layers:
   - Default
   - TransparentFX

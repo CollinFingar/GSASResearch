@@ -23,10 +23,12 @@ public class GunController : MonoBehaviour {
 	public GameObject rightHandObject;
 	public GameObject rightProngGun;
 	public GameObject rightShotgun;
+	public GameObject rightOpenBlaster;
 	public GameObject rightPlaceholder;
 	public GameObject leftHandObject;
 	public GameObject leftProngGun;
 	public GameObject leftShotgun;
+	public GameObject leftOpenBlaster;
 	public GameObject leftPlaceholder;
 
 	public bool grippingRightGun = false;
@@ -40,6 +42,15 @@ public class GunController : MonoBehaviour {
 	public GameObject presetLeftGun;
 	private bool rightProngGunSelected = true;
 	private bool leftProngGunSelected = true;
+
+	public bool rightHandInSpawner = false;
+	public bool leftHandInSpawner = false;
+
+	private int rightPickupValue = 1;
+	private int leftPickupValue = 1;
+	//1 = Open Blaster
+	//2 = ???
+	//3 = ???
 
 	// Use this for initialization
 	void Start () {
@@ -99,10 +110,12 @@ public class GunController : MonoBehaviour {
 		if (squeezingPrimary) {
 			if (!grippingRightGun) {
 				//SENSE IF PICKING UP GUN OR GENERATING
-				bool handInArea = false;
-				if (handInArea) {
-				
+				rightHandInSpawner = rightHandObject.GetComponent<Hand> ().handInSpawner;
+				if (rightHandInSpawner) {
+					rightPickupValue = rightHandObject.GetComponent<Hand> ().spawnerValue;
+					EquipPickup (true);
 					rightPermenant = false;
+					rightHandObject.GetComponent<Hand> ().handInSpawner = false;
 				} else {
 					currentRightGun = presetRightGun;
 					currentRightGun.SetActive (true);
@@ -112,22 +125,28 @@ public class GunController : MonoBehaviour {
 				grippingRightGun = true;
 			}
 		} else {
-			if (rightPermenant) {
-				currentRightGun.SetActive (false);
-			} else {
-				//GET RID OF CURRENT PICKED UP GUN
-				Destroy(currentRightGun);
+			if (grippingRightGun) {
+				if (rightPermenant) {
+					currentRightGun.SetActive (false);
+				} else {
+					//GET RID OF CURRENT PICKED UP GUN
+					currentRightGun.SetActive (false);
+					currentRightGun = presetRightGun;
+				}
+				rightHandObject.SetActive (true);
+				rightHandObject.GetComponent<Hand> ().resetDigitColor ();
+				grippingRightGun = false;
 			}
-			rightHandObject.SetActive (true);
-			grippingRightGun = false;
 		}
 		if (squeezingSecondary) {
 			if (!grippingLeftGun) {
 				//SENSE IF PICKING UP GUN OR GENERATING
-				bool handInArea = false;
-				if (handInArea) {
-
+				leftHandInSpawner = leftHandObject.GetComponent<Hand> ().handInSpawner;
+				if (leftHandInSpawner) {
+					leftPickupValue = leftHandObject.GetComponent<Hand> ().spawnerValue;
+					EquipPickup (false);
 					leftPermenant = false;
+					leftHandObject.GetComponent<Hand> ().handInSpawner = false;
 				} else {
 					currentLeftGun = presetLeftGun;
 					currentLeftGun.SetActive (true);
@@ -137,14 +156,18 @@ public class GunController : MonoBehaviour {
 				grippingLeftGun = true;
 			}
 		} else {
-			if (leftPermenant) {
-				currentLeftGun.SetActive (false);
-			} else {
-				//GET RID OF CURRENT PICKED UP GUN
-				Destroy(currentLeftGun);
+			if (grippingLeftGun) {
+				if (leftPermenant) {
+					currentLeftGun.SetActive (false);
+				} else {
+					//GET RID OF CURRENT PICKED UP GUN
+					currentLeftGun = presetLeftGun;
+					currentLeftGun.SetActive (false);
+				}
+				leftHandObject.SetActive (true);
+				leftHandObject.GetComponent<Hand> ().resetDigitColor ();
+				grippingLeftGun = false;
 			}
-			leftHandObject.SetActive (true);
-			grippingLeftGun = false;
 		}
 	}
 
@@ -161,7 +184,7 @@ public class GunController : MonoBehaviour {
 				currentRightGun.SetActive (false);
 			} else {
 				//GET RID OF CURRENT PICKED UP GUN
-				Destroy(currentRightGun);
+				currentRightGun.SetActive (false);
 			}
 			currentRightGun = presetRightGun;
 			currentRightGun.SetActive (true);
@@ -183,13 +206,35 @@ public class GunController : MonoBehaviour {
 				currentLeftGun.SetActive (false);
 			} else {
 				//GET RID OF CURRENT PICKED UP GUN
-				Destroy(currentLeftGun);
+				currentLeftGun.SetActive (false);
 			}
 			currentLeftGun = presetLeftGun;
 			currentLeftGun.SetActive (true);
 		}
 		leftHandObject.GetComponent<Hand> ().ChangeGun ();
 		leftSwitchRelease = true;
+	}
+
+	public void EquipPickup(bool right){
+		if (right) {
+			if (rightPickupValue == 1) {
+				currentRightGun = rightOpenBlaster;
+			} else if (rightPickupValue == 2) {
+				currentRightGun = rightOpenBlaster;
+			} else if (rightPickupValue == 3) {
+				currentRightGun = rightOpenBlaster;
+			}
+			currentRightGun.SetActive (true);
+		} else {
+			if (leftPickupValue == 1) {
+				currentLeftGun = leftOpenBlaster;
+			} else if (leftPickupValue == 2) {
+				currentLeftGun = leftOpenBlaster;
+			} else if (leftPickupValue == 3) {
+				currentLeftGun = leftOpenBlaster;
+			}
+			currentLeftGun.SetActive (true);
+		}
 	}
 
 	public void SwitchPrimaryHand(){
