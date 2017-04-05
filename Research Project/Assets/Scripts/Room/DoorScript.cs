@@ -22,7 +22,7 @@ public struct DoorInfo{
 public class DoorScript : MonoBehaviour {
 
 	public Material[] lightMaterials;
-	public GameObject light;
+	//public GameObject light;
 	public GameObject PC_light;
 
 	public Material[] lockMaterials;
@@ -55,7 +55,7 @@ public class DoorScript : MonoBehaviour {
 	}
 
 	public void UpdateLightColor(int color){
-		light.GetComponent<Renderer>().material = lightMaterials [color];
+		GetComponent<Light>().GetComponent<Renderer>().material = lightMaterials [color];
 		PC_light.GetComponent<Renderer> ().material = lightMaterials [color];
 	}
 	public void UpdateLockColor(int lockType){

@@ -48,24 +48,14 @@ public class Hand : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "Gun Spawner") {
-			
+			for (int i = 0; i < glowDigits.Length; i++) {
+				glowDigits [i].GetComponent<Renderer> ().material = grabDigitMaterial;
+			}
+			handInSpawner = true;
+			spawnerValue = other.gameObject.GetComponent<GunSpawner> ().gunValue;
 		}
 	}
 
-	void OnTriggerStay(Collider other){
-		if (other.tag == "Gun Spawner") {
-			if (!handInSpawner) {
-				for (int i = 0; i < glowDigits.Length; i++) {
-					glowDigits [i].GetComponent<Renderer> ().material = grabDigitMaterial;
-				}
-				handInSpawner = true;
-				spawnerValue = other.gameObject.GetComponent<GunSpawner> ().gunValue;
-			}
-		} else if (handInSpawner) {
-			handInSpawner = false;
-			resetDigitColor ();
-		}
-	}
 
 	void OnTriggerExit(Collider other){
 		if (other.tag == "Gun Spawner") {
