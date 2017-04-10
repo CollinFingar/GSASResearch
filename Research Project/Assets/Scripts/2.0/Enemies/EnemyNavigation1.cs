@@ -48,14 +48,6 @@ public class EnemyNavigation1 : EnemyBasic {
 		transform.LookAt (player.transform.position);
 		transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z); //remove x component of rotation
 		//stop moving when nearing player
-		if (Input.GetKeyDown (KeyCode.Mouse0)) {
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			RaycastHit hit;
-
-			if (Physics.Raycast (ray, out hit)) {
-				meshAgent.SetDestination (hit.point);
-			}
-		}
 	}
 
 	void OnDestroy() {

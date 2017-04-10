@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RotateObjectNoVR : MonoBehaviour {
 	private float newX = 0; private float newY = 0; private float newZ = 0;
+	public float rotateSpeed;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,16 +14,16 @@ public class RotateObjectNoVR : MonoBehaviour {
 	void Update () {
 		newX = 0; newY = 0; newZ = 0;
 		if (Input.GetKey (KeyCode.W)) {
-			newX += Time.deltaTime;
+			newX += Time.deltaTime*rotateSpeed;
 		}
 		if (Input.GetKey(KeyCode.S)) {
-			newX += -Time.deltaTime;
+			newX += -Time.deltaTime*rotateSpeed;
 		}
 		if (Input.GetKey (KeyCode.D)) {
-			newY += Time.deltaTime;
+			newY += Time.deltaTime*rotateSpeed;
 		}
 		if (Input.GetKey (KeyCode.A)) {
-			newY += -Time.deltaTime;
+			newY += -Time.deltaTime*rotateSpeed;
 		}
 		if (Input.GetKey(KeyCode.Space)) {
 			transform.rotation = Quaternion.identity;
