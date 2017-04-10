@@ -46,7 +46,7 @@ public class TouchControllerInputManager : MonoBehaviour {
 		analogStickLeft = OVRInput.Get (OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.LTouch);
 
 		aButtonPressed = OVRInput.Get (OVRInput.Button.One);
-		bButtonPressed = OVRInput.Get (OVRInput.Button.Two);
+		bButtonPressed = OVRInput.Get (OVRInput.Button.Two) || Input.GetKey(KeyCode.Alpha2);
 		xButtonPressed = OVRInput.Get (OVRInput.Button.Three);
 		yButtonPressed = OVRInput.Get (OVRInput.Button.Four);
 

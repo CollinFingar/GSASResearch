@@ -8,7 +8,6 @@ public class NodePoint : MonoBehaviour {
 	public int spawnCP; //starting checkpoint when it first spawns
 	public int maxCP; //maximum checkpoint that can be achieved at this node
 	public int endCP; //end checkpoint when it de-spawns 
-	bool active;
 
 	public Material[] materials = new Material[2];
 	//0=not selected
@@ -17,36 +16,28 @@ public class NodePoint : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		checkRef = FindObjectOfType<CheckpointManager> ();
-		activatePoint ();
+		MakeDisappear ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!active && checkRef.currentCP >= spawnCP) {
-			deactivatePoint ();
+		//prevent player from returning to this point once he leaves
+		if (checkRef.currentCP >= endCP) {
+			Destroy (gameObject); 
 		}
 		Vector3 ea = transform.localEulerAngles;
 		transform.localEulerAngles = new Vector3 (ea.x, ea.y, ea.z + 25 * Time.deltaTime);
 	}
-	//when the player teleports to this node
-	void activatePoint () {
-		active = true;
-		GetComponent<MeshRenderer> ().enabled = false;
-	}
-
-	void deactivatePoint () {
-		active = false;
-		GetComponent<MeshRenderer> ().enabled = true;
-	}
-
 	public void MakeSelectedMaterial(){
 		GetComponent<Renderer> ().enabled = true;
 		GetComponent<Renderer> ().material = materials [1];
 	}
 
 	public void MakeNormalMaterial(){
-		GetComponent<Renderer> ().enabled = true;
-		GetComponent<Renderer> ().material = materials [0];	
+		if (checkRef.currentCP >= spawnCP) { //prevent points from being attainable early
+			GetComponent<Renderer> ().enabled = true;
+			GetComponent<Renderer> ().material = materials [0];	
+		}
 	}
 
 	public void MakeDisappear(){
