@@ -13,9 +13,15 @@ public class NodePoint : MonoBehaviour {
 	//0=not selected
 	//1=selected
 
+	//Get internal components for #efficiency
+	Renderer myRend;
+	SphereCollider myCollider;
+
 	// Use this for initialization
 	void Start () {
 		checkRef = FindObjectOfType<CheckpointManager> ();
+		myRend = GetComponent<Renderer> ();
+		myCollider = GetComponent<SphereCollider> ();
 		MakeDisappear ();
 	}
 	
@@ -29,18 +35,20 @@ public class NodePoint : MonoBehaviour {
 		transform.localEulerAngles = new Vector3 (ea.x, ea.y, ea.z + 25 * Time.deltaTime);
 	}
 	public void MakeSelectedMaterial(){
-		GetComponent<Renderer> ().enabled = true;
-		GetComponent<Renderer> ().material = materials [1];
+		myRend.enabled = true;
+		myRend.material = materials [1];
 	}
 
 	public void MakeNormalMaterial(){
 		if (checkRef.currentCP >= spawnCP) { //prevent points from being attainable early
-			GetComponent<Renderer> ().enabled = true;
-			GetComponent<Renderer> ().material = materials [0];	
+			myRend.enabled = true;
+			myRend.material = materials [0];
+			myCollider.enabled = true;
 		}
 	}
 
 	public void MakeDisappear(){
-		GetComponent<Renderer> ().enabled = false;
+		myRend.enabled = false;
+		myCollider.enabled = false;
 	}
 }
