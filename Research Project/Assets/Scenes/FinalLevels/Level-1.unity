@@ -173,11 +173,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 15361448}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &46952937 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1976825070285180, guid: e62ed0be5432339418241d0280c615e2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1692173076}
 --- !u!1 &56847346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,7 +1544,7 @@ GameObject:
   - component: {fileID: 375442044}
   - component: {fileID: 375442043}
   - component: {fileID: 375442046}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1724,22 +1719,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1189447380020908, guid: 3d159c790cf8cd240ad1cdd8e3d7baff,
     type: 2}
   m_PrefabInternal: {fileID: 1387361886}
---- !u!114 &403635485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 403635484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3d04fa0aa0eba54e93f88fa06b292eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 5
-  deathPart: {fileID: 0}
-  meshAgent: {fileID: 0}
-  player: {fileID: 46952937}
-  stateTime: 3
 --- !u!195 &403635486
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3113,7 +3092,7 @@ GameObject:
   - component: {fileID: 850713488}
   - component: {fileID: 850713487}
   - component: {fileID: 850713490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3804,7 +3783,7 @@ GameObject:
   - component: {fileID: 984354113}
   - component: {fileID: 984354112}
   - component: {fileID: 984354115}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -4724,7 +4703,7 @@ GameObject:
   - component: {fileID: 1210492777}
   - component: {fileID: 1210492776}
   - component: {fileID: 1210492775}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -5502,7 +5481,7 @@ GameObject:
   - component: {fileID: 1544765883}
   - component: {fileID: 1544765882}
   - component: {fileID: 1544765885}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -5604,7 +5583,7 @@ GameObject:
   - component: {fileID: 1548384744}
   - component: {fileID: 1548384743}
   - component: {fileID: 1548384746}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6073,7 +6052,7 @@ GameObject:
   - component: {fileID: 1667070378}
   - component: {fileID: 1667070377}
   - component: {fileID: 1667070380}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6405,7 +6384,7 @@ GameObject:
   - component: {fileID: 1817682299}
   - component: {fileID: 1817682298}
   - component: {fileID: 1817682301}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6873,7 +6852,7 @@ GameObject:
   - component: {fileID: 1980856143}
   - component: {fileID: 1980856142}
   - component: {fileID: 1980856141}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}

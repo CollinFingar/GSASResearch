@@ -8,8 +8,8 @@ public class EnemyNavigation1 : EnemyBasic {
 	public GameObject deathPart;
 	public NavMeshAgent meshAgent;
 	public GameObject player;
+
 	bool moving = false;
-	bool nearPlayer = false; //whether or not the enemy is near enough to the player to drift back and forth
 	public float stateTime;
 	float comfortDistance; //distance the enemy feels comfortable sitting at and attacking
 	// Use this for initialization
@@ -19,7 +19,7 @@ public class EnemyNavigation1 : EnemyBasic {
 		player = GameObject.Find ("Player");
 		meshAgent.SetDestination (player.transform.position);
 		stateTime = Random.Range (2, 4);
-		comfortDistance = Random.Range (3, 10);
+		comfortDistance = Random.Range (5, 10);
 	}
 	
 	// Update is called once per frame
@@ -32,12 +32,13 @@ public class EnemyNavigation1 : EnemyBasic {
 				stateTime = Random.Range (2, 4);
 			} else {
 				float dist = Vector3.Distance (transform.position, player.transform.position);
-				if (dist <= comfortDistance + 1) {
+				//Once player is in sightline, slowly move towards it while attacking
+				if (!Physics.Linecast (transform.position, player.transform.position,1 << 10) && dist <= comfortDistance + 1) {
 					//slowly move enemy towards player
 					if (comfortDistance > 3) {
 						comfortDistance -= 0.5f;
 					}
-					meshAgent.SetDestination (transform.position + new Vector3 (0,0,Random.Range (-2f, 2f)));
+					meshAgent.SetDestination (transform.position + transform.right * Random.Range (1f, 2f) * (int)Mathf.Sign(Random.Range(-1,1)) ); //picks a direction and a random distance 1-2 and moves
 				} else {
 					meshAgent.SetDestination (player.transform.position);
 				}
