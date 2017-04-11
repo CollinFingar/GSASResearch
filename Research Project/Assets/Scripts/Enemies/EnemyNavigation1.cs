@@ -113,7 +113,7 @@ public class EnemyNavigation1 : EnemyBasic {
 		cooldown = 1;
 		//Projecile Launch
 		if (projectile != null) {
-			GameObject attackProj = (GameObject)Instantiate (projectile, transform.position + attackOffset.transform.position, attackOffset.transform.rotation);
+			GameObject attackProj = (GameObject)Instantiate (projectile, attackOffset.transform.position, attackOffset.transform.rotation);
 		}
 	}
 
