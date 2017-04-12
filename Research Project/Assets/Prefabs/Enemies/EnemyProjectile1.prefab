@@ -38,7 +38,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4990540202585902}
   - component: {fileID: 108444676832164304}
-  - component: {fileID: 114847730311385098}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -320,18 +319,6 @@ MonoBehaviour:
   explosionParticle: {fileID: 1292652195836908, guid: 7ac179d680380c74797609d43cd9b926,
     type: 2}
   speed: 1
---- !u!114 &114847730311385098
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1209818559779962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d85e8d4edacf8e6408fe7a0dc898a147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myLight: {fileID: 108444676832164304}
 --- !u!198 &198743613848804028
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -392,7 +379,7 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 2
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -431,7 +418,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 2
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -449,7 +436,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0.5
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -551,7 +538,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 2
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -831,7 +818,7 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     type: 1
-    radius: 2
+    radius: 4
     angle: 15
     length: 5
     boxX: 1
