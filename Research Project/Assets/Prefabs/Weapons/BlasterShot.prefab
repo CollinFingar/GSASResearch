@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  type: Yellow
   velocity: {x: 0, y: 0, z: 0}
   blasterParticle: {fileID: 1022471746322164, guid: f6d185ce92b234a488680abe253d5780,
     type: 2}

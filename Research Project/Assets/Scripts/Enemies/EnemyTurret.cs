@@ -1,19 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class EnemyNavigation1 : EnemyBasic {
+public class EnemyTurret : EnemyBasic {
 	CheckpointManager checkRef;
 	public GameObject deathPart;
-	public NavMeshAgent meshAgent;
 	public GameObject player;
-	public Renderer[] myFrames; //this enemies frames of animation (mostly 2)
 
 	//FLOATING "ANIMATION"
 	bool floatUp = true; //model slowly floats up and down
 	float floatTime = 1; //time to float up or down
 	public GameObject modelRef; //reference to the child of this gameobject which holds are "frames" of the enemy 
+	public Vector3 myRotation;
 
 	bool moving = false;
 	public float stateTime;
@@ -32,48 +30,26 @@ public class EnemyNavigation1 : EnemyBasic {
 	// Use this for initialization
 	void Start () {
 		checkRef = FindObjectOfType<CheckpointManager> ();
-		meshAgent = GetComponent<NavMeshAgent> ();
 		player = GameObject.Find ("Player");
-		meshAgent.SetDestination (player.transform.position);
 		stateTime = Random.Range (2, 4);
 		comfortDistance = Random.Range (5, 10);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		stateTime -= Time.deltaTime;
 		if (stateTime <= 0) {
-			if (moving) {
-				moving = false;
-				meshAgent.SetDestination (transform.position);
-				stateTime = Random.Range (2, 4);
-			} else {
-				float dist = Vector3.Distance (transform.position, player.transform.position);
-				//Once player is in sightline, slowly move towards it while attacking
-				if (!Physics.Linecast (transform.position, player.transform.position,1 << 10)) {
-					//Attack Check
-					if (!attacking && cooldown <= 0) {
-						AttackStart ();
-					}
-					//Check if within circling distance of player
-					if (dist <= comfortDistance + 1) {
-						//Slowly move enemy towards player
-						if (comfortDistance > 3) {
-							comfortDistance -= 0.5f;
-						}
-						meshAgent.SetDestination (transform.position + transform.right * Random.Range (1f, 2f) * (int)Mathf.Sign (Random.Range (-1, 1))); //picks a direction and a random distance 1-2 and moves
-					} else {
-						meshAgent.SetDestination (player.transform.position);
-					}
-				} else {
-					meshAgent.SetDestination (player.transform.position);
+			if (!Physics.Linecast (transform.position, player.transform.position, 1 << 10)) {
+				//Attack Check
+				if (!attacking && cooldown <= 0) {
+					AttackStart ();
 				}
 				moving = true;
 				stateTime = Random.Range (2, 4);
 			}
+		} else {
+			stateTime -= Time.deltaTime;
 		}
-		transform.LookAt (player.transform.position);
-		transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z); //remove x component of rotation
+		transform.Rotate (myRotation * Time.deltaTime);
 
 		//stop moving when nearing player
 		if (cooldown > 0) {
@@ -90,13 +66,13 @@ public class EnemyNavigation1 : EnemyBasic {
 				floatUp = false;
 				floatTime = 2;
 			}
-			modelRef.transform.position += Vector3.up * 0.05f * Time.deltaTime;
+			modelRef.transform.position += Vector3.up * 0.03f * Time.deltaTime;
 		} else {
 			if (floatTime <= 0) {
 				floatUp = true;
 				floatTime = 2;
 			}
-			modelRef.transform.position -= Vector3.up * 0.05f * Time.deltaTime;
+			modelRef.transform.position -= Vector3.up * 0.03f * Time.deltaTime;
 		}
 	}
 
@@ -107,19 +83,15 @@ public class EnemyNavigation1 : EnemyBasic {
 	}
 
 	void AttackStart() {
-		myFrames [0].enabled = false;
-		myFrames [1].enabled = true;
 		attacking = true;
 		cooldown = 1;
 		//Projecile Launch
 		if (projectile != null) {
-			GameObject attackProj = (GameObject)Instantiate (projectile, attackOffset.transform.position, attackOffset.transform.rotation);
+			GameObject attackProj = (GameObject)Instantiate (projectile, transform.position, transform.rotation);
 		}
 	}
 
 	void AttackStop() {
-		myFrames [0].enabled = true;
-		myFrames [1].enabled = false;
 		attacking = false;
 		cooldown = attackCooldown + Random.Range (attackCDMod, -attackCDMod);
 	}

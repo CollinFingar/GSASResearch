@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShotScript : MonoBehaviour {
 
 	public float damage = 1f;
-
+	public string type; //which type of bullet is this (used with enemy weakness on EnemyBasic script)
 	// Use this for initialization
 	void Start () {
 	}

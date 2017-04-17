@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  type: Red
   velocity: {x: 0, y: 0, z: 0}
   shotgunParticle: {fileID: 1292652195836908, guid: 4b795400f9e758f479f47c4696704a33,
     type: 2}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBasic : MonoBehaviour {
 
 	public float health = 5f;
+	public string weakness;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +22,13 @@ public class EnemyBasic : MonoBehaviour {
 		if (ss != null) {
 			print ("HIT!");
 			Destroy (other.gameObject);
-			health -= ss.damage;
+			if (weakness != null && weakness != ss.type) {
+				health -= ss.damage / 2;
+			} else if (weakness == ss.type) {
+				health -= ss.damage * 2;
+			} else {
+				health -= ss.damage;
+			}
 			if (health <= 0f) {
 				Destroy (gameObject);
 			}
