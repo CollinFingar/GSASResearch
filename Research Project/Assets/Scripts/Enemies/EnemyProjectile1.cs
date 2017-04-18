@@ -10,7 +10,7 @@ public class EnemyProjectile1 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		randomRotation = new Vector3 (Random.Range (10, 20f), Random.Range (10, 20f), Random.Range (10, 20f));
-		target = GameObject.Find ("Player").transform.position;
+		target = GameObject.Find ("Player").transform.GetChild(0).GetChild(1).position;
 	}
 	
 	// Update is called once per frame

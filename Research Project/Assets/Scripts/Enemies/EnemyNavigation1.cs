@@ -33,7 +33,8 @@ public class EnemyNavigation1 : EnemyBasic {
 	void Start () {
 		checkRef = FindObjectOfType<CheckpointManager> ();
 		meshAgent = GetComponent<NavMeshAgent> ();
-		player = GameObject.Find ("Player");
+		player = GameObject.Find ("Player").transform.GetChild(0).GetChild(1).gameObject;
+		print (player.name);
 		meshAgent.SetDestination (player.transform.position);
 		stateTime = Random.Range (2, 4);
 		comfortDistance = Random.Range (5, 10);
