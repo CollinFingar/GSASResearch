@@ -37,12 +37,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000001, guid: 92996d2bef4f56745999ef0d3f178d61,
+  m_LightingDataAsset: {fileID: 112000001, guid: 96ff1a25f6a7fac42bf0a530d0c571d6,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -11135,11 +11135,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114856175090249398, guid: e62ed0be5432339418241d0280c615e2,
-        type: 2}
-      propertyPath: enemyCount.Array.size
-      value: 17
-      objectReference: {fileID: 0}
     - target: {fileID: 4639844690046516, guid: e62ed0be5432339418241d0280c615e2, type: 2}
       propertyPath: m_LocalPosition.x
       value: -26
@@ -11172,26 +11167,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114185036148381314, guid: e62ed0be5432339418241d0280c615e2,
-        type: 2}
-      propertyPath: ps
-      value: 
-      objectReference: {fileID: 1143161508191306, guid: 3493fb8879092c144836d30687ee03ce,
-        type: 2}
-    - target: {fileID: 114198542789658774, guid: e62ed0be5432339418241d0280c615e2,
-        type: 2}
-      propertyPath: ps
-      value: 
-      objectReference: {fileID: 1143161508191306, guid: 3493fb8879092c144836d30687ee03ce,
-        type: 2}
     - target: {fileID: 114541400561078776, guid: e62ed0be5432339418241d0280c615e2,
         type: 2}
       propertyPath: edgeDetectMaterial
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639844690046516, guid: e62ed0be5432339418241d0280c615e2, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e62ed0be5432339418241d0280c615e2, type: 2}

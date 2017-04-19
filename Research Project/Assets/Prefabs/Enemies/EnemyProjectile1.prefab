@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 54330077648788280}
   m_Layer: 0
   m_Name: EnemyProjectile1
-  m_TagString: Player Shot
+  m_TagString: Enemy Shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1970986611037050}
   m_LocalRotation: {x: -0.0000010325977, y: 0.7071068, z: 0.7071068, w: 0.0000010325977}
-  m_LocalPosition: {x: 9.679957, y: 1.73, z: 12.913694}
+  m_LocalPosition: {x: -9.649198, y: 2.182, z: -2.887}
   m_LocalScale: {x: 0.25000024, y: 0.25000048, z: 0.25000048}
   m_Children:
   - {fileID: 4389170543068960}
@@ -170,7 +170,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
+  m_Convex: 1
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: fa7daa6f80c912d4bbaa1723e6d2a094, type: 3}
