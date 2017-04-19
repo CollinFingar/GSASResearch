@@ -2609,7 +2609,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1976825070285180}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -26, y: 0, z: -3.5}
+  m_LocalPosition: {x: -9, y: 0, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4969241794252094}
@@ -6502,6 +6502,10 @@ MonoBehaviour:
   totalPossibleHealth: 5
   damageFader: {fileID: 212024712642108812}
   whiteFader: {fileID: 212699095987213500}
+  lastTimeHit: 0
+  lastTimeHealed: 0
+  healDelayAfterHit: 5
+  healDelayAfterHeal: 0.5
 --- !u!114 &114395193294967742
 MonoBehaviour:
   m_ObjectHideFlags: 1

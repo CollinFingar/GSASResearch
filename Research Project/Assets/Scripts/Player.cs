@@ -24,6 +24,12 @@ public class Player : MonoBehaviour {
 	private float timeToStartFading = 0f;
 	private float fadeAlpha = 0f;
 
+	public float lastTimeHit = 0f;
+	public float lastTimeHealed = 0f;
+	public float healDelayAfterHit = 5f;
+	public float healDelayAfterHeal = .5f;
+	private bool healing = false;
+
 	// Use this for initialization
 	void Start () {
 		health = totalPossibleHealth;
@@ -39,12 +45,29 @@ public class Player : MonoBehaviour {
 			}
 			if (fadingToWhite) {
 				if (fadeAlpha >= 1) {
-					SceneManager.LoadScene (SceneManager.GetActiveScene().name);
+					SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 				} else {
 					fadeAlpha += 1 * Time.deltaTime;
 					whiteFader.color = new Color (whiteFaderColor.r, whiteFaderColor.g, whiteFaderColor.b, fadeAlpha);
 				}
 			}
+		} else if (health < totalPossibleHealth && Time.time >= lastTimeHit + healDelayAfterHit) {
+			if (healing && Time.time >= lastTimeHealed + healDelayAfterHeal) {
+				if (health >= totalPossibleHealth) {
+					healing = false;
+					health = totalPossibleHealth;
+				} else {
+					health += 1;
+					desiredAlpha = (1f - (health / (totalPossibleHealth * 1.0f)))*.5f;
+					lastTimeHealed = Time.time;
+				}
+			} else if(!healing){
+				healing = true;
+				health += 1;
+				lastTimeHealed = Time.time;
+				desiredAlpha = (1f - (health / (totalPossibleHealth * 1.0f)))*.5f;
+			}
+			damageFader.color = new Color (damageFaderColor.r, damageFaderColor.g, damageFaderColor.b, desiredAlpha);
 		}
 	}
 
@@ -52,8 +75,10 @@ public class Player : MonoBehaviour {
 		if (other.gameObject.tag == "Enemy Shot") {
 			health -= 1;
 			Destroy (other.gameObject);
+			healing = false;
 			if (health > 0) {
 				desiredAlpha = (1f - (health / (totalPossibleHealth * 1.0f)))*.5f;
+				lastTimeHit = Time.time;
 			} else {
 				desiredAlpha = 1;
 				dead = true;
