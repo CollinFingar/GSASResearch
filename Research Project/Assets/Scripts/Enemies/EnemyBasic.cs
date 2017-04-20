@@ -21,7 +21,7 @@ public class EnemyBasic : MonoBehaviour {
 		ShotScript ss = other.gameObject.GetComponent<ShotScript> ();
 		if (ss != null) {
 			Destroy (other.gameObject);
-			if (weakness != null && weakness != ss.type) {
+			if (weakness != "" && weakness != ss.type) {
 				health -= ss.damage / 2;
 			} else if (weakness == ss.type) {
 				health -= ss.damage * 2;

@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 95715163046716524}
   - component: {fileID: 54811221422326390}
   - component: {fileID: 65173498387238562}
-  - component: {fileID: 114242867191097754}
+  - component: {fileID: 114934624421108976}
   - component: {fileID: 195944218751353908}
   m_Layer: 0
   m_Name: Enemy4
@@ -157,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417080596914444}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.47, y: 2.209, z: -7.25}
+  m_LocalPosition: {x: -20.47, y: 2.209, z: -3.25}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4224055018809702}
@@ -284,7 +284,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114242867191097754
+--- !u!114 &114934624421108976
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -292,10 +292,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1417080596914444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3d04fa0aa0eba54e93f88fa06b292eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 72e0675a648b9e3488c9576844808428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  weakness: 
   deathPart: {fileID: 1009894283878232, guid: 70c04554329d6554785159f7f2049968, type: 2}
   meshAgent: {fileID: 0}
   player: {fileID: 0}
@@ -304,7 +305,7 @@ MonoBehaviour:
   - {fileID: 23871913655094936}
   modelRef: {fileID: 1123635330697762}
   stateTime: 3
-  projectile: {fileID: 1970986611037050, guid: e6629c036b4821f46903ecdff45b3099, type: 2}
+  projectile: {fileID: 0}
   attackCooldown: 4
   attackCDMod: 1
   attackOffset: {fileID: 0}
