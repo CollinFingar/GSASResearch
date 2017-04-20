@@ -163,8 +163,8 @@ public class GunController : MonoBehaviour {
 					currentLeftGun.SetActive (false);
 				} else {
 					//GET RID OF CURRENT PICKED UP GUN
-					currentLeftGun = presetLeftGun;
 					currentLeftGun.SetActive (false);
+					currentLeftGun = presetLeftGun;
 				}
 				leftHandObject.SetActive (true);
 				leftHandObject.GetComponent<Hand> ().resetDigitColor ();

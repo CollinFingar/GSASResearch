@@ -19,6 +19,8 @@ public class GrenadeLauncher : GunScript {
 	private AudioSource AS;
 	public GameObject ps;
 
+	public AudioClip vibrateClip;
+
 	// Use this for initialization
 	void Start () {
 		AS = GetComponent<AudioSource> ();
@@ -31,11 +33,6 @@ public class GrenadeLauncher : GunScript {
 			AutoShoot ();
 		}
 		if (Time.time > timeTillNextShot - frequency*.5f) {
-			if (rightHand) {
-				OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.RTouch);
-			} else {
-				OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.LTouch);
-			}
 		}
 	}
 
@@ -53,9 +50,11 @@ public class GrenadeLauncher : GunScript {
 		newShot.GetComponent<Grenade> ().velocity = forwardDirection;
 
 		if (rightHand) {
-			OVRInput.SetControllerVibration (1f, 1f, OVRInput.Controller.RTouch);
+			OVRHapticsClip clip = new OVRHapticsClip (vibrateClip, 1);
+			OVRHaptics.RightChannel.Preempt(clip);
 		} else {
-			OVRInput.SetControllerVibration (1f, 1f, OVRInput.Controller.LTouch);
+			OVRHapticsClip clip = new OVRHapticsClip (vibrateClip, 1);
+			OVRHaptics.LeftChannel.Preempt(clip);
 		}
 		AS.Play ();
 		Vector3 pTransform = transform.position + transform.forward * .3f;

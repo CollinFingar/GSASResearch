@@ -18,6 +18,8 @@ public class OpenBlaster : GunScript {
 	private AudioSource AS;
 	public GameObject ps;
 
+	public AudioClip vibrateClip;
+
 	// Use this for initialization
 	void Start () {
 		AS = GetComponent<AudioSource> ();
@@ -29,11 +31,6 @@ public class OpenBlaster : GunScript {
 		if (shooting) {
 			AutoShoot ();
 		} else if (Time.time > timeTillNextShot + frequency/2 &&!shooting) {
-			if (rightHand) {
-				OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.RTouch);
-			} else {
-				OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.LTouch);
-			}
 			ps.SetActive (false);
 		}
 	}
@@ -51,9 +48,11 @@ public class OpenBlaster : GunScript {
 		newShot.GetComponent<BlasterShot> ().velocity = transform.up * -15;
 
 		if (rightHand) {
-			OVRInput.SetControllerVibration (1f, 1f, OVRInput.Controller.RTouch);
+			OVRHapticsClip clip = new OVRHapticsClip (vibrateClip, 1);
+			OVRHaptics.RightChannel.Preempt(clip);
 		} else {
-			OVRInput.SetControllerVibration (1f, 1f, OVRInput.Controller.LTouch);
+			OVRHapticsClip clip = new OVRHapticsClip (vibrateClip, 1);
+			OVRHaptics.LeftChannel.Preempt(clip);
 		}
 		AS.Play ();
 		ps.SetActive (true);

@@ -22,6 +22,8 @@ public class Prong : GunScript {
 	public GameObject ps1;
 	public GameObject ps2;
 
+	public AudioClip vibrateClip;
+
 	// Use this for initialization
 	void Start () {
 		AS = GetComponent<AudioSource> ();
@@ -33,11 +35,6 @@ public class Prong : GunScript {
 		if (shooting) {
 			AutoShoot ();
 		} else if (Time.time > timeTillNextShot + frequency && !shooting) {
-			if (rightHand) {
-				OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.RTouch);
-			} else {
-				OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.LTouch);
-			}
 			ps1.SetActive (false);
 			ps2.SetActive (false);
 		}
@@ -59,9 +56,11 @@ public class Prong : GunScript {
 		newShotR.GetComponent<ProngShot> ().velocity = transform.right * 15;
 
 		if (rightHand) {
-			OVRInput.SetControllerVibration (.5f, .5f, OVRInput.Controller.RTouch);
+			OVRHapticsClip clip = new OVRHapticsClip (vibrateClip, 1);
+			OVRHaptics.RightChannel.Preempt(clip);
 		} else {
-			OVRInput.SetControllerVibration (.5f, .5f, OVRInput.Controller.LTouch);
+			OVRHapticsClip clip = new OVRHapticsClip (vibrateClip, 1);
+			OVRHaptics.LeftChannel.Preempt(clip);
 		}
 		AS.Play ();
 		ps1.SetActive (true);

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VR;
@@ -19,6 +20,8 @@ public class Shotgun : GunScript {
 	private AudioSource AS;
 	public GameObject ps;
 
+	public AudioClip vibrateClip;
+
 	// Use this for initialization
 	void Start () {
 		AS = GetComponent<AudioSource> ();
@@ -31,11 +34,6 @@ public class Shotgun : GunScript {
 			AutoShoot ();
 		}
 		if (Time.time > timeTillNextShot - frequency*.5f) {
-			if (rightHand) {
-				OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.RTouch);
-			} else {
-				OVRInput.SetControllerVibration(0f,0f,OVRInput.Controller.LTouch);
-			}
 		}
 	}
 
@@ -52,16 +50,18 @@ public class Shotgun : GunScript {
 		for (int i = 0; i < 8; i++) {
 			GameObject newShot = (GameObject)Instantiate (shot, barrelLocation.transform.position, Quaternion.identity);
 			Vector3 forwardDirection = transform.forward * 15;
-			Vector3 upDirection = transform.up * Random.Range(-3f, 3f);
-			Vector3 rightDirection = transform.right * Random.Range(-3f, 3f);
+			Vector3 upDirection = transform.up * Random.Range(-2f, 2f);
+			Vector3 rightDirection = transform.right * Random.Range(-2f, 2f);
 
 			newShot.GetComponent<ShotgunShot> ().velocity = forwardDirection + upDirection + rightDirection;
 		}
 
 		if (rightHand) {
-			OVRInput.SetControllerVibration (1f, 1f, OVRInput.Controller.RTouch);
+			OVRHapticsClip clip = new OVRHapticsClip (vibrateClip, 1);
+			OVRHaptics.RightChannel.Preempt(clip);
 		} else {
-			OVRInput.SetControllerVibration (1f, 1f, OVRInput.Controller.LTouch);
+			OVRHapticsClip clip = new OVRHapticsClip (vibrateClip, 1);
+			OVRHaptics.LeftChannel.Preempt(clip);
 		}
 		AS.Play ();
 		Vector3 pTransform = transform.position + transform.forward * .3f;
