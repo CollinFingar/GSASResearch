@@ -9,8 +9,7 @@ public class EndBeam : MonoBehaviour {
 
 	public Material crystalGood;
 
-	public GameObject crystalTop;
-	public GameObject crystalBottom;
+	public GameObject crystal;
 
 	public SpriteRenderer baseGlow;
 
@@ -49,8 +48,7 @@ public class EndBeam : MonoBehaviour {
 			touched = true;
 			badSystem.Stop ();
 			goodSystem.gameObject.SetActive (true);
-			crystalTop.GetComponent<Renderer> ().material = crystalGood;
-			crystalBottom.GetComponent<Renderer> ().material = crystalGood;
+			crystal.GetComponent<Renderer> ().material = crystalGood;
 			baseGlow.color = Color.white;
 			endTime = Time.time + delayTime;
 		}

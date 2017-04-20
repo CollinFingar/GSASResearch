@@ -6765,13 +6765,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squeezingTrigger: 0
-  rightHand: 0
+  rightHand: 1
   shot: {fileID: 1445366558341102, guid: f6950a1f418c3664782a2683c9eea4e4, type: 2}
   velocity: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
   frequency: 8
   barrelLocation: {fileID: 1674883874065486}
   ps: {fileID: 0}
+  vibrateClip: {fileID: 8300000, guid: c4e0e8718f3fc034cbb3ee0e59745aec, type: 3}
 --- !u!114 &114053869053840876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6791,6 +6792,7 @@ MonoBehaviour:
   frequency: 2
   barrelLocation: {fileID: 1285433959390140}
   ps: {fileID: 1552711565150422}
+  vibrateClip: {fileID: 8300000, guid: c4e0e8718f3fc034cbb3ee0e59745aec, type: 3}
 --- !u!114 &114073720651430570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6847,6 +6849,7 @@ MonoBehaviour:
   frequency: 2
   barrelLocation: {fileID: 0}
   ps: {fileID: 0}
+  vibrateClip: {fileID: 0}
 --- !u!114 &114185036148381314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6866,6 +6869,7 @@ MonoBehaviour:
   frequency: 1
   barrelLocation: {fileID: 1065227290633404}
   ps: {fileID: 1143161508191306, guid: 3493fb8879092c144836d30687ee03ce, type: 2}
+  vibrateClip: {fileID: 8300000, guid: c4e0e8718f3fc034cbb3ee0e59745aec, type: 3}
 --- !u!114 &114198542789658774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6885,6 +6889,7 @@ MonoBehaviour:
   frequency: 1
   barrelLocation: {fileID: 1687420537434636}
   ps: {fileID: 1143161508191306, guid: 3493fb8879092c144836d30687ee03ce, type: 2}
+  vibrateClip: {fileID: 8300000, guid: c4e0e8718f3fc034cbb3ee0e59745aec, type: 3}
 --- !u!114 &114261858142874560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6897,13 +6902,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squeezingTrigger: 0
-  rightHand: 0
+  rightHand: 1
   shot: {fileID: 1310463869946076, guid: 3224078936506134090d584eace428fd, type: 2}
   velocity: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
   frequency: 2
   barrelLocation: {fileID: 1444040387444686}
   ps: {fileID: 1403201006466930}
+  vibrateClip: {fileID: 8300000, guid: c4e0e8718f3fc034cbb3ee0e59745aec, type: 3}
 --- !u!114 &114295133907651032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6955,6 +6961,7 @@ MonoBehaviour:
   frequency: 8
   barrelLocation: {fileID: 1482071705708704}
   ps: {fileID: 0}
+  vibrateClip: {fileID: 8300000, guid: c4e0e8718f3fc034cbb3ee0e59745aec, type: 3}
 --- !u!114 &114467881159276958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6990,6 +6997,7 @@ MonoBehaviour:
   rightBarrelLocation: {fileID: 1345628261898160}
   ps1: {fileID: 1070987323254372}
   ps2: {fileID: 1363435323699788}
+  vibrateClip: {fileID: 8300000, guid: bd39e1a8acb20b94091badcd7526f14c, type: 3}
 --- !u!114 &114509221314565676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7185,6 +7193,7 @@ MonoBehaviour:
   frequency: 2
   barrelLocation: {fileID: 0}
   ps: {fileID: 0}
+  vibrateClip: {fileID: 0}
 --- !u!114 &114705790162261240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7219,6 +7228,7 @@ MonoBehaviour:
   rightBarrelLocation: {fileID: 1541974548199608}
   ps1: {fileID: 1682613709965502}
   ps2: {fileID: 1933164032509628}
+  vibrateClip: {fileID: 8300000, guid: bd39e1a8acb20b94091badcd7526f14c, type: 3}
 --- !u!114 &114856175090249398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7391,10 +7401,10 @@ LineRenderer:
     colorGradient:
       key0:
         serializedVersion: 2
-        rgba: 2533294268
+        rgba: 2533359615
       key1:
         serializedVersion: 2
-        rgba: 2533294268
+        rgba: 2533359615
       key2:
         serializedVersion: 2
         rgba: 0
