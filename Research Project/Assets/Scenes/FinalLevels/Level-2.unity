@@ -11172,6 +11172,11 @@ Prefab:
       propertyPath: edgeDetectMaterial
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 136194785025402412, guid: e62ed0be5432339418241d0280c615e2,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e62ed0be5432339418241d0280c615e2, type: 2}
   m_IsPrefabParent: 0
