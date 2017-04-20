@@ -6,7 +6,7 @@ public class GunSpawner : MonoBehaviour {
 
 	public int gunValue = 1;
 	//1 = openBlaster
-	//2 = ???
+	//2 = grenadeLauncher
 	//3 = ???
 
 	public bool depleted = false;

@@ -25,11 +25,13 @@ public class GunController : MonoBehaviour {
 	public GameObject rightShotgun;
 	public GameObject rightOpenBlaster;
 	public GameObject rightPlaceholder;
+	public GameObject rightLauncher;
 	public GameObject leftHandObject;
 	public GameObject leftProngGun;
 	public GameObject leftShotgun;
 	public GameObject leftOpenBlaster;
 	public GameObject leftPlaceholder;
+	public GameObject leftLauncher;
 
 	public bool grippingRightGun = false;
 	public bool grippingLeftGun = false;
@@ -49,7 +51,7 @@ public class GunController : MonoBehaviour {
 	private int rightPickupValue = 1;
 	private int leftPickupValue = 1;
 	//1 = Open Blaster
-	//2 = ???
+	//2 = Grenade Launcher
 	//3 = ???
 
 	// Use this for initialization
@@ -220,7 +222,7 @@ public class GunController : MonoBehaviour {
 			if (rightPickupValue == 1) {
 				currentRightGun = rightOpenBlaster;
 			} else if (rightPickupValue == 2) {
-				currentRightGun = rightOpenBlaster;
+				currentRightGun = rightLauncher;
 			} else if (rightPickupValue == 3) {
 				currentRightGun = rightOpenBlaster;
 			}
@@ -229,7 +231,7 @@ public class GunController : MonoBehaviour {
 			if (leftPickupValue == 1) {
 				currentLeftGun = leftOpenBlaster;
 			} else if (leftPickupValue == 2) {
-				currentLeftGun = leftOpenBlaster;
+				currentLeftGun = leftLauncher;
 			} else if (leftPickupValue == 3) {
 				currentLeftGun = leftOpenBlaster;
 			}
