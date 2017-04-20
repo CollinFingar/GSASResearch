@@ -2190,7 +2190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1810463441573574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.175}
+  m_LocalPosition: {x: 0, y: 0, z: 0.101}
   m_LocalScale: {x: 50, y: 50, z: 1}
   m_Children: []
   m_Father: {fileID: 4361781068834734}
@@ -2997,7 +2997,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1700679497190678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000000014901161, y: 0, z: 0.17800047}
+  m_LocalPosition: {x: -0.000000014901161, y: 0, z: 0.105}
   m_LocalScale: {x: 50.00005, y: 50, z: 1.0000005}
   m_Children: []
   m_Father: {fileID: 4361781068834734}
@@ -6811,7 +6811,7 @@ MonoBehaviour:
   UI: {fileID: 114533208791912462}
   leftTouchController: {fileID: 1431500650453224}
   rightTouchController: {fileID: 1450140488720624}
-  teleportRayLength: 15
+  teleportRayLength: 25
   centerEye: {fileID: 1883071189974080}
 --- !u!114 &114913464357952320
 MonoBehaviour:
@@ -7008,7 +7008,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.25
+  m_Radius: 0.15
   m_Height: 1.2
   m_Direction: 1
   m_Center: {x: 0, y: -0.3, z: 0}
