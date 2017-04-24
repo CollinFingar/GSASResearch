@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1039543255863406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.5, y: 1.83, z: 13.31}
+  m_LocalPosition: {x: -24.40569, y: 2.15, z: -5.173012}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4955095212324470}
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   weakness: 
+  spawnPart: {fileID: 1793088727891026, guid: 68b01f9387b12ed4d86def8804e128eb, type: 2}
   deathPart: {fileID: 1009894283878232, guid: 70c04554329d6554785159f7f2049968, type: 2}
   meshAgent: {fileID: 0}
   player: {fileID: 0}
