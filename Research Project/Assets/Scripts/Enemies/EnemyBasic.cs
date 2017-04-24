@@ -6,10 +6,18 @@ public class EnemyBasic : MonoBehaviour {
 
 	public float health = 5f;
 	public string weakness;
+	public GameObject spawnPart; //particle system that spawns can spawn with this object (not manditory)
 
 	// Use this for initialization
-	void Start () {
-		
+
+	//AS A NOTE: IF ANY ENEMY SCRIPT USES AWAKE, THIS MAY NOT WORK
+	void Awake () {
+		//create spawn particle if set
+		if (spawnPart != null) {
+			GameObject mySParticle = (GameObject)Instantiate (spawnPart, transform);
+			mySParticle.transform.localPosition = Vector3.zero;
+			Destroy (mySParticle, 2.0f); //destroy the spawn particle system in 2 seconds
+		}
 	}
 	
 	// Update is called once per frame

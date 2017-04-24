@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyWaveLR : EnemyBasic {
+public class EnemyNavigationWave : EnemyBasic {
 	CheckpointManager checkRef;
 	public GameObject deathPart;
 	public NavMeshAgent meshAgent;
@@ -14,35 +14,32 @@ public class EnemyWaveLR : EnemyBasic {
 	float floatTime = 1; //time to float up or down
 	public GameObject modelRef; //reference to the child of this gameobject which holds are "frames" of the enemy 
 
-	//AI Specific Variables (Moving Back and Forth)
-	public float stateTime;
-	public float currentState;
-	public Vector3 movementDir; //direction this enemy is moving in (reverses when stateTime expires)
-	public float movespeed;
+	public List<Transform> pathToFollow;
+	int pathPoint = 0; //current point on the path this enemy is on
+	public float distanceThreshold; //distance before point switches
 
 	// Use this for initialization
 	void Start () {
 		checkRef = FindObjectOfType<CheckpointManager> ();
 		meshAgent = GetComponent<NavMeshAgent> ();
 		player = GameObject.Find ("Player").transform.GetChild(0).GetChild(1).gameObject;
-		meshAgent.SetDestination (player.transform.position);
-		currentState = stateTime;
+		meshAgent.SetDestination (pathToFollow[pathPoint].position);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		transform.LookAt (player.transform.position);
-		transform.rotation = Quaternion.Euler(-90, transform.rotation.eulerAngles.y + 90, transform.rotation.eulerAngles.z); //remove x component of rotation
+		transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0); //remove x component of rotation
 		//Time for Moving Back and Forth
-		if (currentState <= 0) {
-			currentState = stateTime;
-			movementDir *= -1; //reverse movement direction
-		} else {
-			currentState -= Time.deltaTime;
-			transform.position += movementDir * Time.deltaTime;
-			transform.position += -transform.right * movespeed * Time.deltaTime;
+		if (Vector3.Distance (transform.position, pathToFollow [pathPoint].position) <= distanceThreshold) {
+			pathPoint++;
 		}
 
+		if (pathPoint >= pathToFollow.Count) {
+			meshAgent.SetDestination (player.transform.position);
+		} else {
+			meshAgent.SetDestination (pathToFollow [pathPoint].position);
+		}
 
 		//Floating Up and Down
 		floatTime -= Time.deltaTime;
