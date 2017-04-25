@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour {
 
@@ -30,6 +31,10 @@ public class MainMenuHandler : MonoBehaviour {
 	public Text startText;
 	public Text otherText;
 
+	private float alpha = 0f;
+	public SpriteRenderer fader;
+	private bool fading = false;
+
 	// Use this for initialization
 	void Start () {
 		if (usingRight) {
@@ -49,6 +54,14 @@ public class MainMenuHandler : MonoBehaviour {
 			HandleButtons (aButtonPressed, xButtonPressed);
 		}
 		UpdateRaycast ();
+		if (fading) {
+			if (alpha >= 1f) {
+				SceneManager.LoadScene (1);
+			} else {
+				alpha += Time.deltaTime;
+				fader.color = new Color (1f, 1f, 1f, alpha);
+			}
+		}
 	}
 
 	void UpdateRaycast(){
@@ -102,6 +115,11 @@ public class MainMenuHandler : MonoBehaviour {
 			leftHand.SetActive (true);
 		} else if (usingRight && aPressed) {
 			//HANDLE BUTTON PRESS
+			if(currentlyHittingButton){
+				if (currentButton == startButton) {
+					StartLoad ();
+				}
+			}
 		}
 		if (!usingRight && aPressed) {
 			usingRight = true;
@@ -109,6 +127,15 @@ public class MainMenuHandler : MonoBehaviour {
 			leftHand.SetActive (false);
 		} else if (!usingRight && xPressed) {
 			//HANDLE BUTTON PRESS
+			if(currentlyHittingButton){
+				if (currentButton == startButton) {
+					StartLoad ();
+				}
+			}
 		}
+	}
+
+	void StartLoad(){
+		fading = true;
 	}
 }
