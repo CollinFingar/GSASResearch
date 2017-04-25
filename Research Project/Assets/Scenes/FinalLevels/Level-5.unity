@@ -949,7 +949,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 79a949fe4b53e2647ba2a4f705120d4f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 79a949fe4b53e2647ba2a4f705120d4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -8910,9 +8910,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 1976825070285180, guid: e62ed0be5432339418241d0280c615e2, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 114541400561078776, guid: e62ed0be5432339418241d0280c615e2,
+        type: 2}
+      propertyPath: edgeDetectMaterial
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e62ed0be5432339418241d0280c615e2, type: 2}
