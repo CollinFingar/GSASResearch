@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndBeam : MonoBehaviour {
 
@@ -21,6 +22,8 @@ public class EndBeam : MonoBehaviour {
 
 	private SpriteRenderer playerFader;
 
+	public int nextLevelIndex = 0;
+
 
 	// Use this for initialization
 	void Start () {
@@ -34,8 +37,8 @@ public class EndBeam : MonoBehaviour {
 			StartEnd ();
 		}
 		if (touched && Time.time > endTime) {
-			if (alpha >= 1f) {
-				//END LEVEL
+			if (alpha >= 2f) {
+				SceneManager.LoadScene (nextLevelIndex);
 			} else {
 				alpha += 1 * Time.deltaTime;
 				playerFader.color = new Color(1f,1f,1f,alpha);
