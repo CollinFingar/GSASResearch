@@ -30,15 +30,14 @@ public class EnemyNavigationWave : EnemyBasic {
 	void Update () {
 		transform.LookAt (player.transform.position);
 		transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0); //remove x component of rotation
-		//Time for Moving Back and Forth
-		if (Vector3.Distance (transform.position, pathToFollow [pathPoint].position) <= distanceThreshold) {
-			pathPoint++;
-		}
 
 		if (pathPoint >= pathToFollow.Count) {
 			meshAgent.SetDestination (player.transform.position);
 		} else {
 			meshAgent.SetDestination (pathToFollow [pathPoint].position);
+			if (Vector3.Distance (transform.position, pathToFollow [pathPoint].position) <= distanceThreshold) {
+				pathPoint++;
+			}
 		}
 
 		//Floating Up and Down
