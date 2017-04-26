@@ -31,7 +31,7 @@ public class OpenBlaster : GunScript {
 		if (shooting) {
 			AutoShoot ();
 		} else if (Time.time > timeTillNextShot + frequency/2 &&!shooting) {
-			ps.SetActive (false);
+			//ps.SetActive (false);
 		}
 	}
 
@@ -43,7 +43,7 @@ public class OpenBlaster : GunScript {
 	}
 
 	void FireShot(){
-		ps.SetActive (false);
+		//ps.SetActive (false);
 		GameObject newShot = (GameObject)Instantiate (shot, barrelLocation.transform.position, Quaternion.identity);
 		newShot.GetComponent<BlasterShot> ().velocity = transform.up * -15;
 
@@ -55,6 +55,8 @@ public class OpenBlaster : GunScript {
 			OVRHaptics.LeftChannel.Preempt(clip);
 		}
 		AS.Play ();
-		ps.SetActive (true);
+		Vector3 pTransform = barrelLocation.transform.position;
+		GameObject particle = (GameObject)Instantiate (ps, pTransform, this.transform.parent.transform.rotation);
+		Destroy (particle, 1.5f); //destroy particlesystem object after 2 seconds.
 	}
 }

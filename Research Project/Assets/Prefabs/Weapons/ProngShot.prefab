@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968088801c9df044287d692806c2a3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 0.5
   type: Purple
   velocity: {x: 0, y: 0, z: 0}
   prongParticle: {fileID: 1292652195836908, guid: 93a6079ad8788774bb055fc274af0960,
