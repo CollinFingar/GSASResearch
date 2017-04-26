@@ -28,6 +28,8 @@ public class EnemyNavigation1 : EnemyBasic {
 	public float attackCDMod; //modifier range for time between attacks (0 is constant time, goes positive and negative otherwise)
 	public GameObject attackOffset; //empty object that serves as an offset of projectile spawn location (set near mouth)
 
+	public AudioClip vibrateClip;
+
 
 	// Use this for initialization
 	void Start () {
@@ -104,6 +106,9 @@ public class EnemyNavigation1 : EnemyBasic {
 		checkRef.enemyCount [checkRef.currentCP]--;
 		GameObject particle = (GameObject)Instantiate (deathPart, new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z),Quaternion.identity);
 		Destroy (particle, 2.0f); //destroy particlesystem object after 2 seconds.
+		OVRHapticsClip clip = new OVRHapticsClip (vibrateClip, 1);
+		OVRHaptics.RightChannel.Preempt(clip);
+		OVRHaptics.LeftChannel.Preempt(clip);
 	}
 
 	void AttackStart() {

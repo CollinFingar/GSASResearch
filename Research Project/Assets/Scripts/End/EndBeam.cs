@@ -54,6 +54,7 @@ public class EndBeam : MonoBehaviour {
 			crystal.GetComponent<Renderer> ().material = crystalGood;
 			baseGlow.color = Color.white;
 			endTime = Time.time + delayTime;
+
 		}
 	}
 }

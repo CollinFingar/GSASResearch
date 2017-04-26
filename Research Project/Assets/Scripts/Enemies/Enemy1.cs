@@ -54,6 +54,7 @@ public class Enemy1 : EnemyBasic {
 		checkRef.enemyCount [checkRef.currentCP]--;
 		GameObject particle = (GameObject)Instantiate (deathPart, new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z),Quaternion.identity);
 		Destroy (particle, 2.0f); //destroy particlesystem object after 2 seconds.
+	
 	}
 		
 	void OnTriggerStay(Collider collision) {

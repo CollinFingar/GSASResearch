@@ -420,6 +420,7 @@ MonoBehaviour:
   crystal: {fileID: 0}
   baseGlow: {fileID: 212810983942273136}
   delayTime: 5
+  nextLevelIndex: 0
 --- !u!114 &114580450615539284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -445,6 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eb: {fileID: 114562938460382856}
+  vibrateClip: {fileID: 8300000, guid: bd39e1a8acb20b94091badcd7526f14c, type: 3}
 --- !u!136 &136143902437532694
 CapsuleCollider:
   m_ObjectHideFlags: 1

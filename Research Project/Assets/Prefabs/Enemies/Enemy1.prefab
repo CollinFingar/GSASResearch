@@ -571,8 +571,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   weakness: 
-  deathPart: {fileID: 1009894283878232, guid: 70c04554329d6554785159f7f2049968, type: 2}
   spawnPart: {fileID: 1793088727891026, guid: 736e73a4e40b7d042aa8ddb22a133d30, type: 2}
+  deathPart: {fileID: 1009894283878232, guid: 70c04554329d6554785159f7f2049968, type: 2}
   meshAgent: {fileID: 0}
   player: {fileID: 0}
   myFrames:
@@ -584,6 +584,7 @@ MonoBehaviour:
   attackCooldown: 4
   attackCDMod: 1
   attackOffset: {fileID: 1875698329767942}
+  vibrateClip: {fileID: 8300000, guid: 1819d1468db48f644b52b83019e4e6e5, type: 3}
 --- !u!114 &114542253790071940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -597,8 +598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   weakness: 
-  deathPart: {fileID: 1009894283878232, guid: 70c04554329d6554785159f7f2049968, type: 2}
   spawnPart: {fileID: 1793088727891026, guid: 736e73a4e40b7d042aa8ddb22a133d30, type: 2}
+  deathPart: {fileID: 1009894283878232, guid: 70c04554329d6554785159f7f2049968, type: 2}
   meshAgent: {fileID: 0}
   player: {fileID: 0}
   myFrames:
@@ -610,6 +611,7 @@ MonoBehaviour:
   attackCooldown: 4
   attackCDMod: 1
   attackOffset: {fileID: 1238662216789718}
+  vibrateClip: {fileID: 0}
 --- !u!195 &195684661540708290
 NavMeshAgent:
   m_ObjectHideFlags: 1
