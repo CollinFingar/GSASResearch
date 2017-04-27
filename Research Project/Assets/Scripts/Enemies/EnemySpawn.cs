@@ -25,11 +25,11 @@ public class EnemySpawn : MonoBehaviour {
 		if (spawning && spawnTimer < spawnDelay) {
 			spawnTimer += Time.deltaTime;
 		} else if (spawnTimer > spawnDelay){
+			GameObject spawn = (GameObject)Instantiate (enemyPrefab, this.transform.position,this.transform.rotation);
 			Destroy (this.gameObject);
 		}
 	}
 
 	void OnDestroy() {
-		GameObject spawn = (GameObject)Instantiate (enemyPrefab, this.transform.position,this.transform.rotation);
 	}
 }
