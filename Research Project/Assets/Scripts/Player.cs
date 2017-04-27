@@ -77,9 +77,22 @@ public class Player : MonoBehaviour {
 			Destroy (other.gameObject);
 			healing = false;
 			if (health > 0) {
-				desiredAlpha = (1f - (health / (totalPossibleHealth * 1.0f)))*.5f;
+				desiredAlpha = (1f - (health / (totalPossibleHealth * 1.0f))) * .5f;
 				lastTimeHit = Time.time;
-			} else {
+			} else if(!dead){
+				desiredAlpha = 1;
+				dead = true;
+				timeToStartFading = Time.time + 2f;
+			}
+			damageFader.color = new Color (damageFaderColor.r, damageFaderColor.g, damageFaderColor.b, desiredAlpha);
+		} else if (other.gameObject.tag == "Enemy") {
+			health -= 2;
+			Destroy (other.gameObject);
+			healing = false;
+			if (health > 0) {
+				desiredAlpha = (1f - (health / (totalPossibleHealth * 1.0f))) * .5f;
+				lastTimeHit = Time.time;
+			} else if(!dead){
 				desiredAlpha = 1;
 				dead = true;
 				timeToStartFading = Time.time + 2f;
