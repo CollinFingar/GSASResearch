@@ -10,14 +10,16 @@ public class EnemyProjectile1 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		randomRotation = new Vector3 (Random.Range (10, 20f), Random.Range (10, 20f), Random.Range (10, 20f));
-		target = GameObject.Find ("Player").transform.GetChild(0).GetChild(1).position;
+		target = GameObject.Find ("Player").transform.GetChild (0).GetChild (1).position - this.transform.position;
+		float maxComp = Mathf.Max (Mathf.Abs(target.x), Mathf.Abs(target.y), Mathf.Abs(target.z));
+		target = new Vector3 (target.x / maxComp, target.y / maxComp, target.z / maxComp);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//Randomly rotate and move towards the player's location when this spawned
 		transform.Rotate (randomRotation * Time.deltaTime);
-		transform.position = Vector3.MoveTowards (this.transform.position, target, speed * Time.deltaTime);
+		transform.position += target* Time.deltaTime;
 	}
 	void OnDestroy() {
 		GameObject particle = (GameObject)Instantiate (explosionParticle, new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z),Quaternion.identity);
