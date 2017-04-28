@@ -11,9 +11,15 @@ public class AudioHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		DontDestroyOnLoad (this.gameObject);
-		AS = GetComponent<AudioSource> ();
-		LoadMenuMusic ();
+		AudioHandler[] ahs = FindObjectsOfType<AudioHandler> ();
+		if (ahs.Length == 1) {
+			DontDestroyOnLoad (this.gameObject);
+			AS = GetComponent<AudioSource> ();
+			LoadMenuMusic ();
+		} else {
+			Destroy (gameObject);
+		}
+
 	}
 	
 	// Update is called once per frame

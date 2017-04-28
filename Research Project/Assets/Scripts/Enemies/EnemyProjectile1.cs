@@ -19,7 +19,7 @@ public class EnemyProjectile1 : MonoBehaviour {
 	void Update () {
 		//Randomly rotate and move towards the player's location when this spawned
 		transform.Rotate (randomRotation * Time.deltaTime);
-		transform.position += target* Time.deltaTime;
+		transform.position += target* Time.deltaTime*speed;
 	}
 	void OnDestroy() {
 		GameObject particle = (GameObject)Instantiate (explosionParticle, new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z),Quaternion.identity);

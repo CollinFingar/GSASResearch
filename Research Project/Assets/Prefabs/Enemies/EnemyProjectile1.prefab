@@ -319,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionParticle: {fileID: 1292652195836908, guid: 7ac179d680380c74797609d43cd9b926,
     type: 2}
-  speed: 3
+  speed: 2.5
 --- !u!114 &114135780329390536
 MonoBehaviour:
   m_ObjectHideFlags: 1
