@@ -30,8 +30,11 @@ public class Player : MonoBehaviour {
 	public float healDelayAfterHeal = .5f;
 	private bool healing = false;
 
+	public AudioSource AS;
+
 	// Use this for initialization
 	void Start () {
+		AS.enabled = false;
 		health = totalPossibleHealth;
 		damageFaderColor = damageFader.color;
 		whiteFaderColor = whiteFader.color;
@@ -83,6 +86,7 @@ public class Player : MonoBehaviour {
 			} else if(!dead){
 				desiredAlpha = 1;
 				dead = true;
+				PlayDeathNoise ();
 				timeToStartFading = Time.time + 2f;
 			}
 			damageFader.color = new Color (damageFaderColor.r, damageFaderColor.g, damageFaderColor.b, desiredAlpha);
@@ -96,6 +100,7 @@ public class Player : MonoBehaviour {
 			} else if(!dead){
 				desiredAlpha = 1;
 				dead = true;
+				PlayDeathNoise ();
 				timeToStartFading = Time.time + 2f;
 			}
 			damageFader.color = new Color (damageFaderColor.r, damageFaderColor.g, damageFaderColor.b, desiredAlpha);
@@ -133,5 +138,10 @@ public class Player : MonoBehaviour {
 			}
 
 		}
+	}
+
+	void PlayDeathNoise(){
+		AS.enabled = true;
+		AS.Play ();
 	}
 }
