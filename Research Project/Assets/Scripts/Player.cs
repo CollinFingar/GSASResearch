@@ -69,6 +69,7 @@ public class Player : MonoBehaviour {
 			}
 			damageFader.color = new Color (damageFaderColor.r, damageFaderColor.g, damageFaderColor.b, desiredAlpha);
 		}
+		SenseMusic ();
 	}
 
 	void OnTriggerEnter(Collider other){
@@ -98,6 +99,39 @@ public class Player : MonoBehaviour {
 				timeToStartFading = Time.time + 2f;
 			}
 			damageFader.color = new Color (damageFaderColor.r, damageFaderColor.g, damageFaderColor.b, desiredAlpha);
+		}
+	}
+
+	void SenseMusic(){
+		AudioHandler handler = null;
+		int audioNum = 1;
+		if (Input.GetKeyDown (KeyCode.Alpha0)) {
+			SceneManager.LoadScene (0);
+			audioNum = 0;
+			handler = FindObjectOfType<AudioHandler> ();
+		} else if(Input.GetKeyDown (KeyCode.Alpha1)) {
+			SceneManager.LoadScene (1);
+			handler = FindObjectOfType<AudioHandler> ();
+		}  else if(Input.GetKeyDown (KeyCode.Alpha2)) {
+			SceneManager.LoadScene (2);
+			handler = FindObjectOfType<AudioHandler> ();
+		}  else if(Input.GetKeyDown (KeyCode.Alpha3)) {
+			SceneManager.LoadScene (3);
+			handler = FindObjectOfType<AudioHandler> ();
+		}  else if(Input.GetKeyDown (KeyCode.Alpha4)) {
+			SceneManager.LoadScene (4);
+			handler = FindObjectOfType<AudioHandler> ();
+		}  else if(Input.GetKeyDown (KeyCode.Alpha5)) {
+			SceneManager.LoadScene (5);
+			handler = FindObjectOfType<AudioHandler> ();
+		}
+		if (handler != null) {
+			if (audioNum == 1) {
+				handler.LoadMissionMusic ();
+			} else {
+				handler.LoadMenuMusic ();
+			}
+
 		}
 	}
 }

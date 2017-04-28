@@ -56,12 +56,14 @@ public class MainMenuHandler : MonoBehaviour {
 		UpdateRaycast ();
 		if (fading) {
 			if (alpha >= 1f) {
+				FindObjectOfType<AudioHandler> ().LoadMissionMusic ();
 				SceneManager.LoadScene (1);
 			} else {
 				alpha += Time.deltaTime;
 				fader.color = new Color (1f, 1f, 1f, alpha);
 			}
 		}
+		SenseMusic ();
 	}
 
 	void UpdateRaycast(){
@@ -138,4 +140,37 @@ public class MainMenuHandler : MonoBehaviour {
 	void StartLoad(){
 		fading = true;
 	}
+	void SenseMusic(){
+		AudioHandler handler = null;
+		int audioNum = 1;
+		if (Input.GetKeyDown (KeyCode.Alpha0)) {
+			SceneManager.LoadScene (0);
+			audioNum = 0;
+			handler = FindObjectOfType<AudioHandler> ();
+		} else if(Input.GetKeyDown (KeyCode.Alpha1)) {
+			SceneManager.LoadScene (1);
+			handler = FindObjectOfType<AudioHandler> ();
+		}  else if(Input.GetKeyDown (KeyCode.Alpha2)) {
+			SceneManager.LoadScene (2);
+			handler = FindObjectOfType<AudioHandler> ();
+		}  else if(Input.GetKeyDown (KeyCode.Alpha3)) {
+			SceneManager.LoadScene (3);
+			handler = FindObjectOfType<AudioHandler> ();
+		}  else if(Input.GetKeyDown (KeyCode.Alpha4)) {
+			SceneManager.LoadScene (4);
+			handler = FindObjectOfType<AudioHandler> ();
+		}  else if(Input.GetKeyDown (KeyCode.Alpha5)) {
+			SceneManager.LoadScene (5);
+			handler = FindObjectOfType<AudioHandler> ();
+		}
+		if (handler != null) {
+			if (audioNum == 1) {
+				handler.LoadMissionMusic ();
+			} else {
+				handler.LoadMenuMusic ();
+			}
+
+		}
+	}
+
 }

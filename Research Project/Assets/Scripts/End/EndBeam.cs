@@ -38,12 +38,19 @@ public class EndBeam : MonoBehaviour {
 		}
 		if (touched && Time.time > endTime) {
 			if (alpha >= 2f) {
+				if (nextLevelIndex == 0) {
+					AudioHandler handler = FindObjectOfType<AudioHandler> ();
+					if (handler != null) {
+						FindObjectOfType<AudioHandler> ().LoadMenuMusic ();
+					}
+				}
 				SceneManager.LoadScene (nextLevelIndex);
 			} else {
 				alpha += 1 * Time.deltaTime;
 				playerFader.color = new Color(1f,1f,1f,alpha);
 			}
 		}
+
 	}
 
 	public void StartEnd(){
