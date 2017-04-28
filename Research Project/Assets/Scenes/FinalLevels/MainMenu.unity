@@ -17400,8 +17400,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AS: {fileID: 0}
-  MenuMusic: {fileID: 8300000, guid: a03364368a46ef34db0504bccdcdf1c0, type: 3}
-  MissionMusic: {fileID: 8300000, guid: 5c472600ab88e744f92f12348647a14f, type: 3}
+  MenuMusic: {fileID: 8300000, guid: 19160d0736abc1448825d0331ead7258, type: 3}
+  MissionMusic: {fileID: 8300000, guid: 488bf201cf84f834d90bea8b001d3181, type: 3}
 --- !u!1 &1923334527
 GameObject:
   m_ObjectHideFlags: 0
