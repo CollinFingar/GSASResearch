@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114223729238446966}
   - component: {fileID: 195012500949580206}
   m_Layer: 0
-  m_Name: Enemy1-Yellow
+  m_Name: Enemy1-Orange
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1712771381693728}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -25.47, y: 2.209, z: -9.25}
+  m_LocalPosition: {x: -3.232479, y: 7.313141, z: -13.699632}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4903859712514418}
@@ -177,7 +177,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: de9969a30de7e0e40bf0d039b4bcfbad, type: 2}
+  - {fileID: 2100000, guid: 8df037c11eaff3949aaeec98f9d5ce6f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -208,7 +208,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: de9969a30de7e0e40bf0d039b4bcfbad, type: 2}
+  - {fileID: 2100000, guid: 48b74889e62bb804ebe645871e56509e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  weakness: Yellow
+  weakness: Orange
   spawnPart: {fileID: 0}
   deathPart: {fileID: 1009894283878232, guid: 70c04554329d6554785159f7f2049968, type: 2}
   meshAgent: {fileID: 0}

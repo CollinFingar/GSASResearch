@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1458431345041262}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.47, y: 2.209, z: -9.25}
+  m_LocalPosition: {x: -5.3434167, y: 2.2337933, z: -10.7305355}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4163784626049054}
@@ -295,7 +295,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d04fa0aa0eba54e93f88fa06b292eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 8
+  weakness: 
+  spawnPart: {fileID: 0}
   deathPart: {fileID: 1009894283878232, guid: 70c04554329d6554785159f7f2049968, type: 2}
   meshAgent: {fileID: 0}
   player: {fileID: 0}
@@ -308,6 +310,7 @@ MonoBehaviour:
   attackCooldown: 4
   attackCDMod: 1
   attackOffset: {fileID: 1796696651034478}
+  vibrateClip: {fileID: 0}
 --- !u!195 &195319053273925544
 NavMeshAgent:
   m_ObjectHideFlags: 1

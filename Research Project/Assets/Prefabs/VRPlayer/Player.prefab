@@ -2718,8 +2718,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1976825070285180}
-  m_LocalRotation: {x: -0, y: 0.0000014603138, z: -0, w: 1}
-  m_LocalPosition: {x: -26, y: 0, z: -14.5}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -26, y: 0, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4969241794252094}
@@ -6848,7 +6848,7 @@ MonoBehaviour:
   shot: {fileID: 1445366558341102, guid: f6950a1f418c3664782a2683c9eea4e4, type: 2}
   velocity: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
-  frequency: 8
+  frequency: 4
   barrelLocation: {fileID: 1674883874065486}
   ps: {fileID: 0}
   vibrateClip: {fileID: 8300000, guid: c4e0e8718f3fc034cbb3ee0e59745aec, type: 3}
@@ -7038,7 +7038,7 @@ MonoBehaviour:
   shot: {fileID: 1445366558341102, guid: f6950a1f418c3664782a2683c9eea4e4, type: 2}
   velocity: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
-  frequency: 8
+  frequency: 4
   barrelLocation: {fileID: 1482071705708704}
   ps: {fileID: 0}
   vibrateClip: {fileID: 8300000, guid: c4e0e8718f3fc034cbb3ee0e59745aec, type: 3}
